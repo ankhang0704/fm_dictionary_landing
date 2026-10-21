@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://fm-dictionary.dev";
   const routes = ["", "/features", "/about", "/faq", "/contact", "/privacy", "/terms"];
