@@ -23,7 +23,7 @@ Repository landing page độc lập của **FM Dictionary** đã được khở
 
 - **TypeScript Type Checker:** `npx tsc --noEmit` -> **0 errors**.
 - **Production Build:** `npm run build` -> **12/12 static routes prerendered thành công 100%**.
-- **Git Repository:** Nhánh `master`, commit `9e2447c` (`feat(landing): initialize standalone Next.js Framer dark futuristic landing repository`).
+- **Git Repository:** Nhánh `main`, remote `origin` (`https://github.com/ankhang0704/fm_dictionary_landing.git`), đã đồng bộ thành công.
 
 ---
 
@@ -45,12 +45,7 @@ Repository landing page độc lập của **FM Dictionary** đã được khở
 
 ## 4. Next Session Action Items
 
-- [ ] Tạo repository mới trên GitHub (ví dụ: `fm_dictionary_landing` hoặc dùng subdomain riêng).
-- [ ] Chạy lệnh liên kết remote và đẩy code lên:
-  ```bash
-  git remote add origin https://github.com/ankhang0704/fm_dictionary_landing.git
-  git branch -M main
-  git push -u origin main
-  ```
-- [ ] Kết nối dự án lên Vercel để nhận hosting miễn phí tốc độ cao với chứng chỉ SSL tự động.
+- [x] Tạo repository mới trên GitHub: `https://github.com/ankhang0704/fm_dictionary_landing.git`
+- [x] Đã liên kết remote `origin` và đẩy code lên nhánh `main`.
+- [ ] Kết nối dự án lên Vercel để nhận hosting tốc độ cao với chứng chỉ SSL tự động (hoặc Cloudflare Pages).
 - [ ] Gắn link trang web landing page vào file `README.md` của kho ứng dụng `fm_dictionary_app`.
