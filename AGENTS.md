@@ -12,7 +12,7 @@ Welcome AI Agent! This repository hosts the official standalone landing page web
   * `security.md`: Web security standards, sanitized input handling, and secure metadata headers.
   * `DESIGN.md`: Primary design constitution (Framer Dark Futuristic Architecture).
 * **📂 Skills (`.agents/skills/`)**:
-  * `taste`: Aesthetic enforcer for Framer dark canvas, negative tracking typography, spotlight gradients, and visual restraint.
+  * `taste-skill`: Official tasteskill v2 anti-slop frontend skill (Leonxlnx/taste-skill) with curated directions, library datasets, real-browser inspector, and screenshot evaluation loop.
   * `handoff`: Session handover generator tracking milestones and verification logs.
   * `threejs-optimiser`: Best practices for 60fps WebGL/Three.js rendering, canvas lifecycle, and low-power fallbacks.
   * `seo-audit`: OpenGraph, meta tags, sitemap, and Lighthouse performance checks.
