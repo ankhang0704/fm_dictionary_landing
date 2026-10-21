@@ -14,17 +14,13 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
-  Layers,
-  ChevronRight,
-  Cpu,
-  BarChart3,
   Quote,
 } from "lucide-react";
+import { SpotlightCard } from "@/components/SpotlightCard";
 
 export default function FeaturesPage() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
 
   const featureGroups = [
     {
@@ -75,7 +71,7 @@ export default function FeaturesPage() {
         "Achieve 85% higher retention for complex operational jargon; eliminate cram-and-forget fatigue before IFMA / FMP / LEED certification exams."
       ),
       icon: Brain,
-      accent: "#a855f7",
+      accent: "#0099ff",
       quote: {
         text: t(
           "\"Thuật toán SRS nhắc nhở ôn lại đúng lúc từ vựng sắp rơi rụng. Tôi đã ghi nhớ trọn bộ 400 thuật ngữ HVAC chỉ trong 3 tuần ôn tập.\"",
@@ -131,7 +127,7 @@ export default function FeaturesPage() {
         "Present Engineering Pitches Confidently with Zero Pronunciation Anxiety"
       ),
       summary: t(
-        "Bạn được lắng nghe phát âm phòng thu chuẩn kép Anh - Anh và Anh - Mỹ của các từ viết tắt cực khó như ASHRAE, AHU, FCU, Psychrometric, đi kèm hướng dẫn vị trí nhấn âm.",
+        "Bạn được lắng nghe phát âm phòng thu chuẩn kép Anh - Anh và Anh - Mỹ của các từ viết tắt như ASHRAE, AHU, FCU, Psychrometric, đi kèm hướng dẫn vị trí nhấn âm.",
         "Listen to dual studio-grade UK and US pronunciations for tricky engineering acronyms and polysyllabic terms (ASHRAE, AHU, Psychrometric, Cavitation) with phoneme-level guidance."
       ),
       outcome: t(
@@ -149,7 +145,7 @@ export default function FeaturesPage() {
         role: t("Tư vấn Năng lượng & Công trình xanh LEED AP", "Energy & Green Building Consultant - LEED AP"),
       },
       capabilities: [
-        t("Âm thanh phòng thu chuẩn cao, hoạt động mượt mà cả khi offline", "High-fidelity studio audio samples, functioning seamlessly offline"),
+        t("Âm thanh phòng thu chuẩn cao, hoạt động mượt mà cả khi offline", "High-fidelity studio audio samples, functioning offline without network dependency"),
         t("So sánh phiên âm kép UK / US với bảng ký hiệu ngữ âm quốc tế IPA", "Dual UK / US phonetic comparison with standard IPA symbols"),
         t("Tách âm từng âm tiết và hướng dẫn trọng âm chính/phụ rõ ràng", "Syllable breakdown with primary and secondary stress markers"),
       ],
@@ -179,7 +175,7 @@ export default function FeaturesPage() {
         </p>
 
         {/* Tab Pills */}
-        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-surface-1 border border-hairline rounded-2xl max-w-2xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-surface-1 rounded-2xl max-w-2xl mx-auto">
           {featureGroups.map((group, index) => {
             const Icon = group.icon;
             const isActive = activeTab === index;
@@ -187,9 +183,9 @@ export default function FeaturesPage() {
               <button
                 key={group.id}
                 onClick={() => setActiveTab(index)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-ink text-black shadow-lg"
+                    ? "bg-ink text-black"
                     : "text-ink-muted hover:text-ink hover:bg-surface-2"
                 }`}
               >
@@ -208,20 +204,14 @@ export default function FeaturesPage() {
           const Icon = group.icon;
 
           return (
-            <div
+            <SpotlightCard
               key={group.id}
-              className="bg-surface-1 border border-hairline rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden transition-all animate-fadeIn"
+              className="bg-surface-1 rounded-3xl p-8 md:p-12 relative overflow-hidden"
             >
-              {/* Ambient Glow */}
-              <div
-                className="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-[120px] opacity-20 pointer-events-none"
-                style={{ backgroundColor: group.accent }}
-              />
-
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 {/* Left Column: Context & Outcome Framing */}
                 <div className="lg:col-span-7">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-hairline bg-canvas text-xs font-mono uppercase tracking-wider text-ink-muted mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-2 text-xs font-medium text-ink-muted mb-4">
                     <Icon className="w-3.5 h-3.5" style={{ color: group.accent }} />
                     <span>{group.jobTitle}</span>
                   </div>
@@ -241,7 +231,7 @@ export default function FeaturesPage() {
                       style={{ color: group.accent }}
                     />
                     <div>
-                      <div className="text-xs uppercase font-mono tracking-wider text-ink-muted mb-1">
+                      <div className="text-xs font-medium text-ink-muted mb-1">
                         {t("Kết quả thực tế mang lại", "Measurable Operational Outcome")}
                       </div>
                       <div className="text-sm text-ink font-medium leading-relaxed">
@@ -265,33 +255,34 @@ export default function FeaturesPage() {
 
                   {/* Inline CTA */}
                   <div className="flex flex-wrap items-center gap-4">
-                    <Link
-                      href="https://github.com/ankhang0704/fm_dictionary_app"
+                    <a
+                      href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
                       target="_blank"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-sm hover:opacity-90 transition-opacity"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
                     >
-                      <span>{t("Trải nghiệm trên GitHub", "Explore Source on GitHub")}</span>
+                      <span>{t("Tải trên Apple App Store", "Get on Apple App Store")}</span>
                       <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </a>
                     <span className="text-xs text-ink-muted">
-                      {t("Mã nguồn mở • 100% Offline • Miễn phí", "Open Source • 100% Offline • Free")}
+                      {t("Dự án cộng đồng • 100% Offline • Miễn phí", "Community Project • 100% Offline • Free")}
                     </span>
                   </div>
                 </div>
 
                 {/* Right Column: Visual Interactive Mockup Card */}
-                <div className="lg:col-span-5">
+                <div className="lg:col-span-5" data-ui="feature-mockup">
                   {group.previewType === "card" && (
-                    <div className="bg-canvas border border-hairline rounded-2xl p-6 shadow-xl relative">
-                      <div className="flex items-center justify-between mb-4 pb-3 border-b border-hairline">
-                        <span className="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 font-mono text-xs font-semibold">
+                    <div className="bg-canvas rounded-2xl p-6 relative">
+                      <div className="flex items-center justify-between mb-4 pb-3">
+                        <span className="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-semibold">
                           HVAC & CHILLER
                         </span>
-                        <span className="text-xs text-ink-muted font-mono">ID: FM-0418</span>
+                        <span className="text-xs text-ink-muted">ID: FM-0418</span>
                       </div>
 
                       <div className="text-2xl font-bold text-ink mb-1">Variable Air Volume</div>
-                      <div className="text-xs text-ink-muted font-mono mb-4">
+                      <div className="text-xs text-ink-muted mb-4">
                         /ˈveə.ri.ə.bəl eər ˈvɒl.juːm/ • VAV Box
                       </div>
 
@@ -303,15 +294,15 @@ export default function FeaturesPage() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="p-2.5 bg-surface-1 border border-hairline rounded-lg">
-                          <div className="text-ink-muted font-mono text-[10px] uppercase">UK Audio</div>
+                        <div className="p-2.5 bg-surface-2 rounded-lg">
+                          <div className="text-ink-muted text-[10px]">UK Audio</div>
                           <div className="text-ink font-semibold flex items-center gap-1.5 mt-0.5">
                             <Volume2 className="w-3.5 h-3.5 text-accent-blue" />
                             <span>/ˈvɛə.ri.ə.bᵊl/</span>
                           </div>
                         </div>
-                        <div className="p-2.5 bg-surface-1 border border-hairline rounded-lg">
-                          <div className="text-ink-muted font-mono text-[10px] uppercase">US Audio</div>
+                        <div className="p-2.5 bg-surface-2 rounded-lg">
+                          <div className="text-ink-muted text-[10px]">US Audio</div>
                           <div className="text-ink font-semibold flex items-center gap-1.5 mt-0.5">
                             <Volume2 className="w-3.5 h-3.5 text-accent-blue" />
                             <span>/ˈver.i.ə.bəl/</span>
@@ -319,7 +310,7 @@ export default function FeaturesPage() {
                         </div>
                       </div>
 
-                      <div className="mt-4 pt-3 border-t border-hairline flex items-center justify-between text-[11px] text-ink-muted">
+                      <div className="mt-4 pt-3 flex items-center justify-between text-[11px] text-ink-muted">
                         <span>ASHRAE 90.1 Standard</span>
                         <span className="text-emerald-400 flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" /> Offline Ready
@@ -329,18 +320,18 @@ export default function FeaturesPage() {
                   )}
 
                   {group.previewType === "srs" && (
-                    <div className="bg-canvas border border-hairline rounded-2xl p-6 shadow-xl relative">
+                    <div className="bg-canvas rounded-2xl p-6 relative">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-mono text-purple-400 uppercase tracking-wider">
+                        <span className="text-xs text-accent-blue">
                           Memory Interval • Step 3/5
                         </span>
-                        <span className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 text-xs font-mono">
+                        <span className="px-2 py-0.5 rounded bg-accent-blue/10 text-accent-blue text-xs">
                           92% Retention
                         </span>
                       </div>
 
-                      <div className="p-5 rounded-xl bg-surface-1 border border-hairline text-center mb-5">
-                        <div className="text-xs uppercase text-ink-muted font-mono mb-1">
+                      <div className="p-5 rounded-xl bg-surface-1 text-center mb-5">
+                        <div className="text-xs text-ink-muted mb-1">
                           {t("Thuật ngữ mục tiêu", "Target Flashcard")}
                         </div>
                         <div className="text-2xl font-bold text-ink mb-2">Psychrometric Chart</div>
@@ -352,23 +343,23 @@ export default function FeaturesPage() {
                         </div>
                       </div>
 
-                      <div className="text-xs font-mono text-ink-muted mb-2 text-center">
+                      <div className="text-xs text-ink-muted mb-2 text-center">
                         {t("Chọn mức độ phản hồi của bạn:", "Select Recall Grade:")}
                       </div>
                       <div className="grid grid-cols-4 gap-1.5">
-                        <div className="py-2 text-center rounded bg-surface-1 border border-hairline text-[11px] text-rose-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-rose-400 font-semibold">
                           {t("Quên", "Again")}
                           <div className="text-[9px] text-ink-muted font-normal">1 min</div>
                         </div>
-                        <div className="py-2 text-center rounded bg-surface-1 border border-hairline text-[11px] text-amber-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-amber-400 font-semibold">
                           {t("Khó", "Hard")}
                           <div className="text-[9px] text-ink-muted font-normal">1 day</div>
                         </div>
-                        <div className="py-2 text-center rounded bg-surface-1 border border-hairline text-[11px] text-blue-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-blue-400 font-semibold">
                           {t("Tốt", "Good")}
                           <div className="text-[9px] text-ink-muted font-normal">3 days</div>
                         </div>
-                        <div className="py-2 text-center rounded bg-surface-1 border border-hairline text-[11px] text-emerald-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-emerald-400 font-semibold">
                           {t("Dễ", "Easy")}
                           <div className="text-[9px] text-ink-muted font-normal">7 days</div>
                         </div>
@@ -377,8 +368,8 @@ export default function FeaturesPage() {
                   )}
 
                   {group.previewType === "quiz" && (
-                    <div className="bg-canvas border border-hairline rounded-2xl p-6 shadow-xl relative">
-                      <div className="flex items-center justify-between mb-4 text-xs font-mono text-emerald-400">
+                    <div className="bg-canvas rounded-2xl p-6 relative">
+                      <div className="flex items-center justify-between mb-4 text-xs text-emerald-400">
                         <span>OPERATIONAL SCENARIO</span>
                         <span>0:14 / 0:30s</span>
                       </div>
@@ -391,32 +382,35 @@ export default function FeaturesPage() {
                       </p>
 
                       <div className="space-y-2 mb-4">
-                        <div className="p-3 rounded-lg bg-surface-1 border border-hairline text-xs text-ink-muted flex items-center justify-between">
+                        <div className="p-3 rounded-lg bg-surface-2 text-xs text-ink-muted flex items-center justify-between">
                           <span>A. Thermal Stratification</span>
                         </div>
-                        <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 font-semibold flex items-center justify-between">
+                        <div className="p-3 rounded-lg bg-emerald-500/10 text-xs text-emerald-300 font-semibold flex items-center justify-between">
                           <span>B. Pump Cavitation (Hiện tượng xâm thực)</span>
                           <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                         </div>
-                        <div className="p-3 rounded-lg bg-surface-1 border border-hairline text-xs text-ink-muted flex items-center justify-between">
+                        <div className="p-3 rounded-lg bg-surface-2 text-xs text-ink-muted flex items-center justify-between">
                           <span>C. Water Hammer Effect</span>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-lg bg-surface-1 border border-hairline text-[11px] text-ink-muted">
-                        💡 <strong>{t("Giải thích:", "Root Cause:")}</strong> {t("Cavitation xảy ra khi áp suất tĩnh của chất lỏng tụt xuống dưới áp suất bốc hơi.", "Cavitation occurs when fluid static pressure drops below vapor pressure, generating damaging micro-jets.")}
+                      <div className="p-3 rounded-lg bg-surface-2 text-[11px] text-ink-muted flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-accent-blue shrink-0 mt-0.5" />
+                        <div>
+                          <strong>{t("Giải thích:", "Root Cause:")}</strong> {t("Cavitation xảy ra khi áp suất tĩnh của chất lỏng tụt xuống dưới áp suất bốc hơi.", "Cavitation occurs when fluid static pressure drops below vapor pressure, generating damaging micro-jets.")}
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {group.previewType === "audio" && (
-                    <div className="bg-canvas border border-hairline rounded-2xl p-6 shadow-xl relative">
+                    <div className="bg-canvas rounded-2xl p-6 relative">
                       <div className="text-center py-6">
-                        <div className="w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center justify-center mx-auto mb-4">
+                        <div className="w-16 h-16 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center mx-auto mb-4">
                           <Volume2 className="w-8 h-8" />
                         </div>
                         <div className="text-2xl font-bold text-ink mb-1">Psychrometrics</div>
-                        <div className="text-xs font-mono text-rose-400 mb-4">
+                        <div className="text-xs text-rose-400 mb-4">
                           /ˌsaɪ.krəˈmet.rɪks/
                         </div>
 
@@ -425,19 +419,19 @@ export default function FeaturesPage() {
                           {[40, 75, 95, 60, 30, 85, 100, 70, 45, 90, 60, 35].map((h, idx) => (
                             <span
                               key={idx}
-                              className="w-1 bg-rose-400/80 rounded-full transition-all"
+                              className="w-1 bg-rose-400/80 rounded-full"
                               style={{ height: `${h}%` }}
                             />
                           ))}
                         </div>
 
                         <div className="grid grid-cols-2 gap-3 text-left">
-                          <div className="p-3 rounded-xl bg-surface-1 border border-hairline">
-                            <span className="text-[10px] font-mono text-ink-muted uppercase">UK BBC Standard</span>
+                          <div className="p-3 rounded-xl bg-surface-2">
+                            <span className="text-[10px] text-ink-muted">UK BBC Standard</span>
                             <p className="text-xs text-ink font-semibold mt-1">/ˌsaɪ.krəˈmet.rɪks/</p>
                           </div>
-                          <div className="p-3 rounded-xl bg-surface-1 border border-hairline">
-                            <span className="text-[10px] font-mono text-ink-muted uppercase">US General Standard</span>
+                          <div className="p-3 rounded-xl bg-surface-2">
+                            <span className="text-[10px] text-ink-muted">US General Standard</span>
                             <p className="text-xs text-ink font-semibold mt-1">/ˌsaɪ.kroʊˈmet.rɪks/</p>
                           </div>
                         </div>
@@ -446,13 +440,13 @@ export default function FeaturesPage() {
                   )}
 
                   {/* Feature Quote Callout */}
-                  <div className="mt-4 p-4 rounded-2xl bg-canvas/60 border border-hairline">
+                  <div className="mt-4 p-4 rounded-2xl bg-surface-1">
                     <Quote className="w-4 h-4 text-ink-muted mb-2" />
                     <p className="text-xs text-ink-muted italic mb-3 leading-relaxed">
                       {group.quote.text}
                     </p>
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-surface-2 border border-hairline flex items-center justify-center text-[10px] font-bold text-ink">
+                      <div className="w-6 h-6 rounded-full bg-surface-2 flex items-center justify-center text-[10px] font-bold text-ink">
                         {group.quote.author.charAt(0)}
                       </div>
                       <div>
@@ -467,7 +461,7 @@ export default function FeaturesPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
           );
         })}
       </section>
@@ -521,16 +515,16 @@ export default function FeaturesPage() {
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <SpotlightCard
                 key={idx}
-                className="p-6 rounded-2xl bg-surface-1 border border-hairline hover:border-hairline-hover transition-all"
+                className="p-6 rounded-2xl bg-surface-1 hover:bg-surface-2 transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue mb-4">
+                <div className="w-10 h-10 rounded-xl bg-surface-2 flex items-center justify-center text-accent-blue mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-semibold text-ink mb-2">{item.title}</h3>
                 <p className="text-xs text-ink-muted leading-relaxed">{item.desc}</p>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
@@ -538,7 +532,7 @@ export default function FeaturesPage() {
 
       {/* Bottom Conversion CTA */}
       <section className="px-6 max-w-4xl mx-auto text-center">
-        <div className="bg-surface-1 border border-hairline rounded-3xl p-10 md:p-14 relative overflow-hidden">
+        <SpotlightCard className="bg-surface-1 rounded-3xl p-10 md:p-14 relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
               {t(
@@ -548,27 +542,36 @@ export default function FeaturesPage() {
             </h2>
             <p className="text-ink-muted text-sm md:text-base max-w-lg mx-auto mb-8">
               {t(
-                "Tải xuống ứng dụng miễn phí hoặc khám phá toàn bộ mã nguồn trên GitHub.",
-                "Download the free app or inspect the entire open-source codebase on GitHub."
+                "Tải xuống ứng dụng miễn phí 100% trên Apple App Store hoặc tải file cài đặt Android APK trực tiếp.",
+                "Download the 100% free app on Apple App Store or download the direct Android APK."
               )}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link
+              <a
+                href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
+              >
+                {t("Tải trên Apple App Store", "Get on Apple App Store")}
+              </a>
+              <a
                 href="https://github.com/ankhang0704/fm_dictionary_app/releases"
                 target="_blank"
-                className="px-8 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:opacity-90 transition-opacity"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-full bg-surface-2 text-ink font-semibold text-sm hover:bg-surface-1 transition-colors"
               >
-                {t("Tải bản phát hành mới nhất", "Download Latest Release")}
-              </Link>
+                {t("Tải Bản Android APK", "Get Android APK")}
+              </a>
               <Link
                 href="/about"
-                className="px-8 py-3.5 rounded-full border border-hairline bg-surface-2 text-ink font-semibold text-sm hover:bg-surface-3 transition-colors"
+                className="px-6 py-3.5 rounded-full bg-canvas text-ink-muted hover:text-ink font-medium text-sm transition-colors"
               >
-                {t("Tìm hiểu câu chuyện sáng lập", "Read the Origin Story")}
+                {t("Tìm hiểu về dự án", "Read About Project")}
               </Link>
             </div>
           </div>
-        </div>
+        </SpotlightCard>
       </section>
     </div>
   );

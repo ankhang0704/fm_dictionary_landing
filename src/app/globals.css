@@ -31,16 +31,55 @@ body {
   background: #404040;
 }
 
-/* Hairline glass surface */
-.glass-panel {
-  background: rgba(20, 20, 20, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Framer Dark surface panel */
+.surface-card {
+  background: #141414;
 }
 
-.text-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.65) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.surface-card-hover {
+  background: #141414;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
+
+.surface-card-hover:hover {
+  background: #1c1c1c;
+}
+
+/* Motion layer: subtle arrival animation */
+@keyframes enterUp {
+  0% {
+    opacity: 0.85;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enter {
+  animation: enterUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-enter-delay-1 {
+  animation: enterUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.animate-enter-delay-2 {
+  animation: enterUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.animate-enter-delay-3 {
+  animation: enterUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-enter,
+  .animate-enter-delay-1,
+  .animate-enter-delay-2,
+  .animate-enter-delay-3 {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+

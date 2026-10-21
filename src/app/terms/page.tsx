@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Scale, CheckCircle2, AlertTriangle, ShieldCheck, Mail, Clock, FileCheck } from "lucide-react";
 
@@ -20,32 +19,32 @@ export default function TermsPage() {
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-ink mb-4">
             {t("Điều khoản Sử dụng", "Terms of Service")}
           </h1>
-          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-ink-muted">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-ink-muted">
             <span className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5" />
               {t("Cập nhật lần cuối: 21 tháng 10, 2026", "Last updated: October 21, 2026")}
             </span>
             <span>•</span>
-            <span>{t("Giấy phép: MIT Open Source", "License: MIT Open Source")}</span>
+            <span>{t("Phi lợi nhuận • Miễn phí 100% cho cộng đồng", "Non-Profit • 100% Free Community Project")}</span>
           </div>
         </div>
 
         {/* Plain Language Summary */}
         <div className="p-6 md:p-8 rounded-3xl bg-surface-1 border border-hairline mb-12">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent-blue mb-2">
+          <div className="flex items-center gap-2 text-xs text-accent-blue mb-2 font-medium">
             <FileCheck className="w-4 h-4" />
             <span>{t("Tóm tắt Điều khoản ngắn gọn", "Key Highlights Summary")}</span>
           </div>
           <h2 className="text-lg font-semibold text-ink mb-3">
             {t(
-              "Ứng dụng phục vụ mục đích học thuật và tra cứu tham khảo kỹ thuật.",
-              "FM Dictionary is provided for academic study and engineering reference purposes."
+              "Ứng dụng phục vụ mục đích học tập và tra cứu tham khảo kỹ thuật phi lợi nhuận.",
+              "FM Dictionary is provided for educational study and engineering reference purposes."
             )}
           </h2>
           <p className="text-xs md:text-sm text-ink-muted leading-relaxed">
             {t(
               "FM Dictionary là công cụ hỗ trợ nâng cao trình độ tiếng Anh chuyên ngành. Mặc dù mọi thuật ngữ đều được đối chiếu kỹ lưỡng với ASHRAE, NFPA và ISO, bạn luôn phải tuân thủ bản vẽ thiết kế đã được phê duyệt và quy chuẩn an toàn lao động thực tế tại công trường toà nhà của mình.",
-              "FM Dictionary is designed to elevate technical fluency. While cross-referenced with standards like ASHRAE, NFPA, and ISO, site engineers must always adhere to approved shop drawings, local building codes, and safety protocols for physical operations."
+              "FM Dictionary is designed to build technical fluency. While cross-referenced with standards like ASHRAE, NFPA, and ISO, site engineers must always adhere to approved shop drawings, local building codes, and safety protocols for physical operations."
             )}
           </p>
         </div>
@@ -85,7 +84,7 @@ export default function TermsPage() {
             <div className="p-4 rounded-2xl bg-canvas border border-hairline text-xs md:text-sm space-y-2">
               <p>
                 {t(
-                  "ỨNG DỤNG ĐƯỢC CUNG CẤP DƯỚI DẠNG 'NGUYÊN BẢN' (AS IS). TÁC GIẢ KHÔNG CHỊU TRÁCH NHIỆM PHÁP LÝ CHO BẤT KỲ THIỆT HẠI TRỰC TIẾP HOẶC GIÁN TIẾP NÀO VỀ TRANG THIẾT BỊ, THẤT THOÁT NĂNG LƯỢNG HOẶC TAI NẠN LAO ĐỘNG PHÁT SINH TỪ VIỆC ÁP DỤNG SAI THUẬT NGỮ HOẶC QUY TRÌNH KỸ THUẬT NGOÀI CÔNG TRƯỜNG.",
+                  "ỨNG DỤNG ĐƯỢC CUNG CẤP DƯỚI DẠNG 'NGUYÊN BẢN' (AS IS). BAN DỰ ÁN KHÔNG CHỊU TRÁCH NHIỆM PHÁP LÝ CHO BẤT KỲ THIỆT HẠI TRỰC TIẾP HOẶC GIÁN TIẾP NÀO VỀ TRANG THIẾT BỊ, THẤT THOÁT NĂNG LƯỢNG HOẶC TAI NẠN LAO ĐỘNG PHÁT SINH TỪ VIỆC ÁP DỤNG SAI THUẬT NGỮ HOẶC QUY TRÌNH KỸ THUẬT NGOÀI CÔNG TRƯỜNG.",
                   "THE APPLICATION IS PROVIDED 'AS IS' WITHOUT WARRANTY OF ANY KIND. AUTHORS SHALL NOT BE HELD LIABLE FOR DIRECT OR INDIRECT EQUIPMENT DAMAGE, ENERGY INEFFICIENCIES, OR SITE INCIDENTS RESULTING FROM PHYSICAL IMPLEMENTATION OF TECHNICAL REFERENCES."
                 )}
               </p>
@@ -101,13 +100,13 @@ export default function TermsPage() {
           {/* Section 3 */}
           <section className="space-y-3">
             <h3 className="text-xl font-semibold text-ink flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              <span>3. {t("Bản quyền & Giấy phép Mã nguồn", "Intellectual Property & Licensing")}</span>
+              <ShieldCheck className="w-5 h-5 text-semantic-success" />
+              <span>3. {t("Bản quyền & Quyền sở hữu trí tuệ", "Intellectual Property & Licensing")}</span>
             </h3>
             <p>
               {t(
-                "Mã nguồn của dự án FM Dictionary được phân phối theo giấy phép mã nguồn mở MIT License. Bạn có quyền sao chép, chỉnh sửa, phân nhánh (fork) và đóng góp cho dự án phù hợp với quy định của giấy phép mã nguồn mở công khai trên GitHub.",
-                "FM Dictionary codebase is published under the permissive MIT Open Source License. You are free to inspect, fork, modify, and build upon the source code in alignment with the repository terms on GitHub."
+                "FM Dictionary là dự án cộng đồng phi lợi nhuận được sáng lập và sở hữu bởi chị Thúy Tạ (Project Owner) cùng kỹ sư phát triển phần mềm Nguyễn An Khang. Toàn bộ cơ sở dữ liệu thuật ngữ, hình ảnh minh họa, thiết kế và phần mềm thuộc quyền sở hữu của ban dự án. Ứng dụng được cung cấp miễn phí 100% cho cộng đồng kỹ sư học tập và làm việc, không phải là dự án mã nguồn mở, và nghiêm cấm hành vi sao chép nhằm mục đích thương mại hóa lại dưới mọi hình thức.",
+                "FM Dictionary is a 100% free non-profit community project founded and owned by Thuy Ta (Project Owner) with technical development by Nguyen An Khang. All terminology data, graphics, UI design, and software applications are proprietary to the project authors. The platform is provided free of charge for individual study and professional practice. It is not an open-source project, and commercial resale or unauthorized redistribution is strictly prohibited."
               )}
             </p>
           </section>
@@ -119,16 +118,16 @@ export default function TermsPage() {
                 {t("Cần trao đổi thêm về điều khoản?", "Questions regarding our terms?")}
               </div>
               <div className="text-xs text-ink-muted">
-                {t("Gửi thư trực tiếp tới hòm thư quản trị viên dự án.", "Reach out to the lead repository maintainer directly.")}
+                {t("Gửi thư trực tiếp tới hòm thư ban quản trị dự án.", "Reach out to the project team directly.")}
               </div>
             </div>
-            <Link
-              href="mailto:ankhang0704@gmail.com"
+            <a
+              href="mailto:ankhang.nguyen0704@gmail.com"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-1 border border-hairline text-ink font-semibold text-xs hover:bg-surface-2 transition-colors shrink-0"
             >
               <Mail className="w-3.5 h-3.5 text-accent-blue" />
-              <span>ankhang0704@gmail.com</span>
-            </Link>
+              <span>ankhang.nguyen0704@gmail.com</span>
+            </a>
           </section>
         </div>
       </div>

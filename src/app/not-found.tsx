@@ -10,9 +10,6 @@ import {
   Search,
   MessageSquare,
   BookOpen,
-  HelpCircle,
-  ArrowRight,
-  Sparkles,
 } from "lucide-react";
 
 export default function NotFound() {
@@ -31,10 +28,9 @@ export default function NotFound() {
     <div className="min-h-[80vh] flex items-center justify-center px-6 py-24 text-ink">
       <div className="max-w-xl w-full text-center">
         {/* Visual Symbol Beacon */}
-        <div className="relative w-28 h-28 mx-auto mb-8">
-          <div className="absolute inset-0 rounded-3xl bg-blue-500/20 blur-2xl animate-pulse" />
-          <div className="relative w-full h-full rounded-3xl bg-surface-1 border border-hairline flex items-center justify-center shadow-2xl">
-            <div className="w-14 h-14 rounded-2xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue font-mono font-bold text-xl">
+        <div className="relative w-24 h-24 mx-auto mb-8">
+          <div className="relative w-full h-full rounded-3xl bg-surface-1 border border-hairline flex items-center justify-center">
+            <div className="w-14 h-14 rounded-2xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue font-bold text-xl">
               404
             </div>
           </div>
@@ -68,7 +64,7 @@ export default function NotFound() {
               "Tìm kiếm chủ đề hoặc câu hỏi trong FAQ...",
               "Search knowledge base or topics..."
             )}
-            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-surface-1 border border-hairline text-ink text-xs placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors shadow-lg"
+            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-surface-1 border border-hairline text-ink text-xs placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
           />
         </form>
 
@@ -76,27 +72,27 @@ export default function NotFound() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
           <Link
             href="/"
-            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-hairline-hover transition-all flex flex-col items-center justify-center text-center group"
+            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
           >
-            <Home className="w-5 h-5 text-accent-blue mb-2 group-hover:scale-110 transition-transform" />
+            <Home className="w-5 h-5 text-accent-blue mb-2 group-hover:scale-105 transition-transform" />
             <span className="text-xs font-semibold text-ink">{t("Trang chủ", "Homepage")}</span>
             <span className="text-[10px] text-ink-muted mt-0.5">{t("Về tổng quan", "Return Home")}</span>
           </Link>
 
           <Link
             href="/features"
-            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-hairline-hover transition-all flex flex-col items-center justify-center text-center group"
+            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
           >
-            <BookOpen className="w-5 h-5 text-purple-400 mb-2 group-hover:scale-110 transition-transform" />
+            <BookOpen className="w-5 h-5 text-accent-blue mb-2 group-hover:scale-105 transition-transform" />
             <span className="text-xs font-semibold text-ink">{t("Tính năng", "Features")}</span>
             <span className="text-[10px] text-ink-muted mt-0.5">{t("Bộ công cụ FM", "Full Suite")}</span>
           </Link>
 
           <Link
             href="/contact"
-            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-hairline-hover transition-all flex flex-col items-center justify-center text-center group"
+            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
           >
-            <MessageSquare className="w-5 h-5 text-emerald-400 mb-2 group-hover:scale-110 transition-transform" />
+            <MessageSquare className="w-5 h-5 text-semantic-success mb-2 group-hover:scale-105 transition-transform" />
             <span className="text-xs font-semibold text-ink">{t("Liên hệ", "Contact Us")}</span>
             <span className="text-[10px] text-ink-muted mt-0.5">{t("Hỗ trợ kỹ thuật", "Get Support")}</span>
           </Link>
@@ -105,7 +101,7 @@ export default function NotFound() {
         {/* Primary Return Button */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:opacity-90 transition-opacity shadow-xl"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors active:scale-95"
         >
           <Home className="w-4 h-4" />
           <span>{t("Quay về Trang chủ", "Return to Homepage")}</span>

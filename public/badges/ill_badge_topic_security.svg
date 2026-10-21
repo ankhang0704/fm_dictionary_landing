@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY BESPOKE BADGE: ill_badge_topic_security -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="50%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F3FF"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF2F2"/>
+      <stop offset="100%" stop-color="#EF4444"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFEFF"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="slateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Shadow -->
+  <polygon points="62,18 98,34 98,86 62,106 26,86 26,34" fill="#E2E8F0"/>
+  <polygon points="60,16 96,32 96,84 60,104 24,84 24,32" fill="url(#slateGrad)" stroke="#0F172A" stroke-width="2.0"/>
+  <!-- CCTV Camera -->
+  <rect x="42" y="44" width="36" height="24" rx="6" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.0"/>
+  <circle cx="60" cy="56" r="7" fill="#0F172A"/>
+  <circle cx="60" cy="56" r="3" fill="#EF4444"/>
+  <rect x="36" y="52" width="6" height="8" rx="2" fill="#0F172A"/>
+  <line x1="60" y1="36" x2="60" y2="44" stroke="#0F172A" stroke-width="2.5"/>
+  <line x1="52" y1="36" x2="68" y2="36" stroke="#0F172A" stroke-width="2.5"/>
+  <text x="60" y="96" font-size="9" font-weight="900" fill="#FFFFFF" text-anchor="middle" font-family="sans-serif">AN NINH</text>
+</svg>

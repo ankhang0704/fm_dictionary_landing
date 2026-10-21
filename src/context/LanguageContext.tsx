@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useSyncExternalStore, useCallback } from "react";
 
 export type Language = "vi" | "en";
 
@@ -18,31 +18,57 @@ const LanguageContext = createContext<LanguageContextType>({
   t: (viText) => viText,
 });
 
+let isClientMounted = false;
+
+function subscribe(callback: () => void) {
+  isClientMounted = true;
+  window.addEventListener("storage", callback);
+  window.addEventListener("fm_lang_change", callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("fm_lang_change", callback);
+  };
+}
+
+function getSnapshot(): Language {
+  if (typeof window === "undefined" || !isClientMounted) return "vi";
+  try {
+    const saved = localStorage.getItem("fm_lang");
+    return saved === "en" ? "en" : "vi";
+  } catch {
+    return "vi";
+  }
+}
+
+function getServerSnapshot(): Language {
+  return "vi";
+}
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [lang, setLangState] = useState<Language>("vi");
+  const lang = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    const saved = localStorage.getItem("fm_lang") as Language;
-    if (saved === "vi" || saved === "en") {
-      setLangState(saved);
+  const setLang = useCallback((newLang: Language) => {
+    try {
+      localStorage.setItem("fm_lang", newLang);
+    } catch {
+      // LocalStorage access restricted in private mode
     }
+    window.dispatchEvent(new Event("fm_lang_change"));
   }, []);
 
-  const setLang = (newLang: Language) => {
-    setLangState(newLang);
-    localStorage.setItem("fm_lang", newLang);
-  };
-
-  const toggleLang = () => {
+  const toggleLang = useCallback(() => {
     const next = lang === "vi" ? "en" : "vi";
     setLang(next);
-  };
+  }, [lang, setLang]);
 
-  const t = (viText: string, enText: string) => {
-    return lang === "vi" ? viText : enText;
-  };
+  const t = useCallback(
+    (viText: string, enText: string) => {
+      return lang === "vi" ? viText : enText;
+    },
+    [lang]
+  );
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, toggleLang, t }}>

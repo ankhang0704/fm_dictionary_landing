@@ -4,19 +4,17 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import {
-  Sparkles,
   Heart,
   Terminal,
   ShieldCheck,
-  CheckCircle2,
-  Code2,
-  ExternalLink,
-  Github,
   Compass,
   ArrowRight,
-  Cpu,
-  Layers,
+  UserCheck,
+  Code2,
+  Mail,
+  Download,
 } from "lucide-react";
+import { SpotlightCard } from "@/components/SpotlightCard";
 
 export default function AboutPage() {
   const { t } = useLanguage();
@@ -26,8 +24,8 @@ export default function AboutPage() {
       year: "2024",
       title: t("Khởi nguồn từ thực địa", "Genesis on the Job Site"),
       desc: t(
-        "Nhận thấy các kỹ sư MEP trẻ thường gặp lúng túng khi dịch tài liệu O&M của Carrier, Daikin, Trane và chuẩn NFPA, dự án FM Dictionary được phôi thai như một cuốn sổ tay thuật ngữ nội bộ.",
-        "Observing junior MEP engineers stumbling over Carrier, Daikin, Trane O&M manuals and NFPA codes, FM Dictionary was born as an internal engineering cheat sheet."
+        "Nhận thấy các kỹ sư MEP trẻ thường gặp lúng túng khi dịch tài liệu O&M của Carrier, Daikin, Trane và chuẩn NFPA, dự án FM Dictionary được phôi thai như một cuốn sổ tay thuật ngữ nội bộ do chị Thúy Tạ định hướng.",
+        "Observing junior MEP engineers stumbling over Carrier, Daikin, Trane O&M manuals and NFPA codes, FM Dictionary was initiated by Thuy Ta as an internal engineering handbook."
       ),
     },
     {
@@ -40,10 +38,10 @@ export default function AboutPage() {
     },
     {
       year: "2026",
-      title: t("Cột mốc 38 màn hình & 1,800+ thuật ngữ", "38 Complete Screens & 1,800+ Terms Milestone"),
+      title: t("Phát hành chính thức vì cộng đồng", "Official Community Release"),
       desc: t(
-        "Hoàn thiện hệ sinh thái học tập toàn diện: Từ điển chuyên ngành, thuật toán lặp lại ngắt quãng SRS, bài kiểm tra tình huống thực tế và luyện phát âm AI với 296 bài test tự động đạt 100%.",
-        "Completed the full learning suite: Dictionary, Spaced Repetition (SRS), Scenario Quizzes, and Dual UK/US Audio, verified by 296 automated unit/widget tests passing at 100%."
+        "Chính thức có mặt trên Apple App Store và cung cấp bản APK Android miễn phí 100% phi lợi nhuận cho cộng đồng kỹ sư và chuyên viên vận hành tòa nhà trên khắp cả nước.",
+        "Officially launched on the Apple App Store and provided direct Android APK releases, 100% free of charge for the national facility management community."
       ),
     },
   ];
@@ -75,13 +73,40 @@ export default function AboutPage() {
     },
   ];
 
+  const team = [
+    {
+      initials: "TT",
+      name: "Thúy Tạ (Thuy Ta)",
+      role: t("Chủ Sở Hữu & Định Hướng Dự Án", "Project Owner & Lead Curator"),
+      bio: t(
+        "Người khởi xướng và sở hữu dự án FM Dictionary. Xuất phát từ tâm huyết nâng cao năng lực cho đội ngũ kỹ sư và kỹ thuật viên Quản lý Cơ sở Vật chất (Facility Management) tại Việt Nam, chị Thúy Tạ định hình nội dung và duy trì dự án hoạt động phi lợi nhuận, hoàn toàn miễn phí cho cộng đồng.",
+        "Founder and owner of FM Dictionary. Driven by a dedicated mission to support Vietnamese Facility Management engineers and technicians, Thuy Ta directs project strategy and curates content, ensuring the platform remains 100% free for the community."
+      ),
+      contactLink: null,
+      contactLabel: null,
+      badgeIcon: UserCheck,
+    },
+    {
+      initials: "AK",
+      name: "Nguyễn An Khang",
+      role: t("Kỹ Sư Phát Triển & Hỗ Trợ Kỹ Thuật", "Software Developer & Technical Support"),
+      bio: t(
+        "Kỹ sư phần mềm phụ trách kiến trúc Flutter Clean Architecture, cơ sở dữ liệu Hive DB ngoại tuyến và hệ thống landing page. Cam kết mã nguồn tối giản, không rác (Clean Code, Zero-Bloat) và trực tiếp tiếp nhận phản hồi, hỗ trợ kỹ thuật cho người dùng.",
+        "Software engineer leading the Flutter Clean Architecture mobile app, offline Hive DB, and web platform. Committed to clean code, local-first performance, and providing direct technical support to users."
+      ),
+      contactLink: "mailto:ankhang.nguyen0704@gmail.com",
+      contactLabel: "ankhang.nguyen0704@gmail.com",
+      badgeIcon: Code2,
+    },
+  ];
+
   return (
     <div className="pt-12 pb-24 text-ink">
       {/* Hero Origin Section */}
       <section className="px-6 max-w-4xl mx-auto mb-20 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-surface-1 text-xs text-ink-muted mb-6">
           <Heart className="w-3.5 h-3.5 text-rose-500" />
-          <span>{t("Câu chuyện sáng lập & Sứ mệnh", "Origin Story & Mission")}</span>
+          <span>{t("Câu chuyện sáng lập & Sứ mệnh cộng đồng", "Origin Story & Community Mission")}</span>
         </div>
 
         <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight mb-6">
@@ -93,8 +118,8 @@ export default function AboutPage() {
 
         <p className="text-lg md:text-xl text-ink-muted leading-relaxed">
           {t(
-            "FM Dictionary sinh ra từ nỗi niềm thực tế: làm sao để kỹ sư Việt Nam tự tin đọc hiểu bản vẽ, vận hành hệ thống toà nhà thông minh chuẩn quốc tế mà không bị cản trở bởi rào cản tiếng Anh chuyên ngành.",
-            "FM Dictionary was built out of a real-world conviction: ensuring property engineers and technicians can read complex engineering schematics and operate smart building assets without being held back by language barriers."
+            "FM Dictionary sinh ra từ nỗi niềm thực tế: làm sao để kỹ sư và kỹ thuật viên Việt Nam tự tin đọc hiểu bản vẽ, vận hành hệ thống toà nhà thông minh chuẩn quốc tế mà không bị cản trở bởi rào cản tiếng Anh chuyên ngành.",
+            "FM Dictionary was built out of a real-world conviction: ensuring Vietnamese property engineers and technicians can read complex engineering schematics and operate smart building assets without being held back by language barriers."
           )}
         </p>
       </section>
@@ -111,22 +136,22 @@ export default function AboutPage() {
 
           <p>
             {t(
-              "Ngành Quản lý Tòa nhà & Cơ sở vật chất tại Việt Nam đang phát triển với tốc độ chóng mặt. Hàng loạt tòa tháp thương mại hạng A, trung tâm dữ liệu (Data Center), nhà máy bán dẫn và bệnh viện thông minh mọc lên. Đi kèm với đó là các hệ thống cơ điện (MEP), Chiller ly tâm, tháp giải nhiệt, PCCC địa chỉ và hệ thống tự động hóa toà nhà BMS vô cùng phức tạp.",
-              "The Facility Management sector in Vietnam is expanding at breakneck speed. High-grade commercial towers, Tier-3 Data Centers, semiconductor fabrication cleanrooms, and smart hospitals are multiplying. With them come intricate MEP installations, centrifugal chillers, addressable fire alarm loops, and Building Management Systems (BMS)."
+              "Ngành Quản lý Tòa nhà & Cơ sở vật chất tại Việt Nam đang phát triển với tốc độ nhanh chóng. Các tòa tháp thương mại, trung tâm dữ liệu (Data Center), nhà xưởng công nghiệp và bệnh viện hiện đại ngày càng ứng dụng nhiều hệ thống cơ điện (MEP), Chiller ly tâm, tháp giải nhiệt, PCCC địa chỉ và hệ thống tự động hóa toà nhà BMS phức tạp.",
+              "The Facility Management sector in Vietnam is expanding rapidly. Commercial towers, Tier-3 Data Centers, cleanrooms, and modern hospitals increasingly rely on intricate MEP installations, centrifugal chillers, addressable fire alarm loops, and Building Management Systems (BMS)."
             )}
           </p>
 
           <p>
             {t(
-              "Thế nhưng, hầu hết tài liệu kỹ thuật, cẩm nang vận hành & bảo trì (O&M Manuals), tiêu chuẩn ASHRAE 90.1, NFPA 13, và chứng chỉ LEED đều được viết bằng tiếng Anh học thuật nặng tính chuyên ngành. Rất nhiều kỹ sư tay nghề giỏi gặp khó khăn khi phát âm các từ viết tắt kỹ thuật, hoặc hiểu nhầm các thông số áp suất, lưu lượng, nhiệt độ, gây ra sự cố tốn kém hàng trăm triệu đồng.",
-              "Yet, virtually all technical manuals, O&M blueprints, ASHRAE standards, and LEED certification criteria are written in dense, specialized English. Skilled engineers frequently stumble on pronunciations or misunderstand flow/pressure specifications, risking costly equipment downtime."
+              "Thế nhưng, hầu hết cẩm nang vận hành & bảo trì (O&M Manuals), tiêu chuẩn ASHRAE 90.1, NFPA và chứng chỉ LEED đều được viết bằng tiếng Anh chuyên ngành sâu. Nhiều kỹ sư tay nghề giỏi gặp khó khăn khi phát âm các từ viết tắt kỹ thuật, hoặc chưa tự tin khi trao đổi với chuyên gia nước ngoài.",
+              "Yet, virtually all technical manuals, O&M blueprints, ASHRAE standards, and LEED certification criteria are written in dense, specialized English. Many skilled engineers encounter difficulty with technical acronyms or lack confidence when communicating with international consultants."
             )}
           </p>
 
           <p>
             {t(
-              "FM Dictionary ra đời để giải quyết tận gốc rễ vấn đề này. Không chỉ là từ điển thông thường tra chữ thành chữ, ứng dụng cung cấp ngữ cảnh hiện trường, phát âm chuẩn studio kép UK/US, và phương pháp ôn tập ngắt quãng khoa học giúp kỹ sư ghi nhớ vĩnh viễn.",
-              "FM Dictionary was engineered to solve this fundamentally. Rather than a superficial word translator, it delivers contextual operational definitions, dual UK/US studio pronunciations, and an SRS memory engine that permanently locks terms into operational memory."
+              "FM Dictionary ra đời như một món quà phi lợi nhuận cho cộng đồng. Ứng dụng cung cấp ngữ cảnh hiện trường chân thực, phát âm chuẩn studio kép UK/US, và phương pháp ôn tập ngắt quãng khoa học giúp người làm kỹ thuật ghi nhớ lâu dài và tự tin trong công việc hàng ngày.",
+              "FM Dictionary was created as a non-profit gift for the community. It delivers contextual operational definitions, dual UK/US studio pronunciations, and an SRS memory engine that helps engineering personnel remember terms permanently and build confidence on the job."
             )}
           </p>
         </div>
@@ -136,12 +161,12 @@ export default function AboutPage() {
       <section className="px-6 max-w-5xl mx-auto mb-24">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-semibold tracking-tight text-ink mb-3">
-            {t("Nguyên tắc triết lý sản phẩm", "Our Engineering Principles")}
+            {t("Nguyên tắc triết lý sản phẩm", "Our Core Principles")}
           </h2>
           <p className="text-ink-muted text-sm max-w-lg mx-auto">
             {t(
-              "Những tôn chỉ bất biến dẫn dắt từng dòng mã trong dự án FM Dictionary.",
-              "The uncompromised tenets that guide every pull request in FM Dictionary."
+              "Những tôn chỉ bất biến dẫn dắt từng tính năng trong dự án FM Dictionary.",
+              "The steadfast tenets that guide every feature in FM Dictionary."
             )}
           </p>
         </div>
@@ -150,16 +175,16 @@ export default function AboutPage() {
           {values.map((v, i) => {
             const Icon = v.icon;
             return (
-              <div
+              <SpotlightCard
                 key={i}
-                className="p-6 rounded-2xl bg-surface-1 border border-hairline hover:border-hairline-hover transition-all"
+                className="p-6 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors"
               >
                 <div className="w-10 h-10 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-semibold text-ink mb-2">{v.title}</h3>
                 <p className="text-xs text-ink-muted leading-relaxed">{v.desc}</p>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
@@ -172,21 +197,21 @@ export default function AboutPage() {
             {t("Hành trình phát triển", "The Evolution Timeline")}
           </h2>
           <p className="text-ink-muted text-sm">
-            {t("Từ bản ghi chép cá nhân tới sản phẩm hoàn chỉnh 38 màn hình.", "From personal site notes to a 38-screen production system.")}
+            {t("Từ ý tưởng thực tế công trường tới ứng dụng đa nền tảng hoàn chỉnh.", "From site-level need to a complete multi-platform application.")}
           </p>
         </div>
 
-        <div className="space-y-6 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:w-0.5 before:bg-hairline">
+        <div className="space-y-6">
           {milestones.map((m, idx) => (
             <div
               key={idx}
-              className="relative flex flex-col md:flex-row items-start md:items-center gap-6"
+              className="flex flex-col md:flex-row items-start md:items-center gap-6"
             >
-              <div className="w-8 h-8 rounded-full bg-surface-1 border-2 border-accent-blue flex items-center justify-center text-xs font-mono font-bold text-ink shrink-0 z-10 md:mx-auto">
+              <div className="w-8 h-8 rounded-full bg-surface-2 border border-accent-blue flex items-center justify-center text-xs font-semibold text-ink shrink-0">
                 {idx + 1}
               </div>
-              <div className="w-full md:w-[calc(50%-2rem)] p-6 rounded-2xl bg-surface-1 border border-hairline">
-                <span className="text-xs font-mono text-accent-blue font-semibold">{m.year}</span>
+              <div className="w-full p-6 rounded-2xl bg-surface-1 border border-hairline">
+                <span className="text-xs text-accent-blue font-semibold">{m.year}</span>
                 <h3 className="text-base font-semibold text-ink mt-1 mb-2">{m.title}</h3>
                 <p className="text-xs text-ink-muted leading-relaxed">{m.desc}</p>
               </div>
@@ -195,76 +220,103 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Creator Profile Section */}
-      <section className="px-6 max-w-4xl mx-auto mb-24">
-        <div className="p-8 md:p-12 rounded-3xl bg-surface-1 border border-hairline relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-3xl shrink-0 shadow-lg border border-hairline">
-              AK
-            </div>
-            <div className="space-y-3 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-canvas border border-hairline text-xs font-mono text-ink-muted">
-                <Code2 className="w-3.5 h-3.5 text-accent-blue" />
-                <span>{t("Tác giả & Kiến trúc sư phần mềm", "Author & Software Architect")}</span>
-              </div>
-              <h3 className="text-2xl font-bold text-ink">An Khang</h3>
-              <p className="text-sm text-ink-muted leading-relaxed max-w-xl">
-                {t(
-                  "Kỹ sư phần mềm đam mê công nghệ toà nhà và tối ưu hiệu năng. Tác giả của FM Dictionary, theo đuổi triết lý phần mềm tối giản, không rác (Clean Code, Zero-Bloat) và trải nghiệm xúc giác cao cấp.",
-                  "Software engineer dedicated to building technologies and performance engineering. Creator of FM Dictionary, committed to zero-bloat clean code, local-first architectures, and refined tactile interactions."
+      {/* Project Leadership & Development Team */}
+      <section className="px-6 max-w-5xl mx-auto mb-24" id="team">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold tracking-tight text-ink mb-3">
+            {t("Nhóm Dự Án & Định Hướng", "Project Leadership & Team")}
+          </h2>
+          <p className="text-ink-muted text-sm max-w-lg mx-auto">
+            {t(
+              "Những con người tâm huyết xây dựng và duy trì FM Dictionary cho cộng đồng.",
+              "The dedicated team creating and sustaining FM Dictionary for the engineering community."
+            )}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {team.map((member, idx) => {
+            const BadgeIcon = member.badgeIcon;
+            return (
+              <SpotlightCard
+                key={idx}
+                className="p-8 rounded-3xl bg-surface-1 border border-hairline flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-2xl bg-surface-2 border border-hairline flex items-center justify-center text-ink font-bold text-xl shrink-0">
+                      {member.initials}
+                    </div>
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-canvas border border-hairline text-[11px] text-accent-blue mb-1">
+                        <BadgeIcon className="w-3 h-3" />
+                        <span>{member.role}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-ink">{member.name}</h3>
+                    </div>
+                  </div>
+
+                  <p className="text-xs md:text-sm text-ink-muted leading-relaxed mb-6">
+                    {member.bio}
+                  </p>
+                </div>
+
+                {member.contactLink && (
+                  <div className="pt-4">
+                    <a
+                      href={member.contactLink}
+                      className="inline-flex items-center gap-2 text-xs text-accent-blue hover:underline"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>{member.contactLabel}</span>
+                    </a>
+                  </div>
                 )}
-              </p>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                <Link
-                  href="https://github.com/ankhang0704"
-                  target="_blank"
-                  className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink transition-colors font-mono"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>github.com/ankhang0704</span>
-                </Link>
-                <Link
-                  href="mailto:ankhang0704@gmail.com"
-                  className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink transition-colors font-mono"
-                >
-                  <span>ankhang0704@gmail.com</span>
-                </Link>
-              </div>
-            </div>
-          </div>
+              </SpotlightCard>
+            );
+          })}
         </div>
       </section>
 
-      {/* Open Source Verification Traction */}
+      {/* Free Community Project Commitment */}
       <section className="px-6 max-w-4xl mx-auto text-center">
-        <div className="p-8 rounded-3xl bg-canvas border border-hairline">
-          <h3 className="text-xl font-semibold text-ink mb-3">
-            {t("Dự án hoàn toàn mã nguồn mở", "100% Free & Open-Source")}
+        <SpotlightCard className="p-8 md:p-12 rounded-3xl bg-surface-1 border border-hairline">
+          <h3 className="text-2xl font-semibold text-ink mb-3">
+            {t("Dự án cộng đồng 100% Miễn phí & Phi lợi nhuận", "100% Free Non-Profit Community Project")}
           </h3>
-          <p className="text-xs md:text-sm text-ink-muted max-w-lg mx-auto mb-6">
+          <p className="text-xs md:text-sm text-ink-muted max-w-xl mx-auto mb-8 leading-relaxed">
             {t(
-              "Chúng tôi tin rằng kiến thức kỹ thuật cơ bản phục vụ an toàn vận hành tòa nhà phải được chia sẻ rộng rãi cho cộng đồng.",
-              "We believe fundamental operational safety and engineering knowledge should be freely accessible to everyone."
+              "FM Dictionary được phát triển vì mục tiêu xã hội: chia sẻ tri thức chuyên ngành, giúp kỹ sư và kỹ thuật viên cơ điện Việt Nam tự tin làm chủ công việc mà không mất bất kỳ chi phí nào.",
+              "FM Dictionary is developed for community advancement: sharing specialized terminology to help Vietnamese MEP and property engineers master their work at zero cost."
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link
-              href="https://github.com/ankhang0704/fm_dictionary_app"
+            <a
+              href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
               target="_blank"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-xs hover:opacity-90 transition-opacity"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-xs hover:bg-neutral-200 transition-colors"
             >
-              <Github className="w-4 h-4" />
-              <span>{t("Xem mã nguồn trên GitHub", "Star Repository on GitHub")}</span>
-            </Link>
+              <span>{t("Tải trên Apple App Store", "Get on Apple App Store")}</span>
+            </a>
+            <a
+              href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-hairline bg-surface-2 text-ink font-semibold text-xs hover:bg-surface-1 transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>{t("Tải Bản Android APK", "Get Android APK")}</span>
+            </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-hairline bg-surface-1 text-ink font-semibold text-xs hover:bg-surface-2 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-hairline bg-canvas text-ink font-semibold text-xs hover:bg-surface-2 transition-colors"
             >
-              <span>{t("Liên hệ hợp tác", "Get in Touch")}</span>
+              <span>{t("Liên hệ & Góp ý", "Contact Us")}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-        </div>
+        </SpotlightCard>
       </section>
     </div>
   );
