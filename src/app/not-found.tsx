@@ -72,7 +72,7 @@ export default function NotFound() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
           <Link
             href="/"
-            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
+            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-400 dark:hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
           >
             <Home className="w-5 h-5 text-accent-blue mb-2 group-hover:scale-105 transition-transform" />
             <span className="text-xs font-semibold text-ink">{t("Trang chủ", "Homepage")}</span>
@@ -81,7 +81,7 @@ export default function NotFound() {
 
           <Link
             href="/features"
-            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
+            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-400 dark:hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
           >
             <BookOpen className="w-5 h-5 text-accent-blue mb-2 group-hover:scale-105 transition-transform" />
             <span className="text-xs font-semibold text-ink">{t("Tính năng", "Features")}</span>
@@ -90,7 +90,7 @@ export default function NotFound() {
 
           <Link
             href="/contact"
-            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
+            className="p-4 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-400 dark:hover:border-neutral-700 transition-colors flex flex-col items-center justify-center text-center group"
           >
             <MessageSquare className="w-5 h-5 text-semantic-success mb-2 group-hover:scale-105 transition-transform" />
             <span className="text-xs font-semibold text-ink">{t("Liên hệ", "Contact Us")}</span>
@@ -101,7 +101,7 @@ export default function NotFound() {
         {/* Primary Return Button */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors active:scale-95"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-ink text-white dark:text-black font-semibold text-sm hover:opacity-90 active:scale-95 transition-transform transition-opacity"
         >
           <Home className="w-4 h-4" />
           <span>{t("Quay về Trang chủ", "Return to Homepage")}</span>

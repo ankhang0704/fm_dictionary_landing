@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Onboarding Setup Complete (ill_onboarding_complete.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 1. BACKGROUND: COMMISSIONED SMART FACILITY -->
+  <!-- ========================================== -->
+  <g id="commissioned-facility-backdrop">
+    <!-- Left Architectural Module -->
+    <rect x="34" y="56" width="52" height="92" rx="12" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+    <rect x="44" y="68" width="14" height="12" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="62" y="68" width="14" height="12" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="44" y="88" width="14" height="12" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="62" y="88" width="14" height="12" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+
+    <!-- Right Architectural Module -->
+    <rect x="154" y="56" width="52" height="92" rx="12" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+    <line x1="154" y1="84" x2="206" y2="84" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <line x1="154" y1="112" x2="206" y2="112" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 2. MIDGROUND: READY-TO-LEARN BENTO BOARD   -->
+  <!-- ========================================== -->
+  <g id="ready-bento-board">
+    <!-- Crisp Flat Offset Shadow -->
+    <rect x="70" y="30" width="108" height="124" rx="16" fill="#E2E8F0"/>
+
+    <!-- Main Board Surface -->
+    <rect x="66" y="26" width="108" height="124" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Inner Blueprint Grid Frame -->
+    <rect x="76" y="36" width="88" height="104" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+    <!-- Configured Status Rows (Bottom of Card) -->
+    <rect x="86" y="106" width="68" height="10" rx="5" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.2"/>
+    <circle cx="92" cy="111" r="2.5" fill="#4A90E2"/>
+    <line x1="99" y1="111" x2="144" y2="111" stroke="#4A90E2" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="94" y="122" width="52" height="8" rx="4" fill="#E2E8F0"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 3. FOREGROUND: VERIFIED MASTERY MINT SEAL  -->
+  <!-- ========================================== -->
+  <g id="verified-completion-crest">
+    <!-- Hard Flat Shadow under Shield -->
+    <circle cx="123" cy="73" r="28" fill="#334155" opacity="0.14"/>
+
+    <!-- Outer Ring (AppColors.primaryBlue) -->
+    <circle cx="120" cy="70" r="28" fill="#4A90E2" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Inner Verified Core (AppColors.masteryMint) -->
+    <circle cx="120" cy="70" r="20" fill="#50E3C2" stroke="#0F172A" stroke-width="1.8"/>
+
+    <!-- Precision Checkmark -->
+    <path d="M 111 70 L 117.5 76.5 L 130 63.5" fill="none" stroke="#0F172A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 4. BALANCED GEOMETRIC ACCENT NODES         -->
+  <!-- ========================================== -->
+  <g id="geometric-accents">
+    <!-- Top Left Status Node -->
+    <circle cx="48" cy="36" r="5" fill="#50E3C2" stroke="#0F172A" stroke-width="1.5"/>
+    <!-- Top Right Status Node -->
+    <rect x="184" y="30" width="12" height="12" rx="4" fill="#4A90E2" stroke="#0F172A" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: FM Professional Profile (ill_onboarding_name.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 1. BACKGROUND: ARCHITECTURAL FACILITY DRAFT -->
+  <!-- ========================================== -->
+  <g id="architectural-background">
+    <!-- Building Silhouettes (Facility Management Context) -->
+    <!-- Tower 1: Right Background Tower (Balanced height, fully rounded pod) -->
+    <rect x="148" y="24" width="62" height="128" rx="14" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.8"/>
+    <!-- Tower 1 Blueprint Window Modules -->
+    <rect x="158" y="38" width="18" height="14" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="182" y="38" width="18" height="14" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="158" y="60" width="18" height="14" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="182" y="60" width="18" height="14" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="158" y="82" width="18" height="14" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="182" y="82" width="18" height="14" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+
+    <!-- Tower 2: Center-Left Structural Column (Balanced height, fully rounded pod) -->
+    <rect x="30" y="44" width="70" height="108" rx="14" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+    <line x1="30" y1="80" x2="100" y2="80" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <line x1="30" y1="116" x2="100" y2="116" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <line x1="65" y1="44" x2="65" y2="152" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <!-- Antenna/Sensor Node at Top of Column -->
+    <line x1="65" y1="44" x2="65" y2="28" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="65" cy="24" r="4.5" fill="#4A90E2" stroke="#0F172A" stroke-width="1.5"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 2. MIDGROUND: TECHNICAL CLIPBOARD / BINDER -->
+  <!-- ========================================== -->
+  <g id="clipboard-binder">
+    <!-- Solid Flat Hard Shadow (No Blur) -->
+    <rect x="62" y="32" width="116" height="124" rx="16" fill="#E2E8F0"/>
+
+    <!-- Main Clipboard Body (Crisp fully enclosed pod) -->
+    <rect x="58" y="28" width="116" height="124" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Top Metallic Grip Clip -->
+    <rect x="96" y="20" width="40" height="16" rx="6" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+    <rect x="108" y="25" width="16" height="6" rx="3" fill="#0F172A"/>
+
+    <!-- Technical Drawing / Blueprint Sheet inside Clipboard -->
+    <rect x="68" y="42" width="96" height="100" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 3. FOREGROUND: FM PROFESSIONAL ID BADGE    -->
+  <!-- ========================================== -->
+  <g id="professional-id-card">
+    <!-- ID Card Lanyard / Ribbon (Brand Badge Purple) -->
+    <path d="M 116 36 L 116 52" stroke="#9013FE" stroke-width="3" stroke-linecap="round"/>
+    <!-- Clip Ring -->
+    <circle cx="116" cy="54" r="3" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- ID Card Hard Flat Shadow -->
+    <rect x="79" y="63" width="76" height="82" rx="14" fill="#334155" opacity="0.12"/>
+
+    <!-- ID Card White Fill -->
+    <rect x="76" y="60" width="76" height="82" rx="14" fill="#FFFFFF"/>
+
+    <!-- ID Card Header Stripe (AppColors.badgePurple) rendered INSIDE -->
+    <path d="M 76 72 C 76 65.37 81.37 60 88 60 L 140 60 C 146.63 60 152 65.37 152 72 L 152 76 L 76 76 Z" fill="#9013FE"/>
+
+    <!-- ID Card Crisp Outer Black Border (Rendered ON TOP of purple header stripe) -->
+    <rect x="76" y="60" width="76" height="82" rx="14" fill="none" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- Safety Helmet Avatar (Engineer Profile) -->
+    <g id="engineer-avatar">
+      <!-- Head Base -->
+      <circle cx="114" cy="92" r="14" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.5"/>
+      <!-- Safety Hard Hat (AppColors.streakYellow) -->
+      <path d="M 101 91 C 101 82.5 106.8 79 114 79 C 121.2 79 127 82.5 127 91 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.5"/>
+      <!-- Hard Hat Rim -->
+      <path d="M 98 91 L 130 91" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+      <!-- Hat Center Ridge Detail -->
+      <path d="M 114 79 L 114 84" stroke="#0F172A" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Technical ID Text Rows / Barcode Placeholder -->
+    <!-- Name Row (Emphasized Primary Blue) -->
+    <rect x="92" y="113" width="44" height="5" rx="2.5" fill="#4A90E2"/>
+    <!-- FM Title Row -->
+    <rect x="97" y="122" width="34" height="4" rx="2" fill="#94A3B8"/>
+    <!-- Status Chip Pill (Mini Mastery Mint verification mark) -->
+    <circle cx="114" cy="133" r="3" fill="#50E3C2" stroke="#0F172A" stroke-width="1"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 4. FM TOOLS & FLOATING TECHNICAL ACCENTS   -->
+  <!-- ========================================== -->
+  <!-- Floating FM Key Tag / Inspection Symbol (Right) -->
+  <g id="inspection-accent">
+    <circle cx="188" cy="116" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.8"/>
+    <path d="M 183 116 L 187 120 L 194 112" fill="none" stroke="#50E3C2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Technical Caliper / Stylus Pen clipped on Left -->
+  <g id="stylus-tool">
+    <rect x="42" y="86" width="8" height="42" rx="4" fill="#4A90E2" stroke="#0F172A" stroke-width="1.8"/>
+    <path d="M 42 120 L 46 128 L 50 120 Z" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="42" y1="94" x2="50" y2="94" stroke="#0F172A" stroke-width="1.5"/>
+  </g>
+</svg>

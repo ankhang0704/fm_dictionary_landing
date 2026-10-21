@@ -15,33 +15,35 @@ import {
   Download,
 } from "lucide-react";
 import { SpotlightCard } from "@/components/SpotlightCard";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { AppleIcon } from "@/components/AppleIcon";
 
 export default function AboutPage() {
   const { t } = useLanguage();
 
   const milestones = [
     {
-      year: "2024",
-      title: t("Khởi nguồn từ thực địa", "Genesis on the Job Site"),
+      year: "02/2026",
+      title: t("Khởi động dự án & Chuẩn hóa dữ liệu", "Project Inception & MEP Data Structuring"),
       desc: t(
-        "Nhận thấy các kỹ sư MEP trẻ thường gặp lúng túng khi dịch tài liệu O&M của Carrier, Daikin, Trane và chuẩn NFPA, dự án FM Dictionary được phôi thai như một cuốn sổ tay thuật ngữ nội bộ do chị Thúy Tạ định hướng.",
-        "Observing junior MEP engineers stumbling over Carrier, Daikin, Trane O&M manuals and NFPA codes, FM Dictionary was initiated by Thuy Ta as an internal engineering handbook."
+        "Bắt đầu nghiên cứu và phát triển dự án FM Dictionary từ nhu cầu thực tiễn của công tác quản lý vận hành tòa nhà. Xây dựng kiến trúc Offline-First (Hive DB) và số hóa 1,800+ thuật ngữ MEP chuyên ngành.",
+        "Commenced research and development of FM Dictionary driven by practical facility operations needs. Established the Offline-First Hive DB architecture and digitized 1,800+ bilingual MEP terms."
       ),
     },
     {
-      year: "2025",
-      title: t("Chuẩn hóa kiến trúc Local-First", "Local-First Architecture Pivot"),
+      year: "06/2026",
+      title: t("Phát hành chính thức trên App Store", "Official Apple App Store Release"),
       desc: t(
-        "Tái cấu trúc toàn bộ ứng dụng sang Clean Architecture và Hive database để đảm bảo tốc độ phản hồi 0.2s dưới các phòng máy tầng hầm không có sóng 4G/Wifi.",
-        "Refactored to Clean Architecture and local Hive storage, ensuring 0.2s instant response inside reinforced concrete plant basements devoid of cellular signals."
+        "Chính thức phát hành trên Apple App Store (iOS) hoàn toàn miễn phí 100% phi lợi nhuận, mang công cụ tra cứu tức thì và flashcard Spaced Repetition đến cộng đồng kỹ sư O&M.",
+        "Officially launched on the Apple App Store (iOS) as a 100% free non-profit initiative, delivering instant offline lookup and SM-2 flashcard review to O&M engineers."
       ),
     },
     {
-      year: "2026",
-      title: t("Phát hành chính thức vì cộng đồng", "Official Community Release"),
+      year: "11/2026",
+      title: t("Cải thiện lớn & Nâng cấp toàn diện", "Major Feature & System Upgrade"),
       desc: t(
-        "Chính thức có mặt trên Apple App Store và cung cấp bản APK Android miễn phí 100% phi lợi nhuận cho cộng đồng kỹ sư và chuyên viên vận hành tòa nhà trên khắp cả nước.",
-        "Officially launched on the Apple App Store and provided direct Android APK releases, 100% free of charge for the national facility management community."
+        "Đợt cập nhật cải thiện lớn toàn diện: hoàn thiện giao diện người dùng, mở rộng 300+ tình huống sự cố thực tế, tối ưu thuật toán ghi nhớ SM-2 và ra mắt website landing page song ngữ thế hệ mới.",
+        "Comprehensive major upgrade: complete UI/UX refinement, 300+ expanded job-site incident scenarios, enhanced SM-2 retention engine, and dedicated bilingual landing platform."
       ),
     },
   ];
@@ -159,32 +161,35 @@ export default function AboutPage() {
 
       {/* Core Values */}
       <section className="px-6 max-w-5xl mx-auto mb-24">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold tracking-tight text-ink mb-3">
-            {t("Nguyên tắc triết lý sản phẩm", "Our Core Principles")}
-          </h2>
-          <p className="text-ink-muted text-sm max-w-lg mx-auto">
-            {t(
-              "Những tôn chỉ bất biến dẫn dắt từng tính năng trong dự án FM Dictionary.",
-              "The steadfast tenets that guide every feature in FM Dictionary."
-            )}
-          </p>
-        </div>
+        <RevealOnScroll>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-semibold tracking-tight text-ink mb-3">
+              {t("Nguyên tắc triết lý sản phẩm", "Our Core Principles")}
+            </h2>
+            <p className="text-ink-muted text-sm max-w-lg mx-auto">
+              {t(
+                "Những tôn chỉ bất biến dẫn dắt từng tính năng trong dự án FM Dictionary.",
+                "The steadfast tenets that guide every feature in FM Dictionary."
+              )}
+            </p>
+          </div>
+        </RevealOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((v, i) => {
             const Icon = v.icon;
             return (
-              <SpotlightCard
-                key={i}
-                className="p-6 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-700 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue mb-4">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-base font-semibold text-ink mb-2">{v.title}</h3>
-                <p className="text-xs text-ink-muted leading-relaxed">{v.desc}</p>
-              </SpotlightCard>
+              <RevealOnScroll key={i} delay={i * 100}>
+                <SpotlightCard
+                  className="p-6 rounded-2xl bg-surface-1 border border-hairline hover:border-neutral-400 dark:hover:border-neutral-700 transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue mb-4">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-semibold text-ink mb-2">{v.title}</h3>
+                  <p className="text-xs text-ink-muted leading-relaxed">{v.desc}</p>
+                </SpotlightCard>
+              </RevealOnScroll>
             );
           })}
         </div>
@@ -295,8 +300,9 @@ export default function AboutPage() {
               href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-xs hover:bg-neutral-200 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-white dark:text-black font-semibold text-xs hover:opacity-90 active:scale-95 transition-transform transition-opacity"
             >
+              <AppleIcon className="w-3.5 h-3.5 fill-current shrink-0" />
               <span>{t("Tải trên Apple App Store", "Get on Apple App Store")}</span>
             </a>
             <a

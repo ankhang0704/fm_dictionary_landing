@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Mastery Milestone (ill_study_completed.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 2. PEDESTAL & BLUEPRINT CERTIFICATE        -->
+  <!-- ========================================== -->
+  <!-- Pedestal Platform Base (Fully rounded floating pedestal) -->
+  <rect x="64" y="132" width="112" height="20" rx="10" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+
+  <!-- Rolled Completed Blueprint Scroll Resting at Base -->
+  <rect x="76" y="120" width="88" height="16" rx="8" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.6"/>
+  <!-- Gold Milestone Ribbon on Scroll -->
+  <rect x="114" y="120" width="12" height="16" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.2"/>
+
+  <!-- ========================================== -->
+  <!-- 3. CENTRAL MASTERY TROPHY BADGE            -->
+  <!-- ========================================== -->
+  <!-- Hard Flat Shadow -->
+  <circle cx="124" cy="72" r="42" fill="#E2E8F0"/>
+
+  <!-- Trophy Handles (Tactile Round Loops) -->
+  <path d="M 86 50 C 72 50 70 68 88 70" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 154 50 C 168 50 170 68 152 70" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Trophy Stem & Base Fill -->
+  <rect x="114" y="86" width="12" height="20" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+  <rect x="100" y="106" width="40" height="14" rx="6" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.8"/>
+
+  <!-- Primary Mastery Cup Fills (Rendered BEFORE the black stroke) -->
+  <path d="M 86 42 L 154 42 C 154 72 138 86 120 86 C 102 86 86 72 86 42 Z" fill="#FDCB6E"/>
+  <!-- Inner Highlight Fill (Recessed safely inside cup) -->
+  <path d="M 94 44 L 146 44 C 146 66 134 78 120 78 C 106 78 94 66 94 44 Z" fill="#FEF3C7"/>
+
+  <!-- Primary Mastery Cup Crisp Outer Black Border (On top of fills) -->
+  <path d="M 86 42 L 154 42 C 154 72 138 86 120 86 C 102 86 86 72 86 42 Z" fill="none" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- ========================================== -->
+  <!-- 4. MASTERED INSPECTION CREST / CHECKMARK   -->
+  <!-- ========================================== -->
+  <!-- Mastery Mint Verification Seal Badge -->
+  <g id="mastery-seal">
+    <circle cx="120" cy="60" r="14" fill="#50E3C2" stroke="#0F172A" stroke-width="1.8"/>
+    <!-- Crisp Checkmark -->
+    <path d="M 113 60 L 118 65 L 128 55" fill="none" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Geometric Milestone Sparkles (No messy confetti) -->
+  <g id="technical-sparkles">
+    <!-- Top Left Sparkle -->
+    <path d="M 54 38 L 58 46 L 66 50 L 58 54 L 54 62 L 50 54 L 42 50 L 50 46 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.2"/>
+    <!-- Top Right Sparkle -->
+    <circle cx="186" cy="46" r="4" fill="#50E3C2" stroke="#0F172A" stroke-width="1.2"/>
+    <circle cx="196" cy="64" r="2.5" fill="#4A90E2"/>
+  </g>
+</svg>

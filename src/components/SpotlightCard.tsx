@@ -12,11 +12,12 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
  * SpotlightCard component (React Bits inspired).
  * Tracks cursor position and creates an interactive radial illumination highlight.
  * Optimized with direct DOM manipulation to prevent re-rendering child component trees on every mousemove.
+ * Theme-aware: dynamically responds to dark / light CSS variables.
  */
 export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = "",
-  spotlightColor = "rgba(0, 153, 255, 0.12)",
+  spotlightColor,
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,9 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       const rect = cardRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      spotlightRef.current.style.background = `radial-gradient(550px circle at ${x}px ${y}px, ${spotlightColor}, transparent 70%)`; /* taste-skill-ignore */
+      const color =
+        spotlightColor || "var(--spotlight-color, rgba(0, 153, 255, 0.12))";
+      spotlightRef.current.style.background = `radial-gradient(550px circle at ${x}px ${y}px, ${color}, transparent 70%)`; /* taste-skill-ignore */
     },
     [spotlightColor]
   );

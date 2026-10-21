@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Bilingual Bridge (ill_onboarding_language.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 1. BACKGROUND: ARCHITECTURAL TOWERS        -->
+  <!-- ========================================== -->
+  <g id="datum-background">
+    <!-- Facility Communication Tower Pillars (Fully rounded floating pods) -->
+    <rect x="36" y="76" width="22" height="66" rx="10" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.6"/>
+    <rect x="42" y="86" width="10" height="8" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="42" y="100" width="10" height="8" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="42" y="114" width="10" height="8" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+
+    <rect x="182" y="68" width="22" height="74" rx="10" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.6"/>
+    <rect x="188" y="78" width="10" height="8" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="188" y="92" width="10" height="8" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+    <rect x="188" y="106" width="10" height="8" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.2"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 2. CENTRAL SUBJECT: GLOBAL FM TERMINOLOGY  -->
+  <!-- ========================================== -->
+  <g id="globe-network">
+    <!-- Hard Flat Shadow -->
+    <circle cx="124" cy="94" r="44" fill="#E2E8F0"/>
+
+    <!-- Main Globe Sphere White Fill -->
+    <circle cx="120" cy="90" r="44" fill="#FFFFFF"/>
+
+    <!-- Globe Longitude & Latitude Technical Lines (Drawn INSIDE before black perimeter) -->
+    <ellipse cx="120" cy="90" rx="22" ry="44" fill="none" stroke="#CBD5E1" stroke-width="1.4"/>
+    <line x1="76" y1="90" x2="164" y2="90" stroke="#CBD5E1" stroke-width="1.4"/>
+    <line x1="84" y1="70" x2="156" y2="70" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <line x1="84" y1="110" x2="156" y2="110" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+    <!-- Equatorial Transit Beam Arc -->
+    <path d="M 68 84 C 90 60 150 60 172 84" fill="none" stroke="#4A90E2" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 166 74 L 174 84 L 163 88" fill="none" stroke="#4A90E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Main Globe Sphere Crisp Outer Black Stroke (ON TOP of all gray grid lines) -->
+    <circle cx="120" cy="90" r="44" fill="none" stroke="#0F172A" stroke-width="2"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 3. FOREGROUND: BILINGUAL TERMINOLOGY NODES -->
+  <!-- ========================================== -->
+  <!-- Left Node: English (EN) - Primary Blue Accent -->
+  <g id="badge-en">
+    <!-- Flat Shadow -->
+    <rect x="49" y="37" width="56" height="42" rx="12" fill="#334155" opacity="0.12"/>
+    <!-- Card White Fill -->
+    <rect x="46" y="34" width="56" height="42" rx="12" fill="#FFFFFF"/>
+    <!-- Top Accent Bar (Drawn inside, rounded top) -->
+    <path d="M 46 44 C 46 38.5 50.5 34 56 34 L 92 34 C 97.5 34 102 38.5 102 44 L 102 46 L 46 46 Z" fill="#4A90E2"/>
+    <!-- Card Crisp Outer Black Border (On top of top accent bar) -->
+    <rect x="46" y="34" width="56" height="42" rx="12" fill="none" stroke="#0F172A" stroke-width="2"/>
+    <!-- Vector Typography: 'EN' -->
+    <!-- E -->
+    <path d="M 62 55 L 62 67 L 70 67 M 62 61 L 68 61 M 62 55 L 70 55" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- N -->
+    <path d="M 76 67 L 76 55 L 86 67 L 86 55" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Right Node: Vietnamese (VI) - Mastery Mint Accent -->
+  <g id="badge-vi">
+    <!-- Flat Shadow -->
+    <rect x="141" y="37" width="56" height="42" rx="12" fill="#334155" opacity="0.12"/>
+    <!-- Card White Fill -->
+    <rect x="138" y="34" width="56" height="42" rx="12" fill="#FFFFFF"/>
+    <!-- Top Accent Bar (Drawn inside, rounded top) -->
+    <path d="M 138 44 C 138 38.5 142.5 34 148 34 L 184 34 C 189.5 34 194 38.5 194 44 L 194 46 L 138 46 Z" fill="#50E3C2"/>
+    <!-- Card Crisp Outer Black Border (On top of top accent bar) -->
+    <rect x="138" y="34" width="56" height="42" rx="12" fill="none" stroke="#0F172A" stroke-width="2"/>
+    <!-- Vector Typography: 'VI' -->
+    <!-- V -->
+    <path d="M 152 55 L 157 67 L 162 55" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- I -->
+    <path d="M 172 55 L 172 67 M 168 55 L 176 55 M 168 67 L 176 67" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Center Bidirectional Exchange Icon -->
+  <g id="exchange-badge">
+    <circle cx="120" cy="40" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.8"/>
+    <!-- Exchange arrows -->
+    <path d="M 113 37 L 127 37 M 123 33 L 127 37 L 123 41" fill="none" stroke="#4A90E2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 127 43 L 113 43 M 117 39 L 113 43 L 117 47" fill="none" stroke="#50E3C2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

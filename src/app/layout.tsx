@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export const viewport: Viewport = {
-  themeColor: "#090909",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#090909" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f8f9" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -94,19 +98,35 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="vi" className="dark scroll-smooth">
+    <html lang="vi" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('fm_theme');
+                  var theme = saved === 'light' ? 'light' : 'dark';
+                  document.documentElement.classList.remove('dark', 'light');
+                  document.documentElement.classList.add(theme);
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-canvas text-ink antialiased selection:bg-accent-blue selection:text-white">
-        <LanguageProvider>
-          <Navbar />
-          <main className="min-h-[100dvh] pt-20">{children}</main>
-          <Footer />
-        </LanguageProvider>
+      <body className="bg-canvas text-ink antialiased selection:bg-accent-blue selection:text-white transition-colors duration-200">
+        <ThemeProvider>
+          <LanguageProvider>
+            <Navbar />
+            <main className="min-h-[100dvh] pt-20">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

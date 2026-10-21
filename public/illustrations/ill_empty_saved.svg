@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Empty Blueprint Binder (ill_empty_saved.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 2. OPEN BLUEPRINT ARCHIVE BINDER           -->
+  <!-- ========================================== -->
+  <!-- Hard Flat Shadow -->
+  <rect x="52" y="36" width="140" height="112" rx="16" fill="#E2E8F0"/>
+
+  <!-- Back Cover Folder (Facility Slate) -->
+  <rect x="48" y="32" width="140" height="112" rx="16" fill="#F8FAFC" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- Left Spine Ring Bindings -->
+  <line x1="88" y1="36" x2="88" y2="140" stroke="#CBD5E1" stroke-width="1.8"/>
+  <circle cx="88" cy="54" r="3.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.5"/>
+  <circle cx="88" cy="88" r="3.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.5"/>
+  <circle cx="88" cy="122" r="3.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.5"/>
+
+  <!-- Clean Drafting Blueprint Page Inside -->
+  <rect x="98" y="42" width="80" height="92" rx="10" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+  <line x1="98" y1="72" x2="178" y2="72" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="2 2"/>
+  <line x1="98" y1="102" x2="178" y2="102" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="2 2"/>
+  <line x1="138" y1="42" x2="138" y2="134" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="2 2"/>
+
+  <!-- Architectural Corner Dimension Marks -->
+  <path d="M 104 54 L 104 48 L 110 48" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+  <path d="M 172 54 L 172 48 L 166 48" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+  <path d="M 104 122 L 104 128 L 110 128" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+  <path d="M 172 122 L 172 128 L 166 128" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+
+  <!-- Dashed Empty Placeholder Slot for Word Card -->
+  <rect x="110" y="66" width="56" height="46" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.4" stroke-dasharray="4 3"/>
+
+  <!-- ========================================== -->
+  <!-- 3. FOREGROUND: BOOKMARK RIBBON & HEART PIN -->
+  <!-- ========================================== -->
+  <!-- Ribbon Hanging Down (Review Pink Accent #FF6B81) -->
+  <path d="M 62 32 L 62 86 L 71 78 L 80 86 L 80 32 Z" fill="#FF6B81" stroke="#0F172A" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Floating Empty State Heart Bookmark Crest -->
+  <g id="heart-crest">
+    <!-- Crest Badge Body -->
+    <circle cx="138" cy="89" r="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.8"/>
+    <!-- Minimalist Heart Icon (Review Pink) -->
+    <path d="M 138 95 C 138 95 131 91 131 86.5 C 131 84 133 82 135.5 82 C 137 82 138 83 138 83 C 138 83 139 82 140.5 82 C 143 82 145 84 145 86.5 C 145 91 138 95 138 95 Z" fill="#FF6B81" stroke="#0F172A" stroke-width="1.2"/>
+  </g>
+
+  <!-- Technical Stylus / Pencil Resting on Right -->
+  <g id="drafting-stylus">
+    <rect x="186" y="68" width="8" height="60" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.6"/>
+    <path d="M 186 122 L 190 132 L 194 122 Z" fill="#0F172A"/>
+  </g>
+</svg>

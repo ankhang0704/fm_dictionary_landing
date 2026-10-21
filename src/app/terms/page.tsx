@@ -3,6 +3,7 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Scale, CheckCircle2, AlertTriangle, ShieldCheck, Mail, Clock, FileCheck } from "lucide-react";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 export default function TermsPage() {
   const { t } = useLanguage();
@@ -30,24 +31,26 @@ export default function TermsPage() {
         </div>
 
         {/* Plain Language Summary */}
-        <div className="p-6 md:p-8 rounded-3xl bg-surface-1 border border-hairline mb-12">
-          <div className="flex items-center gap-2 text-xs text-accent-blue mb-2 font-medium">
-            <FileCheck className="w-4 h-4" />
-            <span>{t("Tóm tắt Điều khoản ngắn gọn", "Key Highlights Summary")}</span>
+        <RevealOnScroll>
+          <div className="p-6 md:p-8 rounded-3xl bg-surface-1 border border-hairline mb-12">
+            <div className="flex items-center gap-2 text-xs text-accent-blue mb-2 font-medium">
+              <FileCheck className="w-4 h-4" />
+              <span>{t("Tóm tắt Điều khoản ngắn gọn", "Key Highlights Summary")}</span>
+            </div>
+            <h2 className="text-lg font-semibold text-ink mb-3">
+              {t(
+                "Ứng dụng phục vụ mục đích học tập và tra cứu tham khảo kỹ thuật phi lợi nhuận.",
+                "FM Dictionary is provided for educational study and engineering reference purposes."
+              )}
+            </h2>
+            <p className="text-xs md:text-sm text-ink-muted leading-relaxed">
+              {t(
+                "FM Dictionary là công cụ hỗ trợ nâng cao trình độ tiếng Anh chuyên ngành. Mặc dù mọi thuật ngữ đều được đối chiếu kỹ lưỡng với ASHRAE, NFPA và ISO, bạn luôn phải tuân thủ bản vẽ thiết kế đã được phê duyệt và quy chuẩn an toàn lao động thực tế tại công trường toà nhà của mình.",
+                "FM Dictionary is designed to build technical fluency. While cross-referenced with standards like ASHRAE, NFPA, and ISO, site engineers must always adhere to approved shop drawings, local building codes, and safety protocols for physical operations."
+              )}
+            </p>
           </div>
-          <h2 className="text-lg font-semibold text-ink mb-3">
-            {t(
-              "Ứng dụng phục vụ mục đích học tập và tra cứu tham khảo kỹ thuật phi lợi nhuận.",
-              "FM Dictionary is provided for educational study and engineering reference purposes."
-            )}
-          </h2>
-          <p className="text-xs md:text-sm text-ink-muted leading-relaxed">
-            {t(
-              "FM Dictionary là công cụ hỗ trợ nâng cao trình độ tiếng Anh chuyên ngành. Mặc dù mọi thuật ngữ đều được đối chiếu kỹ lưỡng với ASHRAE, NFPA và ISO, bạn luôn phải tuân thủ bản vẽ thiết kế đã được phê duyệt và quy chuẩn an toàn lao động thực tế tại công trường toà nhà của mình.",
-              "FM Dictionary is designed to build technical fluency. While cross-referenced with standards like ASHRAE, NFPA, and ISO, site engineers must always adhere to approved shop drawings, local building codes, and safety protocols for physical operations."
-            )}
-          </p>
-        </div>
+        </RevealOnScroll>
 
         {/* Detailed Terms */}
         <div className="space-y-10 text-sm md:text-base text-ink-muted leading-relaxed">

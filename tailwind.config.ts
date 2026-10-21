@@ -10,15 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#090909",
-        "surface-1": "#141414",
-        "surface-2": "#1c1c1c",
-        hairline: "#262626",
-        "hairline-soft": "#1a1a1a",
-        ink: "#ffffff",
-        "ink-muted": "#999999",
-        "accent-blue": "#0099ff",
-        "semantic-success": "#22c55e",
+        canvas: "rgb(var(--canvas) / <alpha-value>)",
+        "canvas-deep": "rgb(var(--canvas-deep) / <alpha-value>)",
+        "surface-1": "rgb(var(--surface-1) / <alpha-value>)",
+        "surface-2": "rgb(var(--surface-2) / <alpha-value>)",
+        hairline: "rgb(var(--hairline) / <alpha-value>)",
+        "hairline-soft": "rgb(var(--hairline-soft) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        "ink-muted": "rgb(var(--ink-muted) / <alpha-value>)",
+        "accent-blue": "rgb(var(--accent-blue) / <alpha-value>)",
+        "semantic-success": "rgb(var(--semantic-success) / <alpha-value>)",
         spotlight: {
           magenta: "#d44df0",
           violet: "#6a4cf5",

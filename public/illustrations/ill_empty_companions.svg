@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: FM Engineers Inviting & Connecting Companions -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="120" cy="144" rx="90" ry="10" fill="#E2E8F0"/>
+
+  <!-- Left Engineer (Leader) -->
+  <circle cx="80" cy="56" r="16" fill="#F1F5F9" stroke="#0F172A" stroke-width="2.0"/>
+  <!-- Safety Helmet -->
+  <path d="M 64 54 C 64 42 70 38 80 38 C 90 38 96 42 96 54 Z" fill="url(#goldGrad)" stroke="#0F172A" stroke-width="2.0"/>
+  <line x1="62" y1="54" x2="98" y2="54" stroke="#0F172A" stroke-width="2.0" stroke-linecap="round"/>
+  <!-- Body -->
+  <path d="M 64 120 L 64 92 C 64 80 72 74 80 74 C 88 74 96 80 96 92 L 96 120 Z" fill="#2563EB" stroke="#0F172A" stroke-width="2.0"/>
+  <!-- Lanyard ID -->
+  <rect x="74" y="86" width="12" height="16" rx="2" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.4"/>
+  <rect x="76" y="90" width="8" height="3" fill="#0F172A"/>
+
+  <!-- Right Engineer Silhouette (Invited Companion - dashed waiting slot) -->
+  <circle cx="160" cy="56" r="16" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2.0" stroke-dasharray="4 3"/>
+  <path d="M 144 54 C 144 42 150 38 160 38 C 170 38 176 42 176 54 Z" fill="#FEF3C7" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <path d="M 144 120 L 144 92 C 144 80 152 74 160 74 C 168 74 176 80 176 92 L 176 120 Z" fill="#F1F5F9" stroke="#94A3B8" stroke-width="2.0" stroke-dasharray="4 3"/>
+  <!-- Plus Icon in Companion -->
+  <circle cx="160" cy="94" r="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.8"/>
+  <line x1="160" y1="88" x2="160" y2="100" stroke="#2563EB" stroke-width="2.0" stroke-linecap="round"/>
+  <line x1="154" y1="94" x2="166" y2="94" stroke="#2563EB" stroke-width="2.0" stroke-linecap="round"/>
+
+  <!-- Connection Bridge & Invite Key Wave -->
+  <path d="M 96 86 C 112 70 128 70 144 86" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <!-- Floating Key Icon -->
+  <circle cx="120" cy="74" r="14" fill="#FEF3C7" stroke="#0F172A" stroke-width="2.0"/>
+  <path d="M 115 74 L 125 74 M 122 74 L 122 79 M 125 74 L 125 77" stroke="#D97706" stroke-width="2.0" stroke-linecap="round"/>
+  <circle cx="115" cy="74" r="3" fill="#D97706"/>
+
+  <!-- Sparkles -->
+  <polygon points="120,40 122,45 127,45 123,48 125,53 120,50 115,53 117,48 113,45 118,45" fill="#F59E0B"/>
+  <polygon points="190,70 191,74 195,74 192,76 193,80 190,78 187,80 188,76 185,74 189,74" fill="#3B82F6"/>
+</svg>

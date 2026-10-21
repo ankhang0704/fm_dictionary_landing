@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Level C1 - Operations Manager (ill_level_c1.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px contour, AppColors mapping -->
+
+  <!-- 1. BLUEPRINT BACKGROUND PLATE -->
+  <rect x="46" y="22" width="154" height="142" rx="16" fill="#E2E8F0"/>
+  <rect x="42" y="18" width="154" height="142" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.0"/>
+
+  <!-- Blueprint Coordinate Grid -->
+  <line x1="56" y1="42" x2="182" y2="42" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+  <line x1="56" y1="134" x2="182" y2="134" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+  <line x1="68" y1="30" x2="68" y2="148" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+  <line x1="170" y1="30" x2="170" y2="148" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+
+  <!-- Technical Corner Registration Marks -->
+  <path d="M 50 26 L 56 26 M 50 26 L 50 32" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 188 26 L 182 26 M 188 26 L 188 32" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- 2. OPERATIONS LEADERSHIP MOTIF: SMART TOWER & LAUREL WREATH BRANCHES -->
+  <!-- Smart Facility High-Rise Tower Silhouette (Background Center) -->
+  <rect x="74" y="66" width="22" height="52" rx="3" fill="#F3E8FF" stroke="#0F172A" stroke-width="1.6"/>
+  <line x1="78" y1="74" x2="92" y2="74" stroke="#9333EA" stroke-width="1.2"/>
+  <line x1="78" y1="82" x2="92" y2="82" stroke="#9333EA" stroke-width="1.2"/>
+  <line x1="78" y1="90" x2="92" y2="90" stroke="#9333EA" stroke-width="1.2"/>
+  <line x1="78" y1="98" x2="92" y2="98" stroke="#9333EA" stroke-width="1.2"/>
+
+  <rect x="144" y="60" width="22" height="58" rx="3" fill="#F3E8FF" stroke="#0F172A" stroke-width="1.6"/>
+  <line x1="148" y1="68" x2="162" y2="68" stroke="#9333EA" stroke-width="1.2"/>
+  <line x1="148" y1="76" x2="162" y2="76" stroke="#9333EA" stroke-width="1.2"/>
+  <line x1="148" y1="84" x2="162" y2="84" stroke="#9333EA" stroke-width="1.2"/>
+  <line x1="148" y1="92" x2="162" y2="92" stroke="#9333EA" stroke-width="1.2"/>
+
+  <!-- Laurel Honor Leaves (Flanking) -->
+  <path d="M 68 76 C 62 82 62 92 68 98 M 64 86 C 58 88 58 96 66 96" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 172 76 C 178 82 178 92 172 98 M 176 86 C 182 88 182 96 174 96" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- 3. CENTRAL C1 OPERATIONS COMMAND SHIELD -->
+  <g transform="translate(120, 84)">
+    <!-- Heraldic Command Shield -->
+    <path d="M 0 -36 L 28 -24 C 28 8 16 30 0 38 C -16 30 -28 8 -28 -24 Z" fill="#9333EA" stroke="#0F172A" stroke-width="2.0" stroke-linejoin="round"/>
+    <path d="M 0 -30 L 22 -20 C 22 6 12 24 0 30 C -12 24 -22 6 -22 -20 Z" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.6" stroke-linejoin="round"/>
+
+    <!-- Vector Stylized 'C1' -->
+    <path d="M -4 -10 C -12 -10 -15 -4 -15 2 C -15 8 -12 14 -4 14" stroke="#9333EA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 5 -6 L 8 -10 L 8 14 M 4 14 L 12 14" stroke="#9333EA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Five Leadership Stars -->
+  <path d="M 88 44 L 90 47.5 L 94 48 L 91 51 L 92 55 L 88 52.5 L 84 55 L 85 51 L 82 48 L 86 47.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+  <path d="M 104 38 L 106 41.5 L 110 42 L 107 45 L 108 49 L 104 46.5 L 100 49 L 101 45 L 98 42 L 102 41.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+  <path d="M 120 34 L 122.5 38 L 127 38.5 L 123.5 42 L 124.5 46.5 L 120 44 L 115.5 46.5 L 116.5 42 L 113 38.5 L 117.5 38 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+  <path d="M 136 38 L 138 41.5 L 142 42 L 139 45 L 140 49 L 136 46.5 L 132 49 L 133 45 L 130 42 L 134 41.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+  <path d="M 152 44 L 154 47.5 L 158 48 L 155 51 L 156 55 L 152 52.5 L 148 55 L 149 51 L 146 48 L 150 47.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+
+  <!-- 4. LEVEL PROGRESS CALIBRATION POD (Node 1, 2, 3, 4 & 5 Active) -->
+  <rect x="74" y="136" width="92" height="16" rx="6" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.5"/>
+  <circle cx="86" cy="144" r="3.5" fill="#9333EA" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="100" cy="144" r="3.5" fill="#9333EA" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="114" cy="144" r="3.5" fill="#9333EA" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="126" cy="144" r="3.5" fill="#9333EA" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="138" cy="144" r="3.5" fill="#9333EA" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="152" cy="144" r="3.0" fill="#E2E8F0" stroke="#0F172A" stroke-width="0.8"/>
+</svg>

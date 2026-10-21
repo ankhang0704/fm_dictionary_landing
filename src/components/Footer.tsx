@@ -5,12 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, ShieldCheck, Heart } from "lucide-react";
+import { AppleIcon } from "@/components/AppleIcon";
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-black relative z-10 pt-16 pb-12">
+    <footer className="bg-canvas-deep border-t border-hairline relative z-10 pt-16 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12">
           {/* Brand Info */}
@@ -44,7 +45,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 pt-1">
               <a
                 href="mailto:ankhang.nguyen0704@gmail.com"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-1 border border-hairline text-ink-muted hover:text-ink hover:border-neutral-600 transition-colors text-xs"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-1 border border-hairline text-ink-muted hover:text-ink hover:border-ink-muted/50 transition-colors text-xs"
                 aria-label="Email Support"
               >
                 <Mail size={13} />
@@ -66,8 +67,9 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:text-ink transition-colors flex items-center gap-1.5 text-accent-blue font-medium"
                 >
+                  <AppleIcon className="w-3.5 h-3.5 fill-current shrink-0" />
                   <span>{t("Apple App Store (iOS)", "Apple App Store (iOS)")}</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-accent-blue/15 text-accent-blue">Live</span>
+                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-accent-blue/15 text-accent-blue font-medium">Live</span>
                 </a>
               </li>
               <li>
@@ -80,7 +82,7 @@ export const Footer: React.FC = () => {
                   {t("Bản Cài Đặt Android APK (Trực tiếp)", "Direct Android APK Build")}
                 </a>
               </li>
-              <li className="text-[11px] text-neutral-500">
+              <li className="text-[11px] text-ink-muted/80">
                 {t("* Sắp có trên Google Play Console", "* Google Play release coming soon")}
               </li>
               <li className="pt-2">
@@ -112,7 +114,7 @@ export const Footer: React.FC = () => {
                   {t("Liên Hệ & Góp Ý Thuật Ngữ", "Contact & Terminology Feedback")}
                 </Link>
               </li>
-              <li className="pt-1 text-[12px] text-neutral-400">
+              <li className="pt-1 text-[12px] text-ink-muted">
                 <span>{t("Chủ sở hữu: Chị Thúy Tạ", "Project Owner: Thuy Ta")}</span>
                 <br />
                 <span>{t("Phát triển kỹ thuật: Nguyễn An Khang", "Developer: Nguyen An Khang")}</span>

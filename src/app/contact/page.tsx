@@ -15,6 +15,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { SpotlightCard } from "@/components/SpotlightCard";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -100,7 +101,7 @@ export default function ContactPage() {
                       setSubmitted(false);
                       setFormData({ name: "", email: "", category: "lexicon", message: "" });
                     }}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-ink text-black font-semibold text-xs mt-4 hover:bg-neutral-200 transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-ink text-white dark:text-black font-semibold text-xs mt-4 hover:opacity-90 active:scale-95 transition-transform transition-opacity"
                   >
                     <span>{t("Gửi lời nhắn khác", "Send Another Message")}</span>
                   </button>
@@ -124,7 +125,7 @@ export default function ContactPage() {
                             className={`flex items-center gap-2 p-3 rounded-xl border text-left text-xs transition-colors ${
                               isSelected
                                 ? "bg-canvas border-accent-blue text-ink font-medium"
-                                : "bg-canvas/50 border-hairline text-ink-muted hover:border-neutral-700 hover:text-ink"
+                                : "bg-canvas/50 border-hairline text-ink-muted hover:border-neutral-400 dark:hover:border-neutral-700 hover:text-ink"
                             }`}
                           >
                             <Icon
@@ -189,7 +190,7 @@ export default function ContactPage() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors active:scale-95"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-ink text-white dark:text-black font-semibold text-sm hover:opacity-90 active:scale-95 transition-transform transition-opacity"
                   >
                     <Send className="w-4 h-4" />
                     <span>{t("Gửi phản hồi cho ban dự án", "Transmit Message")}</span>
@@ -202,50 +203,54 @@ export default function ContactPage() {
           {/* Right Direct Info Cards: 5 cols */}
           <div className="lg:col-span-5 space-y-4">
             {/* Developer Card */}
-            <SpotlightCard className="p-6 rounded-2xl bg-surface-1 border border-hairline">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue">
-                  <Mail className="w-4 h-4" />
+            <RevealOnScroll delay={100}>
+              <SpotlightCard className="p-6 rounded-2xl bg-surface-1 border border-hairline">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-ink">
+                      {t("Kỹ sư phát triển & Hỗ trợ kỹ thuật", "Technical Developer & Support")}
+                    </h3>
+                    <span className="text-xs text-ink-muted">
+                      Nguyễn An Khang
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-ink">
-                    {t("Kỹ sư phát triển & Hỗ trợ kỹ thuật", "Technical Developer & Support")}
-                  </h3>
-                  <span className="text-xs text-ink-muted">
-                    Nguyễn An Khang
-                  </span>
-                </div>
-              </div>
-              <a
-                href="mailto:ankhang.nguyen0704@gmail.com"
-                className="text-sm text-accent-blue font-medium hover:underline block"
-              >
-                ankhang.nguyen0704@gmail.com
-              </a>
-            </SpotlightCard>
+                <a
+                  href="mailto:ankhang.nguyen0704@gmail.com"
+                  className="text-sm text-accent-blue font-medium hover:underline block"
+                >
+                  ankhang.nguyen0704@gmail.com
+                </a>
+              </SpotlightCard>
+            </RevealOnScroll>
 
             {/* Project Owner Card */}
-            <SpotlightCard className="p-6 rounded-2xl bg-surface-1 border border-hairline">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue">
-                  <UserCheck className="w-4 h-4" />
+            <RevealOnScroll delay={200}>
+              <SpotlightCard className="p-6 rounded-2xl bg-surface-1 border border-hairline">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-canvas border border-hairline flex items-center justify-center text-accent-blue">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-ink">
+                      {t("Chủ sở hữu & Định hướng dự án", "Project Owner & Lead Curator")}
+                    </h3>
+                    <span className="text-xs text-ink-muted">
+                      Chị Thúy Tạ (Thuy Ta)
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-ink">
-                    {t("Chủ sở hữu & Định hướng dự án", "Project Owner & Lead Curator")}
-                  </h3>
-                  <span className="text-xs text-ink-muted">
-                    Chị Thúy Tạ (Thuy Ta)
-                  </span>
-                </div>
-              </div>
-              <p className="text-xs text-ink-muted leading-relaxed">
-                {t(
-                  "Định hướng nội dung thuật ngữ và duy trì dự án hoạt động phi lợi nhuận 100% miễn phí vì cộng đồng kỹ sư FM Việt Nam.",
-                  "Directing technical terminology standards and sustaining the 100% free community project for Vietnamese facility engineers."
-                )}
-              </p>
-            </SpotlightCard>
+                <p className="text-xs text-ink-muted leading-relaxed">
+                  {t(
+                    "Định hướng nội dung thuật ngữ và duy trì dự án hoạt động phi lợi nhuận 100% miễn phí vì cộng đồng kỹ sư FM Việt Nam.",
+                    "Directing technical terminology standards and sustaining the 100% free community project for Vietnamese facility engineers."
+                  )}
+                </p>
+              </SpotlightCard>
+            </RevealOnScroll>
 
             {/* Community Circle Card */}
             <SpotlightCard className="p-6 rounded-2xl bg-surface-1 border border-hairline">

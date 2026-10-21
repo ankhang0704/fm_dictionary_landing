@@ -14,9 +14,11 @@ import {
   ArrowRight,
   ShieldCheck,
   Award,
-  Quote,
+  FileText,
 } from "lucide-react";
 import { SpotlightCard } from "@/components/SpotlightCard";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { AppleIcon } from "@/components/AppleIcon";
 
 export default function FeaturesPage() {
   const { t } = useLanguage();
@@ -40,13 +42,13 @@ export default function FeaturesPage() {
       ),
       icon: Search,
       accent: "#38bdf8",
-      quote: {
+      fieldNote: {
+        tag: t("Ghi chú thực địa O&M", "O&M Field Note"),
+        title: t("Kiểm tra thông số ΔT giải nhiệt Chiller", "Verifying Chiller Condenser ΔT Parameters"),
         text: t(
-          "\"Khi nghiệm thu hệ thống Chiller giải nhiệt nước với đối tác Singapore, tính năng tra cứu song ngữ đã giúp đội ngũ kỹ thuật của tôi tránh được sai sót nghiêm trọng về thông số ΔT.\"",
-          "\"During chiller commissioning with our Singaporean EPC contractor, the bilingual dictionary prevented a critical misinterpretation of cooling delta-T specifications.\""
+          "Khi đối chiếu bảng dữ liệu kỹ thuật AHU/Chiller với bản vẽ thiết kế, việc nắm chuẩn các thuật ngữ như Entering/Leaving Water Temp hay Delta-T (ΔT) giúp kỹ sư xác định chính xác hiệu suất trao đổi nhiệt mà không bị nhầm lẫn ký hiệu viết tắt.",
+          "Cross-referencing chiller submittals against design schematics requires exact clarity on terms like Entering/Leaving Water Temp and Delta-T (ΔT) to verify heat transfer performance without misreading engineering abbreviations."
         ),
-        author: t("Kỹ sư Hoàng Minh", "Hoang Minh, MEP Lead"),
-        role: t("Trưởng ban Kỹ thuật - Tòa tháp Bitexco", "Chief MEP Engineer - Grade A Commercial Asset"),
       },
       capabilities: [
         t("Tra cứu Offline 100% không cần kết nối mạng tại tầng hầm / phòng máy", "100% Offline lookup in basements, generator vaults, and plant rooms"),
@@ -72,13 +74,13 @@ export default function FeaturesPage() {
       ),
       icon: Brain,
       accent: "#0099ff",
-      quote: {
+      fieldNote: {
+        tag: t("Kinh nghiệm ghi nhớ", "Retention Strategy"),
+        title: t("Ghi nhớ có hệ thống các từ viết tắt HVAC & BMS", "Spaced Memorization of HVAC & BMS Acronyms"),
         text: t(
-          "\"Thuật toán SRS nhắc nhở ôn lại đúng lúc từ vựng sắp rơi rụng. Tôi đã ghi nhớ trọn bộ 400 thuật ngữ HVAC chỉ trong 3 tuần ôn tập.\"",
-          "\"The SRS engine nudges you right before a term slips your mind. I mastered 400 HVAC terms in just three weeks of commute practice.\""
+          "Các từ viết tắt chuyên sâu như VAV, CAV, DDC, AHU, FCU rất dễ nhầm lẫn khi mới tiếp cận hồ sơ dự án. Ôn tập 5-10 phút mỗi ngày theo chu kỳ ngắt quãng giúp ghi nhớ sâu định nghĩa và nguyên lý hoạt động vào phản xạ dài hạn.",
+          "Specialized acronyms like VAV, CAV, DDC, AHU, and FCU often blend together when onboarding onto complex building drawings. Spaced 5-10 minute daily reviews help solidify definitions and working principles into long-term reflex."
         ),
-        author: t("Nguyễn Phương Vy", "Phuong Vy Nguyen"),
-        role: t("Quản lý Vận hành - CBRE Vietnam", "Property Operations Manager - CBRE Vietnam"),
       },
       capabilities: [
         t("Flashcard lật thẻ 2 mặt với cơ chế đánh giá 4 cấp độ nhớ", "2-sided tactile flashcards with 4-level cognitive confidence grading"),
@@ -104,13 +106,13 @@ export default function FeaturesPage() {
       ),
       icon: Zap,
       accent: "#34d399",
-      quote: {
+      fieldNote: {
+        tag: t("Xử lý sự cố hiện trường", "Job-Site Troubleshooting"),
+        title: t("Chẩn đoán lỗi mất tín hiệu DDC & kẹt van FSD", "Diagnosing DDC Dropouts & FSD Damper Trips"),
         text: t(
-          "\"Bài tập tình huống phản ánh chính xác các sự cố chúng tôi gặp tại toà nhà. Làm quen thuật ngữ qua ca xử lý giúp kỹ sư cấp dưới của tôi phản ứng nhanh gấp đôi.\"",
-          "\"The scenario quizzes accurately replicate building incidents. Training with context makes our junior technicians respond twice as fast during night shifts.\""
+          "Khi hệ thống báo động van chặn lửa khói (FSD - Fire Smoke Damper) tác động hoặc bộ điều khiển DDC mất liên lạc đường truyền RS485, kỹ sư trực ca cần liên kết ngay mã lỗi với quy trình chuẩn vận hành để xử lý kịp thời.",
+          "When a Fire Smoke Damper (FSD) trips or a DDC field controller drops off the RS485 bus, shift technicians must quickly connect the fault symptom to the standard operating protocol without hesitation."
         ),
-        author: t("Trần Quốc Bảo", "Quoc Bao Tran"),
-        role: t("Giám đốc Kỹ thuật Cụm Tòa Nhà - Savills", "Cluster Technical Director - Savills"),
       },
       capabilities: [
         t("Ngân hàng 600+ câu hỏi tình huống mô phỏng sự cố thực tế", "600+ incident-based quiz scenarios drawn from real MEP operations"),
@@ -136,13 +138,13 @@ export default function FeaturesPage() {
       ),
       icon: Volume2,
       accent: "#f43f5e",
-      quote: {
+      fieldNote: {
+        tag: t("Chuẩn hóa phát âm", "Pronunciation Standard"),
+        title: t("Phát âm chính xác thuật ngữ âm học & tiêu chuẩn", "Accurate Pronunciation of Acoustic & Code Terms"),
         text: t(
-          "\"Nhiều từ viết tắt như LEED, HVAC, Legionella đọc sai sẽ khiến đối tác nghi ngờ năng lực kỹ thuật. Nhờ tính năng phát âm kép, tôi đã làm chủ hoàn toàn các buổi báo cáo hội đồng.\"",
-          "\"Mispronouncing acronyms like Legionella or Psychrometrics can undermine client trust. The dual-audio module gave me complete command during executive board reviews.\""
+          "Nhiều thuật ngữ như Psychrometric, Legionella, Cavitation, ASHRAE thường bị phát âm sai trọng âm. Việc nghe mẫu âm thanh chuẩn UK/US giúp kỹ sư tự tin hơn khi trao đổi kỹ thuật với nhà thầu và tư vấn giám sát.",
+          "Complex terms like Psychrometrics, Legionella, Cavitation, or ASHRAE have tricky syllable stresses. Reference studio audio helps engineers pronounce technical nomenclature accurately when communicating with foreign vendors."
         ),
-        author: t("Ths. Đỗ Hải Đăng", "Hai Dang Do, M.Eng"),
-        role: t("Tư vấn Năng lượng & Công trình xanh LEED AP", "Energy & Green Building Consultant - LEED AP"),
       },
       capabilities: [
         t("Âm thanh phòng thu chuẩn cao, hoạt động mượt mà cả khi offline", "High-fidelity studio audio samples, functioning offline without network dependency"),
@@ -175,7 +177,7 @@ export default function FeaturesPage() {
         </p>
 
         {/* Tab Pills */}
-        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-surface-1 rounded-2xl max-w-2xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-surface-1 rounded-2xl max-w-2xl mx-auto border border-hairline">
           {featureGroups.map((group, index) => {
             const Icon = group.icon;
             const isActive = activeTab === index;
@@ -185,7 +187,7 @@ export default function FeaturesPage() {
                 onClick={() => setActiveTab(index)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-ink text-black"
+                    ? "bg-ink text-white dark:text-black font-semibold"
                     : "text-ink-muted hover:text-ink hover:bg-surface-2"
                 }`}
               >
@@ -204,14 +206,14 @@ export default function FeaturesPage() {
           const Icon = group.icon;
 
           return (
-            <SpotlightCard
-              key={group.id}
-              className="bg-surface-1 rounded-3xl p-8 md:p-12 relative overflow-hidden"
-            >
+            <RevealOnScroll key={group.id}>
+              <SpotlightCard
+                className="bg-surface-1 rounded-3xl p-8 md:p-12 relative overflow-hidden border border-hairline"
+              >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 {/* Left Column: Context & Outcome Framing */}
                 <div className="lg:col-span-7">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-2 text-xs font-medium text-ink-muted mb-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-2 text-xs font-medium text-ink-muted mb-4 border border-hairline">
                     <Icon className="w-3.5 h-3.5" style={{ color: group.accent }} />
                     <span>{group.jobTitle}</span>
                   </div>
@@ -259,8 +261,9 @@ export default function FeaturesPage() {
                       href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-white dark:text-black font-semibold text-sm hover:opacity-90 active:scale-95 transition-transform transition-opacity"
                     >
+                      <AppleIcon className="w-4 h-4 fill-current shrink-0" />
                       <span>{t("Tải trên Apple App Store", "Get on Apple App Store")}</span>
                       <ArrowRight className="w-4 h-4" />
                     </a>
@@ -271,11 +274,11 @@ export default function FeaturesPage() {
                 </div>
 
                 {/* Right Column: Visual Interactive Mockup Card */}
-                <div className="lg:col-span-5" data-ui="feature-mockup">
+                <div className="lg:col-span-5" data-ui="true">
                   {group.previewType === "card" && (
-                    <div className="bg-canvas rounded-2xl p-6 relative">
-                      <div className="flex items-center justify-between mb-4 pb-3">
-                        <span className="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-semibold">
+                    <div className="bg-canvas rounded-2xl p-6 relative border border-hairline">
+                      <div className="flex items-center justify-between mb-4 pb-3 border-b border-hairline">
+                        <span className="px-2.5 py-1 rounded-md bg-blue-500/10 text-accent-blue text-xs font-semibold">
                           HVAC & CHILLER
                         </span>
                         <span className="text-xs text-ink-muted">ID: FM-0418</span>
@@ -294,14 +297,14 @@ export default function FeaturesPage() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="p-2.5 bg-surface-2 rounded-lg">
+                        <div className="p-2.5 bg-surface-2 rounded-lg border border-hairline">
                           <div className="text-ink-muted text-[10px]">UK Audio</div>
                           <div className="text-ink font-semibold flex items-center gap-1.5 mt-0.5">
                             <Volume2 className="w-3.5 h-3.5 text-accent-blue" />
                             <span>/ˈvɛə.ri.ə.bᵊl/</span>
                           </div>
                         </div>
-                        <div className="p-2.5 bg-surface-2 rounded-lg">
+                        <div className="p-2.5 bg-surface-2 rounded-lg border border-hairline">
                           <div className="text-ink-muted text-[10px]">US Audio</div>
                           <div className="text-ink font-semibold flex items-center gap-1.5 mt-0.5">
                             <Volume2 className="w-3.5 h-3.5 text-accent-blue" />
@@ -310,9 +313,9 @@ export default function FeaturesPage() {
                         </div>
                       </div>
 
-                      <div className="mt-4 pt-3 flex items-center justify-between text-[11px] text-ink-muted">
+                      <div className="mt-4 p-3 flex items-center justify-between text-[11px] text-ink-muted bg-surface-2 rounded-xl">
                         <span>ASHRAE 90.1 Standard</span>
-                        <span className="text-emerald-400 flex items-center gap-1">
+                        <span className="text-semantic-success flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" /> Offline Ready
                         </span>
                       </div>
@@ -320,17 +323,17 @@ export default function FeaturesPage() {
                   )}
 
                   {group.previewType === "srs" && (
-                    <div className="bg-canvas rounded-2xl p-6 relative">
+                    <div className="bg-canvas rounded-2xl p-6 relative border border-hairline">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs text-accent-blue">
+                        <span className="text-xs text-accent-blue font-medium">
                           Memory Interval • Step 3/5
                         </span>
-                        <span className="px-2 py-0.5 rounded bg-accent-blue/10 text-accent-blue text-xs">
+                        <span className="px-2 py-0.5 rounded bg-accent-blue/10 text-accent-blue text-xs font-semibold">
                           92% Retention
                         </span>
                       </div>
 
-                      <div className="p-5 rounded-xl bg-surface-1 text-center mb-5">
+                      <div className="p-5 rounded-xl bg-surface-1 text-center mb-5 border border-hairline">
                         <div className="text-xs text-ink-muted mb-1">
                           {t("Thuật ngữ mục tiêu", "Target Flashcard")}
                         </div>
@@ -347,19 +350,19 @@ export default function FeaturesPage() {
                         {t("Chọn mức độ phản hồi của bạn:", "Select Recall Grade:")}
                       </div>
                       <div className="grid grid-cols-4 gap-1.5">
-                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-rose-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 border border-hairline text-[11px] text-rose-500 font-semibold">
                           {t("Quên", "Again")}
                           <div className="text-[9px] text-ink-muted font-normal">1 min</div>
                         </div>
-                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-amber-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 border border-hairline text-[11px] text-amber-500 font-semibold">
                           {t("Khó", "Hard")}
                           <div className="text-[9px] text-ink-muted font-normal">1 day</div>
                         </div>
-                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-blue-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 border border-hairline text-[11px] text-blue-500 font-semibold">
                           {t("Tốt", "Good")}
                           <div className="text-[9px] text-ink-muted font-normal">3 days</div>
                         </div>
-                        <div className="py-2 text-center rounded bg-surface-2 text-[11px] text-emerald-400 font-semibold">
+                        <div className="py-2 text-center rounded bg-surface-2 border border-hairline text-[11px] text-emerald-500 font-semibold">
                           {t("Dễ", "Easy")}
                           <div className="text-[9px] text-ink-muted font-normal">7 days</div>
                         </div>
@@ -368,8 +371,8 @@ export default function FeaturesPage() {
                   )}
 
                   {group.previewType === "quiz" && (
-                    <div className="bg-canvas rounded-2xl p-6 relative">
-                      <div className="flex items-center justify-between mb-4 text-xs text-emerald-400">
+                    <div className="bg-canvas rounded-2xl p-6 relative border border-hairline">
+                      <div className="flex items-center justify-between mb-4 text-xs text-semantic-success font-medium">
                         <span>OPERATIONAL SCENARIO</span>
                         <span>0:14 / 0:30s</span>
                       </div>
@@ -382,35 +385,35 @@ export default function FeaturesPage() {
                       </p>
 
                       <div className="space-y-2 mb-4">
-                        <div className="p-3 rounded-lg bg-surface-2 text-xs text-ink-muted flex items-center justify-between">
+                        <div className="p-3 rounded-lg bg-surface-2 border border-hairline text-xs text-ink-muted flex items-center justify-between">
                           <span>A. Thermal Stratification</span>
                         </div>
-                        <div className="p-3 rounded-lg bg-emerald-500/10 text-xs text-emerald-300 font-semibold flex items-center justify-between">
+                        <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-600 dark:text-emerald-300 font-semibold flex items-center justify-between">
                           <span>B. Pump Cavitation (Hiện tượng xâm thực)</span>
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                          <CheckCircle2 className="w-4 h-4 text-semantic-success" />
                         </div>
-                        <div className="p-3 rounded-lg bg-surface-2 text-xs text-ink-muted flex items-center justify-between">
+                        <div className="p-3 rounded-lg bg-surface-2 border border-hairline text-xs text-ink-muted flex items-center justify-between">
                           <span>C. Water Hammer Effect</span>
                         </div>
                       </div>
 
-                      <div className="p-3 rounded-lg bg-surface-2 text-[11px] text-ink-muted flex items-start gap-2">
+                      <div className="p-3 rounded-lg bg-surface-2 border border-hairline text-[11px] text-ink-muted flex items-start gap-2">
                         <CheckCircle2 className="w-4 h-4 text-accent-blue shrink-0 mt-0.5" />
                         <div>
-                          <strong>{t("Giải thích:", "Root Cause:")}</strong> {t("Cavitation xảy ra khi áp suất tĩnh của chất lỏng tụt xuống dưới áp suất bốc hơi.", "Cavitation occurs when fluid static pressure drops below vapor pressure, generating damaging micro-jets.")}
+                          <strong className="text-ink">{t("Giải thích:", "Root Cause:")}</strong> {t("Cavitation xảy ra khi áp suất tĩnh của chất lỏng tụt xuống dưới áp suất bốc hơi.", "Cavitation occurs when fluid static pressure drops below vapor pressure, generating damaging micro-jets.")}
                         </div>
                       </div>
                     </div>
                   )}
 
                   {group.previewType === "audio" && (
-                    <div className="bg-canvas rounded-2xl p-6 relative">
+                    <div className="bg-canvas rounded-2xl p-6 relative border border-hairline">
                       <div className="text-center py-6">
-                        <div className="w-16 h-16 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center mx-auto mb-4">
+                        <div className="w-16 h-16 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center mx-auto mb-4 border border-rose-500/20">
                           <Volume2 className="w-8 h-8" />
                         </div>
                         <div className="text-2xl font-bold text-ink mb-1">Psychrometrics</div>
-                        <div className="text-xs text-rose-400 mb-4">
+                        <div className="text-xs text-rose-500 mb-4 tracking-wide">
                           /ˌsaɪ.krəˈmet.rɪks/
                         </div>
 
@@ -419,18 +422,18 @@ export default function FeaturesPage() {
                           {[40, 75, 95, 60, 30, 85, 100, 70, 45, 90, 60, 35].map((h, idx) => (
                             <span
                               key={idx}
-                              className="w-1 bg-rose-400/80 rounded-full"
+                              className="w-1 bg-rose-500/70 rounded-full"
                               style={{ height: `${h}%` }}
                             />
                           ))}
                         </div>
 
                         <div className="grid grid-cols-2 gap-3 text-left">
-                          <div className="p-3 rounded-xl bg-surface-2">
+                          <div className="p-3 rounded-xl bg-surface-2 border border-hairline">
                             <span className="text-[10px] text-ink-muted">UK BBC Standard</span>
                             <p className="text-xs text-ink font-semibold mt-1">/ˌsaɪ.krəˈmet.rɪks/</p>
                           </div>
-                          <div className="p-3 rounded-xl bg-surface-2">
+                          <div className="p-3 rounded-xl bg-surface-2 border border-hairline">
                             <span className="text-[10px] text-ink-muted">US General Standard</span>
                             <p className="text-xs text-ink font-semibold mt-1">/ˌsaɪ.kroʊˈmet.rɪks/</p>
                           </div>
@@ -439,30 +442,28 @@ export default function FeaturesPage() {
                     </div>
                   )}
 
-                  {/* Feature Quote Callout */}
-                  <div className="mt-4 p-4 rounded-2xl bg-surface-1">
-                    <Quote className="w-4 h-4 text-ink-muted mb-2" />
-                    <p className="text-xs text-ink-muted italic mb-3 leading-relaxed">
-                      {group.quote.text}
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-surface-2 flex items-center justify-center text-[10px] font-bold text-ink">
-                        {group.quote.author.charAt(0)}
+                  {/* Field Engineering Note Box */}
+                  <div className="mt-4 p-4 rounded-2xl bg-surface-1 border border-hairline">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-5 h-5 rounded-lg bg-surface-2 border border-hairline flex items-center justify-center text-accent-blue">
+                        <FileText className="w-3 h-3" />
                       </div>
-                      <div>
-                        <div className="text-xs font-semibold text-ink leading-none">
-                          {group.quote.author}
-                        </div>
-                        <div className="text-[10px] text-ink-muted leading-tight mt-0.5">
-                          {group.quote.role}
-                        </div>
-                      </div>
+                      <span className="text-[11px] font-semibold tracking-wider uppercase text-accent-blue">
+                        {group.fieldNote.tag}
+                      </span>
                     </div>
+                    <div className="text-xs font-semibold text-ink mb-1.5">
+                      {group.fieldNote.title}
+                    </div>
+                    <p className="text-xs text-ink-muted leading-relaxed">
+                      {group.fieldNote.text}
+                    </p>
                   </div>
                 </div>
               </div>
             </SpotlightCard>
-          );
+          </RevealOnScroll>
+        );
         })}
       </section>
 
@@ -517,9 +518,9 @@ export default function FeaturesPage() {
             return (
               <SpotlightCard
                 key={idx}
-                className="p-6 rounded-2xl bg-surface-1 hover:bg-surface-2 transition-colors"
+                className="p-6 rounded-2xl bg-surface-1 hover:bg-surface-2 transition-colors border border-hairline"
               >
-                <div className="w-10 h-10 rounded-xl bg-surface-2 flex items-center justify-center text-accent-blue mb-4">
+                <div className="w-10 h-10 rounded-xl bg-surface-2 border border-hairline flex items-center justify-center text-accent-blue mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-semibold text-ink mb-2">{item.title}</h3>
@@ -532,7 +533,7 @@ export default function FeaturesPage() {
 
       {/* Bottom Conversion CTA */}
       <section className="px-6 max-w-4xl mx-auto text-center">
-        <SpotlightCard className="bg-surface-1 rounded-3xl p-10 md:p-14 relative overflow-hidden">
+        <SpotlightCard className="bg-surface-1 rounded-3xl p-10 md:p-14 relative overflow-hidden border border-hairline">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-4">
               {t(
@@ -551,21 +552,22 @@ export default function FeaturesPage() {
                 href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-ink text-black font-semibold text-sm hover:bg-neutral-200 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-ink text-white dark:text-black font-semibold text-sm hover:opacity-90 active:scale-95 transition-transform transition-opacity"
               >
-                {t("Tải trên Apple App Store", "Get on Apple App Store")}
+                <AppleIcon className="w-4 h-4 fill-current shrink-0" />
+                <span>{t("Tải trên Apple App Store", "Get on Apple App Store")}</span>
               </a>
               <a
                 href="https://github.com/ankhang0704/fm_dictionary_app/releases"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-surface-2 text-ink font-semibold text-sm hover:bg-surface-1 transition-colors"
+                className="px-8 py-3.5 rounded-full bg-surface-2 border border-hairline text-ink font-semibold text-sm hover:bg-surface-1 transition-colors"
               >
                 {t("Tải Bản Android APK", "Get Android APK")}
               </a>
               <Link
                 href="/about"
-                className="px-6 py-3.5 rounded-full bg-canvas text-ink-muted hover:text-ink font-medium text-sm transition-colors"
+                className="px-6 py-3.5 rounded-full bg-canvas border border-hairline text-ink-muted hover:text-ink font-medium text-sm transition-colors"
               >
                 {t("Tìm hiểu về dự án", "Read About Project")}
               </Link>

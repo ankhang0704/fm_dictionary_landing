@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { ShieldCheck, Lock, Database, Mic, Cookie, Mail, Clock, FileText } from "lucide-react";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 export default function PrivacyPage() {
   const { t } = useLanguage();
@@ -31,29 +32,31 @@ export default function PrivacyPage() {
         </div>
 
         {/* 30-Second Plain Language Summary Box */}
-        <div className="p-6 md:p-8 rounded-3xl bg-surface-1 border border-hairline mb-12">
-          <div className="flex items-center gap-2 text-xs text-accent-blue mb-2 font-medium">
-            <Lock className="w-4 h-4" />
-            <span>{t("Tóm tắt trong 30 giây (Ngôn ngữ giản dị)", "30-Second Plain Language Summary")}</span>
+        <RevealOnScroll>
+          <div className="p-6 md:p-8 rounded-3xl bg-surface-1 border border-hairline mb-12">
+            <div className="flex items-center gap-2 text-xs text-accent-blue mb-2 font-medium">
+              <Lock className="w-4 h-4" />
+              <span>{t("Tóm tắt trong 30 giây (Ngôn ngữ giản dị)", "30-Second Plain Language Summary")}</span>
+            </div>
+            <h2 className="text-lg font-semibold text-ink mb-3">
+              {t(
+                "Chúng tôi không theo dõi bạn, không bán dữ liệu của bạn, và tôn trọng quyền sở hữu cá nhân.",
+                "We do not track you, do not sell your data, and preserve 100% of your data ownership."
+              )}
+            </h2>
+            <ul className="space-y-2 text-xs md:text-sm text-ink-muted leading-relaxed list-disc list-inside">
+              <li>
+                <strong>Local-First:</strong> {t("Tiến độ học tập, lịch sử tra cứu và từ vựng yêu thích được lưu cục bộ trên máy bạn thông qua Hive DB.", "Your study progress, search queries, and bookmarked terms reside solely on your device via Hive DB.")}
+              </li>
+              <li>
+                <strong>Âm thanh & Ghi âm:</strong> {t("Khi luyện phát âm, micro chỉ xử lý tạm thời tại thiết bị hoặc phân tích ngắn hạn; không bao giờ lưu trữ file giọng nói của bạn.", "Microphone input for pronunciation practice is processed ephemerally on-device and is never retained or used for third-party AI training.")}
+              </li>
+              <li>
+                <strong>Không bên thứ ba:</strong> {t("Không nhúng Facebook Pixel, Google Analytics hay bất kỳ mã quảng cáo nào.", "Zero marketing SDKs, zero user telemetry selling, and zero third-party profiling.")}
+              </li>
+            </ul>
           </div>
-          <h2 className="text-lg font-semibold text-ink mb-3">
-            {t(
-              "Chúng tôi không theo dõi bạn, không bán dữ liệu của bạn, và tôn trọng quyền sở hữu cá nhân.",
-              "We do not track you, do not sell your data, and preserve 100% of your data ownership."
-            )}
-          </h2>
-          <ul className="space-y-2 text-xs md:text-sm text-ink-muted leading-relaxed list-disc list-inside">
-            <li>
-              <strong>Local-First:</strong> {t("Tiến độ học tập, lịch sử tra cứu và từ vựng yêu thích được lưu cục bộ trên máy bạn thông qua Hive DB.", "Your study progress, search queries, and bookmarked terms reside solely on your device via Hive DB.")}
-            </li>
-            <li>
-              <strong>Âm thanh & Ghi âm:</strong> {t("Khi luyện phát âm, micro chỉ xử lý tạm thời tại thiết bị hoặc phân tích ngắn hạn; không bao giờ lưu trữ file giọng nói của bạn.", "Microphone input for pronunciation practice is processed ephemerally on-device and is never retained or used for third-party AI training.")}
-            </li>
-            <li>
-              <strong>Không bên thứ ba:</strong> {t("Không nhúng Facebook Pixel, Google Analytics hay bất kỳ mã quảng cáo nào.", "Zero marketing SDKs, zero user telemetry selling, and zero third-party profiling.")}
-            </li>
-          </ul>
-        </div>
+        </RevealOnScroll>
 
         {/* Detailed Sections */}
         <div className="space-y-10 text-sm md:text-base text-ink-muted leading-relaxed">
@@ -139,16 +142,16 @@ export default function PrivacyPage() {
             </h4>
             <div className="space-y-3 text-xs text-ink-muted">
               <div className="flex items-start justify-between pb-1">
-                <span className="text-ink font-semibold">v2.1 • 21/10/2026</span>
-                <span>{t("Bổ sung quy định minh bạch về bảo mật âm thanh phát âm và cam kết 0-tracker.", "Added explicit audio privacy disclosure and zero-tracker guarantee.")}</span>
+                <span className="text-ink font-semibold">v2.0 • 21/10/2026</span>
+                <span>{t("Chuẩn bị đợt cập nhật lớn: Bổ sung quy định minh bạch về bảo mật âm thanh phát âm và cam kết 0-tracker.", "Major update preparation: Added explicit audio privacy disclosure and zero-tracker guarantee.")}</span>
               </div>
               <div className="flex items-start justify-between pb-1">
-                <span className="text-ink font-semibold">v2.0 • 15/01/2025</span>
-                <span>{t("Chuyển dịch sang kiến trúc bảo mật ưu tiên cục bộ (Local-First Hive DB).", "Transitioned to Local-First Hive database security standard.")}</span>
+                <span className="text-ink font-semibold">v1.1 • 15/07/2026</span>
+                <span>{t("Tối ưu hóa lưu trữ cục bộ Offline-First với Hive DB và cơ chế xóa dữ liệu trực tiếp.", "Refined Local-First Hive DB data handling and instant on-device wipe mechanism.")}</span>
               </div>
               <div className="flex items-start justify-between">
-                <span className="text-ink font-semibold">v1.0 • 01/08/2024</span>
-                <span>{t("Công bố chính sách bảo mật ban đầu của dự án cộng đồng.", "Initial privacy policy release.")}</span>
+                <span className="text-ink font-semibold">v1.0 • 15/06/2026</span>
+                <span>{t("Công bố chính sách bảo mật ban đầu khi phát hành chính thức trên Apple App Store.", "Initial privacy policy release alongside official Apple App Store launch.")}</span>
               </div>
             </div>
           </section>
@@ -168,7 +171,7 @@ export default function PrivacyPage() {
             </div>
             <Link
               href="mailto:ankhang.nguyen0704@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-ink text-black font-semibold text-xs shrink-0 hover:bg-neutral-200 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-ink text-white dark:text-black font-semibold text-xs shrink-0 hover:opacity-90 active:scale-95 transition-transform transition-opacity"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>ankhang.nguyen0704@gmail.com</span>

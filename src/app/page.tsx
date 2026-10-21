@@ -14,6 +14,9 @@ import { InteractiveTermExplorer } from "@/components/InteractiveTermExplorer";
 import { DecryptedText } from "@/components/DecryptedText";
 import { SpotlightCard } from "@/components/SpotlightCard";
 import { MagneticButton } from "@/components/MagneticButton";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { AppleIcon } from "@/components/AppleIcon";
 
 // Dynamic import for Three.js 3D Canvas (SSR safe)
 const ThreeHeroCanvas = dynamic(
@@ -22,8 +25,8 @@ const ThreeHeroCanvas = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[450px] flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border border-accent-blue/40 border-t-accent-blue" />
+      <div className="w-full h-[440px] sm:h-[490px] lg:h-[530px] flex items-center justify-center relative">
+        <div className="w-24 h-24 rounded-full border border-hairline border-t-accent-blue animate-spin opacity-40" />
       </div>
     ),
   }
@@ -151,7 +154,7 @@ export default function Home() {
               </h1>
 
               {/* Subheadline (Humble, Practical, Grounded) */}
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-[65ch] mb-6 animate-enter animate-enter-delay-1">
+              <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-[65ch] mb-6 animate-enter animate-enter-delay-1">
                 {t(
                   "Sổ tay từ điển chuyên sâu & công cụ luyện phản xạ thuật ngữ dành cho kỹ sư MEP, quản lý tòa nhà và chuyên viên vận hành cơ sở hạ tầng thông minh.",
                   "A focused technical dictionary & spaced repetition study tool purpose-built for MEP engineers, facility managers, and smart building operators."
@@ -160,21 +163,15 @@ export default function Home() {
 
               {/* CTAs: App Store (iOS) & Android APK */}
               <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto animate-enter animate-enter-delay-2">
-                {/* iOS App Store (Primary Framer White Pill with Magnetic Hover) */}
+                {/* iOS App Store (Primary High-Contrast Pill with Magnetic Hover) */}
                 <MagneticButton strength={0.2}>
                   <a
                     href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2.5 bg-ink text-black font-semibold text-base px-8 py-3.5 rounded-full hover:bg-neutral-200 transition-colors active:scale-95"
+                    className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2.5 bg-ink text-white dark:text-black font-semibold text-base px-8 py-3.5 rounded-full hover:opacity-90 active:scale-95 transition-transform transition-opacity"
                   >
-                    <svg
-                      className="w-4 h-4 fill-current shrink-0"
-                      viewBox="0 0 170 170"
-                      aria-hidden="true"
-                    >
-                      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.6-7.85-11.75-14.42-6.52-10.22-11.45-21.75-14.78-34.58-3.33-12.83-5-24.81-5-35.94 0-14.78 3.73-27.13 11.2-37.06 7.46-9.93 16.92-14.98 28.38-15.15 4.89 0 10.26 1.34 16.12 4.02 5.86 2.68 9.53 4.02 11.01 4.02 1.25 0 5.16-1.45 11.75-4.35 6.59-2.9 12.27-4.14 17.06-3.73 12.59.88 22.84 5.92 30.76 15.12-10.96 6.69-16.32 15.86-16.08 27.52.24 9.17 3.78 16.97 10.63 23.41 6.85 6.44 14.88 10.25 24.08 11.42-2.13 6.69-4.87 13.52-8.23 20.49zM119.22 31.85c0-7.36 2.65-14.28 7.95-20.76 5.3-6.48 11.93-10.42 19.89-11.83.33 1.25.49 2.45.49 3.6 0 7.36-2.73 14.39-8.19 21.09-5.46 6.7-12.07 10.67-19.83 11.9-.06-1.33-.31-2.67-.31-4z" />
-                    </svg>
+                    <AppleIcon className="w-4 h-4 fill-current shrink-0" />
                     <span>{t("Tải trên App Store", "Get on App Store")}</span>
                   </a>
                 </MagneticButton>
@@ -203,14 +200,14 @@ export default function Home() {
               </div>
 
               {/* Verified Trust Statement */}
-              <div className="mt-8 pt-6 text-[14px] text-neutral-300 animate-enter animate-enter-delay-3 space-y-1">
+              <div className="mt-8 pt-6 text-[14px] text-ink-muted animate-enter animate-enter-delay-3 space-y-1">
                 <p>
                   {t(
                     "Dự án cộng đồng 100% miễn phí • Hoạt động ngoại tuyến • Chuẩn hóa CEFR A1 - C2",
                     "100% Free Community Tool • Offline-Ready • CEFR A1 to C2 Aligned"
                   )}
                 </p>
-                <p className="text-[12px] text-neutral-400">
+                <p className="text-[12px] text-ink-muted/80">
                   {t(
                     "* Android: Bản APK cài trực tiếp (Sắp có trên Google Play Console)",
                     "* Android: Direct APK build (Google Play release coming soon)"
@@ -233,10 +230,10 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((s, idx) => (
               <div key={idx} className="flex flex-col items-center animate-enter">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-ink mb-1">
-                  {s.value}
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-ink mb-1 tabular-nums">
+                  <AnimatedCounter value={s.value} />
                 </span>
-                <span className="text-[14px] text-neutral-300 max-w-[200px]">
+                <span className="text-[14px] text-ink-muted max-w-[200px]">
                   {s.label}
                 </span>
               </div>
@@ -253,11 +250,13 @@ export default function Home() {
       </section>
 
       {/* 4. INTERACTIVE LIVE ELEMENT: FM TERM EXPLORER (SpotlightCard) */}
-      <section className="py-16 sm:py-24 bg-black" id="explorer">
+      <section className="py-16 sm:py-24 bg-canvas-deep" id="explorer">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <SpotlightCard className="rounded-3xl">
-            <InteractiveTermExplorer />
-          </SpotlightCard>
+          <RevealOnScroll>
+            <SpotlightCard className="rounded-3xl border border-hairline">
+              <InteractiveTermExplorer />
+            </SpotlightCard>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -267,93 +266,54 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Big Editorial Statement + Cover Image */}
             <div className="lg:col-span-5">
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6">
-                {t(
-                  "Bốn Trụ Cột Kỹ Thuật Cho Kỹ Sư Vận Hành.",
-                  "Four Engineering Pillars For Practitioners."
-                )}
-              </h2>
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-[65ch] mb-8">
-                {t(
-                  "Được đúc kết từ kinh nghiệm thực chiến tại các trạm Chiller, phòng biến áp và trung tâm điều khiển BMS của các tòa nhà thương mại hạng A.",
-                  "Distilled from active operational experience across Chiller plants, transformer vaults, and BMS control centres in commercial assets."
-                )}
-              </p>
+              <RevealOnScroll>
+                <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6">
+                  {t(
+                    "Bốn Trụ Cột Kỹ Thuật Cho Kỹ Sư Vận Hành.",
+                    "Four Engineering Pillars For Practitioners."
+                  )}
+                </h2>
+                <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-[65ch] mb-8">
+                  {t(
+                    "Được đúc kết từ kinh nghiệm thực chiến tại các trạm Chiller, phòng biến áp và trung tâm điều khiển BMS của các tòa nhà thương mại hạng A.",
+                    "Distilled from active operational experience across Chiller plants, transformer vaults, and BMS control centres in commercial assets."
+                  )}
+                </p>
 
-              {/* Real Project Editorial Cover */}
-              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-surface-1">
-                <Image
-                  src="/images/fm-dictionary-editorial-cover.webp"
-                  alt="FM Dictionary Platform Engineering"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
-                />
-              </div>
+                {/* Real Project Editorial Cover */}
+                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-surface-1 border border-hairline">
+                  <Image
+                    src="/images/fm-dictionary-editorial-cover.webp"
+                    alt="FM Dictionary Platform Engineering"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </RevealOnScroll>
             </div>
 
             {/* Right Column: Editorial Architectural List with subtle Spotlight effect */}
             <div className="lg:col-span-7 space-y-6">
               {pillars.map((pillar, idx) => (
-                <SpotlightCard
-                  key={idx}
-                  className="p-6 rounded-2xl bg-surface-1/60 hover:bg-surface-1 transition-colors animate-enter"
-                >
-                  <div className="flex items-baseline justify-between gap-4 mb-2">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-ink tracking-tight">
-                      {pillar.title}
-                    </h3>
-                    <span className="text-[13px] font-medium text-accent-blue px-3 py-1 rounded-full bg-surface-2">
-                      {pillar.standard}
-                    </span>
-                  </div>
-                  <p className="text-base text-neutral-300 leading-relaxed max-w-[65ch]">
-                    {pillar.desc}
-                  </p>
-                </SpotlightCard>
+                <RevealOnScroll key={idx} delay={idx * 100}>
+                  <SpotlightCard
+                    className="p-6 rounded-2xl bg-surface-1/60 hover:bg-surface-1 transition-colors border border-hairline"
+                  >
+                    <div className="flex items-baseline justify-between gap-4 mb-2">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-ink tracking-tight">
+                        {pillar.title}
+                      </h3>
+                      <span className="text-[13px] font-medium text-accent-blue px-3 py-1 rounded-full bg-surface-2 border border-hairline">
+                        {pillar.standard}
+                      </span>
+                    </div>
+                    <p className="text-base text-ink-muted leading-relaxed max-w-[65ch]">
+                      {pillar.desc}
+                    </p>
+                  </SpotlightCard>
+                </RevealOnScroll>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5b. REAL INFRASTRUCTURE SCHEMATIC SHOWCASE */}
-      <section className="py-20 sm:py-28 bg-surface-1">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tighter text-ink mb-6">
-                {t(
-                  "Sơ Đồ Cơ Điện Thực Địa.",
-                  "Field BIM Schematics."
-                )}
-              </h2>
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-[65ch] mb-8">
-                {t(
-                  "Từ trạm bơm giải nhiệt Chiller tới mạng điều khiển DDC tầng hầm. FM Dictionary gắn kết từng thuật ngữ với nguyên lý cơ điện thực tế.",
-                  "From condenser pump loops to sub-basement DDC networks. FM Dictionary maps every specialized term directly to active mechanical workflows."
-                )}
-              </p>
-              <div className="grid grid-cols-2 gap-4 text-[13px] text-neutral-300">
-                <div className="p-4 rounded-xl bg-canvas">
-                  <span className="font-semibold text-ink block mb-1">HVAC & Chiller Plant</span>
-                  <span>ASHRAE Guideline 22</span>
-                </div>
-                <div className="p-4 rounded-xl bg-canvas">
-                  <span className="font-semibold text-ink block mb-1">BMS Automation</span>
-                  <span>ISO 16484 Protocol</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 relative aspect-[16/10] rounded-2xl overflow-hidden bg-black">
-              <Image
-                src="/images/fm-building-systems.webp"
-                alt="Facility Management Mechanical & Electrical Infrastructure"
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover"
-              />
             </div>
           </div>
         </div>
@@ -365,31 +325,33 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Heading, intro, and Help Desk Link */}
             <div className="lg:col-span-5">
-              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6">
-                {t("Những Câu Hỏi Thường Gặp", "Frequently Asked Questions")}
-              </h2>
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-[65ch] mb-8">
-                {t(
-                  "Mọi điều bạn cần biết về dữ liệu từ điển, độ bảo mật và cách tải.",
-                  "Everything you need to know about our terminology engine, privacy, and downloads."
-                )}
-              </p>
-              <Link
-                href="/faq"
-                className="inline-flex items-center gap-2 text-accent-blue font-semibold hover:underline text-[14px]"
-              >
-                <span>{t("Xem Trung Tâm Trợ Giúp Chi Tiết →", "Visit Complete FAQ & Help Center →")}</span>
-              </Link>
+              <RevealOnScroll>
+                <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6">
+                  {t("Những Câu Hỏi Thường Gặp", "Frequently Asked Questions")}
+                </h2>
+                <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-[65ch] mb-8">
+                  {t(
+                    "Mọi điều bạn cần biết về dữ liệu từ điển, độ bảo mật và cách tải.",
+                    "Everything you need to know about our terminology engine, privacy, and downloads."
+                  )}
+                </p>
+                <Link
+                  href="/faq"
+                  className="inline-flex items-center gap-2 text-accent-blue font-semibold hover:underline text-[14px]"
+                >
+                  <span>{t("Xem Trung Tâm Trợ Giúp Chi Tiết →", "Visit Complete FAQ & Help Center →")}</span>
+                </Link>
+              </RevealOnScroll>
             </div>
 
             {/* Right Column: FAQ Accordion items */}
-            <div className="lg:col-span-7 rounded-2xl bg-surface-1 p-6 sm:p-8 space-y-4">
+            <div className="lg:col-span-7 rounded-2xl bg-surface-1 border border-hairline p-6 sm:p-8 space-y-4">
               {faqs.map((faq, idx) => {
                 const isOpen = openFaq === idx;
                 return (
                   <div
                     key={idx}
-                    className="rounded-xl transition-colors p-4 hover:bg-surface-2"
+                    className="rounded-xl transition-colors p-4 hover:bg-surface-2 border border-transparent hover:border-hairline"
                   >
                     <button
                       onClick={() => setOpenFaq(isOpen ? null : idx)}
@@ -398,12 +360,12 @@ export default function Home() {
                       <span className="text-base sm:text-lg font-semibold text-ink leading-snug">
                         {faq.q}
                       </span>
-                      <span className="text-neutral-400 text-lg font-semibold shrink-0 ml-2">
+                      <span className="text-ink-muted text-lg font-semibold shrink-0 ml-2">
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>
                     {isOpen && (
-                      <p className="mt-3 text-base text-neutral-300 leading-relaxed max-w-[65ch]">
+                      <p className="mt-3 text-base text-ink-muted leading-relaxed max-w-[65ch]">
                         {faq.a}
                       </p>
                     )}
@@ -416,70 +378,66 @@ export default function Home() {
       </section>
 
       {/* 7. HIGH-CONVERSION BOTTOM CTA */}
-      <section className="py-24 sm:py-32 bg-black text-center" id="download">
+      <section className="py-24 sm:py-32 bg-canvas-deep text-center" id="download">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <SpotlightCard className="p-10 sm:p-16 rounded-3xl bg-surface-1 animate-enter max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6 max-w-2xl mx-auto">
-              {t(
-                "Tải Ứng Dụng FM Dictionary.",
-                "Get FM Dictionary Today."
-              )}
-            </h2>
-            <p className="text-base sm:text-lg text-neutral-300 max-w-[65ch] mx-auto mb-10 leading-relaxed">
-              {t(
-                "Dự án phi lợi nhuận 100% miễn phí, đồng hành cùng kỹ sư MEP và ban quản lý tòa nhà tự tin đọc hiểu tài liệu kỹ thuật và bản vẽ quốc tế.",
-                "100% free non-profit tool helping building managers and MEP engineers master technical English with zero network dependency."
-              )}
-            </p>
+          <RevealOnScroll>
+            <SpotlightCard className="p-10 sm:p-16 rounded-3xl bg-surface-1 border border-hairline max-w-4xl mx-auto">
+              <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6 max-w-2xl mx-auto">
+                {t(
+                  "Tải Ứng Dụng FM Dictionary.",
+                  "Get FM Dictionary Today."
+                )}
+              </h2>
+              <p className="text-base sm:text-lg text-ink-muted max-w-[65ch] mx-auto mb-10 leading-relaxed">
+                {t(
+                  "Dự án phi lợi nhuận 100% miễn phí, đồng hành cùng kỹ sư MEP và ban quản lý tòa nhà tự tin đọc hiểu tài liệu kỹ thuật và bản vẽ quốc tế.",
+                  "100% free non-profit tool helping building managers and MEP engineers master technical English with zero network dependency."
+                )}
+              </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
-              {/* App Store (iOS) */}
-              <MagneticButton strength={0.2}>
-                <a
-                  href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 bg-ink text-black font-semibold text-base px-8 py-3.5 rounded-full hover:bg-neutral-200 transition-colors active:scale-95"
-                >
-                  <svg
-                    className="w-4 h-4 fill-current shrink-0"
-                    viewBox="0 0 170 170"
-                    aria-hidden="true"
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
+                {/* App Store (iOS) */}
+                <MagneticButton strength={0.2}>
+                  <a
+                    href="https://apps.apple.com/vn/app/fm-dictionary/id6774868353?l=vi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 bg-ink text-white dark:text-black font-semibold text-base px-8 py-3.5 rounded-full hover:opacity-90 active:scale-95 transition-transform transition-opacity"
                   >
-                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.6-7.85-11.75-14.42-6.52-10.22-11.45-21.75-14.78-34.58-3.33-12.83-5-24.81-5-35.94 0-14.78 3.73-27.13 11.2-37.06 7.46-9.93 16.92-14.98 28.38-15.15 4.89 0 10.26 1.34 16.12 4.02 5.86 2.68 9.53 4.02 11.01 4.02 1.25 0 5.16-1.45 11.75-4.35 6.59-2.9 12.27-4.14 17.06-3.73 12.59.88 22.84 5.92 30.76 15.12-10.96 6.69-16.32 15.86-16.08 27.52.24 9.17 3.78 16.97 10.63 23.41 6.85 6.44 14.88 10.25 24.08 11.42-2.13 6.69-4.87 13.52-8.23 20.49zM119.22 31.85c0-7.36 2.65-14.28 7.95-20.76 5.3-6.48 11.93-10.42 19.89-11.83.33 1.25.49 2.45.49 3.6 0 7.36-2.73 14.39-8.19 21.09-5.46 6.7-12.07 10.67-19.83 11.9-.06-1.33-.31-2.67-.31-4z" />
-                  </svg>
-                  <span>{t("Tải trên Apple App Store", "Download on App Store")}</span>
-                </a>
-              </MagneticButton>
+                    <AppleIcon className="w-4 h-4 fill-current shrink-0" />
+                    <span>{t("Tải trên Apple App Store", "Download on App Store")}</span>
+                  </a>
+                </MagneticButton>
 
-              {/* Android APK */}
-              <MagneticButton strength={0.16}>
-                <a
-                  href="https://github.com/ankhang0704/fm_dictionary_app/releases"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-surface-2 text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
+                {/* Android APK */}
+                <MagneticButton strength={0.16}>
+                  <a
+                    href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-surface-2 text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
+                  >
+                    <Download size={18} />
+                    <span>{t("Tải Bản Android APK", "Download Android APK")}</span>
+                  </a>
+                </MagneticButton>
+
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 bg-surface-2 text-ink-muted hover:text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
                 >
-                  <Download size={18} />
-                  <span>{t("Tải Bản Android APK", "Download Android APK")}</span>
-                </a>
-              </MagneticButton>
+                  <span>{t("Đọc Câu Chuyện Dự Án", "Read Project Story")}</span>
+                </Link>
+              </div>
 
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 bg-surface-2 text-ink-muted hover:text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
-              >
-                <span>{t("Đọc Câu Chuyện Dự Án", "Read Project Story")}</span>
-              </Link>
-            </div>
-
-            <p className="text-[12px] text-neutral-400">
-              {t(
-                "Bản Android APK cài trực tiếp • Bản phát hành Google Play đang được hoàn thiện",
-                "Direct Android APK release • Google Play Store version in preparation"
-              )}
-            </p>
-          </SpotlightCard>
+              <p className="text-[12px] text-ink-muted">
+                {t(
+                  "Bản Android APK cài trực tiếp • Bản phát hành Google Play đang được hoàn thiện",
+                  "Direct Android APK release • Google Play Store version in preparation"
+                )}
+              </p>
+            </SpotlightCard>
+          </RevealOnScroll>
         </div>
       </section>
     </div>

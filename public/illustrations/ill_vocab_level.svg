@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Engineering Vocabulary Level & Mastery Crest (ill_vocab_level.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px contour, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 1. BLUEPRINT BACKGROUND CARD               -->
+  <!-- ========================================== -->
+  <!-- Card Hard Flat Shadow -->
+  <rect x="46" y="22" width="154" height="142" rx="16" fill="#E2E8F0"/>
+  <!-- Primary Drafting Plate -->
+  <rect x="42" y="18" width="154" height="142" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.0"/>
+
+  <!-- Blueprint Coordinate Grid Lines -->
+  <line x1="56" y1="42" x2="182" y2="42" stroke="#0F172A" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+  <line x1="56" y1="136" x2="182" y2="136" stroke="#0F172A" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+  <line x1="68" y1="30" x2="68" y2="148" stroke="#0F172A" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+  <line x1="170" y1="30" x2="170" y2="148" stroke="#0F172A" stroke-width="0.8" opacity="0.25" stroke-dasharray="4 4"/>
+
+  <!-- ========================================== -->
+  <!-- 2. HANGING CREDENTIAL RIBBONS (primaryBlue) -->
+  <!-- ========================================== -->
+  <path d="M 104 104 L 94 148 L 110 138 L 118 116 Z" fill="#4A90E2" stroke="#0F172A" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M 136 104 L 146 148 L 130 138 L 122 116 Z" fill="#4A90E2" stroke="#0F172A" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- ========================================== -->
+  <!-- 3. CENTRAL 8-POINT ENGINEERING ROSETTE     -->
+  <!-- ========================================== -->
+  <!-- Geometric 8-Star Seal (AppColors.masteryMint) -->
+  <path d="M 120 44 L 132 54 L 148 50 L 152 66 L 166 74 L 162 90 L 170 104 L 156 112 L 150 126 L 134 126 L 120 136 L 106 126 L 90 126 L 84 112 L 70 104 L 78 90 L 74 74 L 88 66 L 92 50 L 108 54 Z" fill="#50E3C2" stroke="#0F172A" stroke-width="2.0" stroke-linejoin="round"/>
+
+  <!-- Inner Recessed Dial -->
+  <circle cx="120" cy="90" r="28" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.8"/>
+
+  <!-- Golden Central Mastery Star (AppColors.streakYellow) -->
+  <path d="M 120 72 L 125 83 L 137 83 L 127 91 L 131 103 L 120 95 L 109 103 L 113 91 L 103 83 L 115 83 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- ========================================== -->
+  <!-- 4. LEVEL TIER METER (CALIBRATION POD)      -->
+  <!-- ========================================== -->
+  <rect x="80" y="136" width="80" height="16" rx="6" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.5"/>
+  <!-- 4 Level Tier Nodes (Newbie, Beginner, Intermediate, Advanced) -->
+  <circle cx="95" cy="144" r="3.5" fill="#50E3C2" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="111" cy="144" r="3.5" fill="#50E3C2" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="128" cy="144" r="3.5" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="145" cy="144" r="3.5" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.0"/>
+
+  <!-- Technical Corner Registration Marks -->
+  <path d="M 50 26 L 56 26 M 50 26 L 50 32" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 188 26 L 182 26 M 188 26 L 188 32" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

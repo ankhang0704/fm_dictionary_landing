@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Spaced Repetition All-Clear (ill_empty_review.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 1. BASE FLOATING PEDESTAL PLATFORM         -->
+  <!-- ========================================== -->
+  <rect x="44" y="142" width="152" height="20" rx="10" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+
+  <!-- ========================================== -->
+  <!-- 2. SMART REVIEW BENTO BOX / CALENDAR       -->
+  <!-- ========================================== -->
+  <!-- Hard Flat Offset Shadow -->
+  <rect x="64" y="44" width="112" height="92" rx="16" fill="#E2E8F0"/>
+
+  <!-- Primary Review Container Body -->
+  <rect x="60" y="40" width="112" height="92" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- Top Accent Header (Badge Purple - FM Identity) -->
+  <path d="M 60 56 L 60 54 C 60 46.268 66.268 40 74 40 L 158 40 C 165.732 40 172 46.268 172 54 L 172 56 Z" fill="#9013FE" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- Calendar Mounting Pegs (Twin Tactile Rings) -->
+  <rect x="84" y="32" width="10" height="14" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.6"/>
+  <rect x="138" y="32" width="10" height="14" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.6"/>
+
+  <!-- ========================================== -->
+  <!-- 3. INTERNAL REVIEW CARDS (ALL COMPLETED)   -->
+  <!-- ========================================== -->
+  <!-- Stacked Vocab Cards Inside Box -->
+  <rect x="74" y="66" width="84" height="22" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.4"/>
+  <!-- Vocabulary Progress Bar & Check Dots -->
+  <line x1="84" y1="77" x2="126" y2="77" stroke="#4A90E2" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="144" cy="77" r="3.5" fill="#50E3C2" stroke="#0F172A" stroke-width="1.2"/>
+
+  <!-- Second Sub-deck Card Below -->
+  <rect x="74" y="96" width="60" height="18" rx="5" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+  <line x1="84" y1="105" x2="114" y2="105" stroke="#CBD5E1" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- ========================================== -->
+  <!-- 4. LEFT TELEMETRY CADENCE DIAL             -->
+  <!-- ========================================== -->
+  <!-- Spaced Repetition Cycle Clock (Left Floating Dial) -->
+  <g id="review-cadence-clock">
+    <!-- Flat Shadow -->
+    <circle cx="48" cy="78" r="18" fill="#334155" opacity="0.12"/>
+    <!-- Dial Body -->
+    <circle cx="46" cy="76" r="18" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.8"/>
+    <!-- Cadence Arc Highlight (Primary Blue) -->
+    <path d="M 46 62 A 14 14 0 1 1 32 76" fill="none" stroke="#4A90E2" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Clock Hands (Pointed to 12 - Cycle Cleared) -->
+    <line x1="46" y1="76" x2="46" y2="67" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="46" y1="76" x2="52" y2="76" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="46" cy="76" r="2.5" fill="#0F172A"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 5. VERIFIED ALL-CLEAR STAMP (MASTERY MINT) -->
+  <!-- ========================================== -->
+  <g id="mastery-mint-seal">
+    <!-- Seal Flat Shadow -->
+    <circle cx="158" cy="116" r="22" fill="#334155" opacity="0.12"/>
+    <!-- Seal Outer Disc -->
+    <circle cx="156" cy="114" r="22" fill="#50E3C2" stroke="#0F172A" stroke-width="2"/>
+    <!-- Inner Tactile Stitched Ring -->
+    <circle cx="156" cy="114" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <!-- Big Bold Checkmark -->
+    <path d="M 147 114 L 153 120 L 165 107" fill="none" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 6. GEOMETRIC SPARKS & CELEBRATION FLAIR    -->
+  <!-- ========================================== -->
+  <!-- Top Right Streak Yellow Star -->
+  <path d="M 194 44 L 197 51 L 204 54 L 197 57 L 194 64 L 191 57 L 184 54 L 191 51 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.2"/>
+  <!-- Small Mint Ambient Accent -->
+  <circle cx="186" cy="74" r="3" fill="#50E3C2" stroke="#0F172A" stroke-width="1"/>
+  <circle cx="36" cy="108" r="2.5" fill="#FDCB6E"/>
+</svg>

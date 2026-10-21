@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Telemetry Offline / Disconnected (ill_offline.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px / 1.5px strokes, AppColors mapping -->
+
+  <!-- ========================================== -->
+  <!-- 1. BASE FLOATING PEDESTAL PLATFORM         -->
+  <!-- ========================================== -->
+  <rect x="44" y="142" width="152" height="20" rx="10" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.8"/>
+
+  <!-- ========================================== -->
+  <!-- 2. CENTRAL SMART FACILITY GATEWAY HUB      -->
+  <!-- ========================================== -->
+  <!-- Hard Flat Offset Shadow -->
+  <rect x="74" y="80" width="92" height="56" rx="14" fill="#E2E8F0"/>
+
+  <!-- Gateway Hub Chassis Body -->
+  <rect x="70" y="76" width="92" height="56" rx="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- Ethernet RJ45 Jack Slots (3 Technical Ports) -->
+  <rect x="82" y="98" width="16" height="18" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.4"/>
+  <rect x="108" y="98" width="16" height="18" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.4"/>
+  <rect x="134" y="98" width="16" height="18" rx="4" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.4"/>
+
+  <!-- Port Terminal Pins Detail -->
+  <line x1="86" y1="102" x2="94" y2="102" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="112" y1="102" x2="120" y2="102" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="138" y1="102" x2="146" y2="102" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Status Diagnostic LEDs -->
+  <circle cx="84" cy="88" r="2.5" fill="#CBD5E1" stroke="#0F172A" stroke-width="1"/>
+  <circle cx="94" cy="88" r="2.5" fill="#CBD5E1" stroke="#0F172A" stroke-width="1"/>
+  <circle cx="104" cy="88" r="3" fill="#FF6B81" stroke="#0F172A" stroke-width="1.2"/>
+
+  <!-- ========================================== -->
+  <!-- 3. DUAL TELEMETRY ANTENNAS                 -->
+  <!-- ========================================== -->
+  <!-- Left Antenna Pole & Terminal Bead -->
+  <line x1="88" y1="76" x2="70" y2="38" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="70" cy="38" r="4.5" fill="#4A90E2" stroke="#0F172A" stroke-width="1.5"/>
+
+  <!-- Right Antenna Pole & Terminal Bead -->
+  <line x1="144" y1="76" x2="162" y2="38" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="162" cy="38" r="4.5" fill="#4A90E2" stroke="#0F172A" stroke-width="1.5"/>
+
+  <!-- ========================================== -->
+  <!-- 4. FAINT DISCONNECTED SIGNAL ARCS          -->
+  <!-- ========================================== -->
+  <path d="M 96 46 C 108 36 124 36 136 46" fill="none" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="3 3" stroke-linecap="round"/>
+  <path d="M 86 36 C 106 20 126 20 146 36" fill="none" stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="3 3" stroke-linecap="round"/>
+
+  <!-- ========================================== -->
+  <!-- 5. FLOATING OFFLINE SHIELD BADGE           -->
+  <!-- ========================================== -->
+  <g id="offline-badge">
+    <!-- Flat Shadow -->
+    <circle cx="118" cy="46" r="18" fill="#334155" opacity="0.12"/>
+    <!-- Outer Shield Disc -->
+    <circle cx="116" cy="44" r="18" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+    <!-- Inner Warning Tint -->
+    <circle cx="116" cy="44" r="13" fill="#FF6B81" fill-opacity="0.15"/>
+    <!-- Disconnected Wifi Arc & Pulse Dot -->
+    <circle cx="116" cy="51" r="2.5" fill="#FF6B81"/>
+    <path d="M 109 45 C 113 41 119 41 123 45" fill="none" stroke="#FF6B81" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bold Disconnect Slash Line -->
+    <line x1="107" y1="35" x2="125" y2="53" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 6. UNPLUGGED TERMINAL CABLE                -->
+  <!-- ========================================== -->
+  <!-- Flexible Cable Running to Pedestal -->
+  <path d="M 188 142 C 188 116 176 112 162 112" fill="none" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Modular RJ45 Terminal Connector -->
+  <rect x="180" y="128" width="16" height="14" rx="3" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.6"/>
+  <!-- Locking Clip Tab -->
+  <path d="M 184 128 L 184 124 L 192 124 L 192 128" fill="none" stroke="#0F172A" stroke-width="1.4" stroke-linejoin="round"/>
+
+  <!-- Ambient Diagnostic Sparks -->
+  <circle cx="48" cy="116" r="3" fill="#FF6B81" stroke="#0F172A" stroke-width="1"/>
+  <circle cx="196" cy="76" r="2.5" fill="#4A90E2"/>
+</svg>

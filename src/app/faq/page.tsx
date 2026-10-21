@@ -15,6 +15,7 @@ import {
   Brain,
 } from "lucide-react";
 import { SpotlightCard } from "@/components/SpotlightCard";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 export default function FAQPage() {
   const { t } = useLanguage();
@@ -158,10 +159,10 @@ export default function FAQPage() {
               <button
                 key={tItem.id}
                 onClick={() => setSelectedTopic(tItem.id)}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium transition-colors ${
+                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium transition-colors border ${
                   isSelected
-                    ? "bg-ink text-black font-semibold"
-                    : "bg-surface-1 text-ink-muted hover:text-ink hover:bg-surface-2 border border-hairline"
+                    ? "bg-ink text-white dark:text-black font-semibold border-transparent"
+                    : "bg-surface-1 text-ink-muted hover:text-ink hover:bg-surface-2 border-hairline"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -178,30 +179,31 @@ export default function FAQPage() {
           {filteredFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
-                key={index}
-                className="rounded-2xl bg-surface-1 border border-hairline overflow-hidden transition-colors"
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4"
+              <RevealOnScroll key={index} delay={Math.min(index * 60, 400)}>
+                <div
+                  className="rounded-2xl bg-surface-1 border border-hairline overflow-hidden transition-colors"
                 >
-                  <span className="text-base font-semibold text-ink leading-snug">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-ink-muted transition-transform shrink-0 ${
-                      isOpen ? "rotate-180 text-ink" : ""
-                    }`}
-                  />
-                </button>
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4"
+                  >
+                    <span className="text-base font-semibold text-ink leading-snug">
+                      {faq.question}
+                    </span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-ink-muted transition-transform shrink-0 ${
+                        isOpen ? "rotate-180 text-ink" : ""
+                      }`}
+                    />
+                  </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 pt-2 text-sm text-ink-muted leading-relaxed">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-2 text-sm text-ink-muted leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              </RevealOnScroll>
             );
           })}
 
@@ -242,7 +244,7 @@ export default function FAQPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-black font-semibold text-xs hover:bg-neutral-200 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-white dark:text-black font-semibold text-xs hover:opacity-90 active:scale-95 transition-transform transition-opacity"
             >
               <Mail className="w-4 h-4" />
               <span>{t("Gửi câu hỏi hỗ trợ", "Contact Support Team")}</span>

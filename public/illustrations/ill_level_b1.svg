@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%" fill="none">
+  <!-- FM DICTIONARY ILLUSTRATION: Level B1 - MEP Technician (ill_level_b1.svg) -->
+  <!-- Tactile Neo-Bento Standard: Clean Minimal Flat, 2.0px contour, AppColors mapping -->
+
+  <!-- 1. BLUEPRINT BACKGROUND PLATE -->
+  <rect x="46" y="22" width="154" height="142" rx="16" fill="#E2E8F0"/>
+  <rect x="42" y="18" width="154" height="142" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.0"/>
+
+  <!-- Blueprint Coordinate Grid -->
+  <line x1="56" y1="42" x2="182" y2="42" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+  <line x1="56" y1="134" x2="182" y2="134" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+  <line x1="68" y1="30" x2="68" y2="148" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+  <line x1="170" y1="30" x2="170" y2="148" stroke="#0F172A" stroke-width="0.8" opacity="0.2" stroke-dasharray="4 4"/>
+
+  <!-- Technical Corner Registration Marks -->
+  <path d="M 50 26 L 56 26 M 50 26 L 50 32" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 188 26 L 182 26 M 188 26 L 188 32" stroke="#0F172A" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- 2. MEP ENGINEERING MOTIF: PIPING, VALVES & PRESSURE GAUGES -->
+  <!-- Horizontal & Vertical MEP Pipe Conduits -->
+  <rect x="54" y="78" width="130" height="12" rx="3" fill="#D1FAE5" stroke="#0F172A" stroke-width="1.6"/>
+  <!-- Pipe Flange Connectors -->
+  <rect x="66" y="74" width="8" height="20" rx="2" fill="#10B981" stroke="#0F172A" stroke-width="1.4"/>
+  <rect x="164" y="74" width="8" height="20" rx="2" fill="#10B981" stroke="#0F172A" stroke-width="1.4"/>
+
+  <!-- Water/Flow Valve Wheel (Left) -->
+  <circle cx="70" cy="56" r="10" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.6"/>
+  <line x1="70" y1="46" x2="70" y2="66" stroke="#0F172A" stroke-width="1.4"/>
+  <line x1="60" y1="56" x2="80" y2="56" stroke="#0F172A" stroke-width="1.4"/>
+  <line x1="70" y1="66" x2="70" y2="74" stroke="#0F172A" stroke-width="2.0"/>
+
+  <!-- Mechanical Calibration Gauge (Right) -->
+  <circle cx="168" cy="56" r="12" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.6"/>
+  <path d="M 160 58 A 8 8 0 0 1 176 58" stroke="#10B981" stroke-width="2.0" stroke-linecap="round"/>
+  <line x1="168" y1="56" x2="173" y2="50" stroke="#EF4444" stroke-width="1.4" stroke-linecap="round"/>
+  <circle cx="168" cy="56" r="2.0" fill="#0F172A"/>
+
+  <!-- 3. CENTRAL B1 MEP TECHNICIAN GEAR ROSETTE -->
+  <!-- 8-Tooth Mechanical Gear -->
+  <g transform="translate(120, 84)">
+    <path d="M -8 -36 L 8 -36 L 6 -28 A 28 28 0 0 1 20 -20 L 28 -22 L 36 -8 L 28 -6 A 28 28 0 0 1 28 6 L 36 8 L 28 22 L 20 20 A 28 28 0 0 1 6 28 L 8 36 L -8 36 L -6 28 A 28 28 0 0 1 -20 20 L -28 22 L -36 8 L -28 6 A 28 28 0 0 1 -28 -6 L -36 -8 L -28 -22 L -20 -20 A 28 28 0 0 1 -6 -28 Z" fill="#10B981" stroke="#0F172A" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.8"/>
+    <!-- Vector Stylized 'B1' -->
+    <path d="M -12 -10 L -4 -10 C 0 -10 0 -3 -4 -3 L -12 -3 L -12 -10 M -12 -3 L -3 -3 C 2 -3 2 6 -3 6 L -12 6 L -12 -3" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 6 -6 L 9 -10 L 9 6 M 5 6 L 13 6" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Three Technician Milestone Stars -->
+  <path d="M 104 46 L 106 49.5 L 110 50 L 107 53 L 108 57 L 104 54.5 L 100 57 L 101 53 L 98 50 L 102 49.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+  <path d="M 120 42 L 122.5 46.5 L 127.5 47 L 124 50.5 L 125 55 L 120 52.5 L 115 55 L 116 50.5 L 112.5 47 L 117.5 46.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+  <path d="M 136 46 L 138 49.5 L 142 50 L 139 53 L 140 57 L 136 54.5 L 132 57 L 133 53 L 130 50 L 134 49.5 Z" fill="#FDCB6E" stroke="#0F172A" stroke-width="1.0" stroke-linejoin="round"/>
+
+  <!-- 4. LEVEL PROGRESS CALIBRATION POD (Node 1, 2 & 3 Active) -->
+  <rect x="74" y="136" width="92" height="16" rx="6" fill="#F1F5F9" stroke="#0F172A" stroke-width="1.5"/>
+  <circle cx="86" cy="144" r="3.5" fill="#10B981" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="100" cy="144" r="3.5" fill="#10B981" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="114" cy="144" r="3.5" fill="#10B981" stroke="#0F172A" stroke-width="1.0"/>
+  <circle cx="126" cy="144" r="3.0" fill="#E2E8F0" stroke="#0F172A" stroke-width="0.8"/>
+  <circle cx="138" cy="144" r="3.0" fill="#E2E8F0" stroke="#0F172A" stroke-width="0.8"/>
+  <circle cx="152" cy="144" r="3.0" fill="#E2E8F0" stroke="#0F172A" stroke-width="0.8"/>
+</svg>

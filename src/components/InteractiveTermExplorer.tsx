@@ -261,14 +261,14 @@ export const InteractiveTermExplorer: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-surface-1 rounded-3xl p-6 sm:p-10 lg:p-12">
+    <div className="w-full bg-surface-1 border border-hairline rounded-3xl p-6 sm:p-10 lg:p-12">
       {/* Component Title */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-ink mb-2">
             {t("Thử Nghiệm Phát Âm & Phản Xạ Kỹ Thuật.", "Test Phonetics & Operational Reflexes.")}
           </h2>
-          <p className="text-[14px] sm:text-base text-neutral-300 max-w-[65ch]">
+          <p className="text-[14px] sm:text-base text-ink-muted max-w-[65ch]">
             {t(
               "Chọn một thuật ngữ để nghe phát âm chuẩn kép UK/US và thử sức với bài toán sự cố hiện trường.",
               "Select a specialized term to trigger dual UK/US audio and solve site-level diagnostic drills."
@@ -276,7 +276,7 @@ export const InteractiveTermExplorer: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-[14px] text-neutral-300">
+        <div className="flex items-center gap-2 text-[14px] text-ink-muted">
           <span>{SAMPLE_TERMS.length} {t("thuật ngữ sẵn sàng", "terms ready")}</span>
         </div>
       </div>
@@ -289,10 +289,10 @@ export const InteractiveTermExplorer: React.FC = () => {
             <button
               key={term.id}
               onClick={() => handleSelectTerm(term.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[14px] font-medium transition-colors ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[14px] font-medium transition-colors border ${
                 isSelected
-                  ? "bg-ink text-black font-semibold"
-                  : "bg-canvas text-neutral-300 hover:text-ink hover:bg-surface-2"
+                  ? "bg-ink text-white dark:text-black font-semibold shadow-sm border-transparent"
+                  : "bg-canvas text-ink-muted hover:text-ink hover:bg-surface-2 border-hairline"
               }`}
             >
               <div className="w-4 h-4 rounded overflow-hidden shrink-0">
@@ -313,7 +313,7 @@ export const InteractiveTermExplorer: React.FC = () => {
       {/* Main Term Presentation Card */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Term Detail & Audio */}
-        <SpotlightCard data-ui="true" className="lg:col-span-7 bg-canvas rounded-2xl p-6 sm:p-8 animate-enter">
+        <SpotlightCard data-ui="true" className="lg:col-span-7 bg-canvas border border-hairline rounded-2xl p-6 sm:p-8 animate-enter">
           {/* Header Metadata */}
           <div className="flex items-center justify-between gap-4 mb-4 pb-2">
             <div className="flex items-center gap-2">
@@ -326,12 +326,12 @@ export const InteractiveTermExplorer: React.FC = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-[14px] font-medium text-neutral-300">
+              <span className="text-[14px] font-medium text-ink-muted">
                 {activeTerm.topic}
               </span>
             </div>
             {activeTerm.abbreviation && (
-              <span className="text-[13px] font-medium text-accent-blue px-3 py-1 rounded-full bg-accent-blue/10">
+              <span className="text-[13px] font-medium text-accent-blue px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
                 {activeTerm.abbreviation}
               </span>
             )}
@@ -350,17 +350,17 @@ export const InteractiveTermExplorer: React.FC = () => {
               className={`flex items-center justify-between p-3.5 rounded-xl text-left text-[14px] transition-colors border ${
                 playingAccent === "uk"
                   ? "bg-surface-2 text-accent-blue border-accent-blue"
-                  : "bg-surface-1 text-ink border-transparent hover:bg-surface-2"
+                  : "bg-surface-1 text-ink border-hairline hover:bg-surface-2"
               }`}
               title="Click to play UK pronunciation"
             >
               <div className="flex flex-col">
-                <span className="text-[13px] text-neutral-400">UK RP Phonetic</span>
+                <span className="text-[13px] text-ink-muted">UK RP Phonetic</span>
                 <span className="font-medium text-ink">{activeTerm.phoneticUK}</span>
               </div>
               <Volume2
                 size={18}
-                className={playingAccent === "uk" ? "text-accent-blue" : "text-neutral-400"}
+                className={playingAccent === "uk" ? "text-accent-blue" : "text-ink-muted"}
               />
             </button>
 
@@ -370,17 +370,17 @@ export const InteractiveTermExplorer: React.FC = () => {
               className={`flex items-center justify-between p-3.5 rounded-xl text-left text-[14px] transition-colors border ${
                 playingAccent === "us"
                   ? "bg-surface-2 text-accent-blue border-accent-blue"
-                  : "bg-surface-1 text-ink border-transparent hover:bg-surface-2"
+                  : "bg-surface-1 text-ink border-hairline hover:bg-surface-2"
               }`}
               title="Click to play US pronunciation"
             >
               <div className="flex flex-col">
-                <span className="text-[13px] text-neutral-400">US GA Phonetic</span>
+                <span className="text-[13px] text-ink-muted">US GA Phonetic</span>
                 <span className="font-medium text-ink">{activeTerm.phoneticUS}</span>
               </div>
               <Volume2
                 size={18}
-                className={playingAccent === "us" ? "text-accent-blue" : "text-neutral-400"}
+                className={playingAccent === "us" ? "text-accent-blue" : "text-ink-muted"}
               />
             </button>
           </div>
@@ -388,7 +388,7 @@ export const InteractiveTermExplorer: React.FC = () => {
           {/* Definitions */}
           <div className="space-y-4 text-[14px] sm:text-base leading-relaxed mb-6">
             <div>
-              <span className="text-neutral-400 block text-[13px] mb-1">
+              <span className="text-ink-muted block text-[13px] mb-1">
                 {t("Định nghĩa Tiếng Việt", "Vietnamese Definition")}
               </span>
               <p className="text-ink font-medium max-w-[65ch]">
@@ -397,26 +397,26 @@ export const InteractiveTermExplorer: React.FC = () => {
             </div>
 
             <div>
-              <span className="text-neutral-400 block text-[13px] mb-1">
+              <span className="text-ink-muted block text-[13px] mb-1">
                 {t("Ngữ cảnh kỹ thuật tiếng Anh", "English Engineering Definition")}
               </span>
-              <p className="text-neutral-300 max-w-[65ch]">
+              <p className="text-ink-muted max-w-[65ch]">
                 {activeTerm.englishDefinition}
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-surface-1">
-              <span className="text-neutral-400 block text-[13px] mb-1">
+            <div className="p-4 rounded-xl bg-surface-1 border border-hairline">
+              <span className="text-ink-muted block text-[13px] mb-1">
                 {t("Ghi chú thực địa", "Job Site Practical Note")}
               </span>
-              <p className="text-[14px] text-neutral-300 max-w-[65ch]">
+              <p className="text-[14px] text-ink-muted max-w-[65ch]">
                 {activeTerm.fieldNote}
               </p>
             </div>
           </div>
 
           {/* Bottom Reference Tag */}
-          <div className="flex items-center justify-between text-[13px] text-neutral-400 pt-3">
+          <div className="flex items-center justify-between text-[13px] text-ink-muted pt-3 border-t border-hairline">
             <span>{t("Tiêu chuẩn tham chiếu", "Referenced Standard")}: {activeTerm.standard}</span>
             <span className="text-semantic-success flex items-center gap-1 font-medium">
               <CheckCircle2 size={15} />
@@ -426,7 +426,7 @@ export const InteractiveTermExplorer: React.FC = () => {
         </SpotlightCard>
 
         {/* Right Column: Mini Reflex Quiz */}
-        <SpotlightCard data-ui="true" className="lg:col-span-5 bg-canvas rounded-2xl p-6 sm:p-8 animate-enter">
+        <SpotlightCard data-ui="true" className="lg:col-span-5 bg-canvas border border-hairline rounded-2xl p-6 sm:p-8 animate-enter">
           <div className="flex items-center gap-2 mb-4">
             <Sparkles size={16} className="text-accent-blue" />
             <h3 className="text-base font-semibold text-ink">
@@ -443,14 +443,14 @@ export const InteractiveTermExplorer: React.FC = () => {
               const isSelected = quizAnswer === optIdx;
               const hasAnswered = quizAnswer !== null;
 
-              let buttonStyle = "bg-surface-1 text-neutral-300 hover:text-ink hover:bg-surface-2 border border-transparent";
+              let buttonStyle = "bg-surface-1 text-ink-muted hover:text-ink hover:bg-surface-2 border border-hairline";
               if (hasAnswered) {
                 if (opt.isCorrect) {
-                  buttonStyle = "bg-emerald-950/60 text-emerald-200 border border-emerald-500";
+                  buttonStyle = "bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/40";
                 } else if (isSelected && !opt.isCorrect) {
-                  buttonStyle = "bg-rose-950/60 text-rose-200 border border-rose-500";
+                  buttonStyle = "bg-rose-500/10 text-rose-600 dark:text-rose-300 border border-rose-500/40";
                 } else {
-                  buttonStyle = "bg-surface-1/40 text-neutral-600 opacity-60 border border-transparent";
+                  buttonStyle = "bg-surface-1/40 text-ink-muted/50 opacity-60 border border-hairline/40";
                 }
               }
 
@@ -460,7 +460,7 @@ export const InteractiveTermExplorer: React.FC = () => {
                   onClick={() => setQuizAnswer(optIdx)}
                   className={`w-full p-4 rounded-xl text-left text-[14px] leading-relaxed transition-colors flex items-start gap-3 ${buttonStyle}`}
                 >
-                  <span className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[13px] font-bold mt-0.5 bg-canvas text-ink">
+                  <span className="w-5 h-5 rounded-full shrink-0 flex items-center justify-center text-[13px] font-bold mt-0.5 bg-canvas border border-hairline text-ink">
                     {String.fromCharCode(65 + optIdx)}
                   </span>
                   <span className="flex-1">
@@ -474,10 +474,10 @@ export const InteractiveTermExplorer: React.FC = () => {
           {/* Feedback banner */}
           {quizAnswer !== null && (
             <div
-              className={`p-4 rounded-xl text-[14px] leading-relaxed ${
+              className={`p-4 rounded-xl text-[14px] leading-relaxed border ${
                 activeTerm.quizQuestion.options[quizAnswer].isCorrect
-                  ? "bg-emerald-950/40 text-emerald-300"
-                  : "bg-rose-950/40 text-rose-300"
+                  ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border-emerald-500/30"
+                  : "bg-rose-500/10 text-rose-600 dark:text-rose-300 border-rose-500/30"
               }`}
             >
               <div className="flex items-center gap-2 font-semibold mb-1">
@@ -493,7 +493,7 @@ export const InteractiveTermExplorer: React.FC = () => {
                   </>
                 )}
               </div>
-              <p className="text-[13px] text-neutral-300">
+              <p className="text-[13px] text-ink-muted">
                 {t(
                   "Trong ứng dụng FM Dictionary, mọi câu hỏi đều đi kèm phân tích giải thích nguyên lý vận hành sâu sắc.",
                   "In the full FM Dictionary app, each quiz case includes deep root-cause engineering explanations."

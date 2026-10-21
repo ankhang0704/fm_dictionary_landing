@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { useTheme } from "@/context/ThemeContext";
 
 function isWebGLAvailable(): boolean {
   try {
@@ -16,15 +17,23 @@ function isWebGLAvailable(): boolean {
 }
 
 /**
- * ThreeHeroCanvas: Stylized Smart Building (Tòa cao ốc thông minh wireframe)
- * Represents modern high-rise architecture with tiered floor plates,
- * central technical shaft, and glowing MEP/BMS telemetry network lines.
- * Strictly adheres to threejs-optimiser rules: 60fps, clamped DPR,
- * IntersectionObserver viewport pause without loop multiplication,
- * and complete WebGL memory disposal.
+ * ThreeHeroCanvas: Refined Architectural High-Tech Skyscraper & BIM Digital Twin.
+ * Designed with realistic architectural proportions, structural curtain wall mullions,
+ * internal glass elevator kinematics, and holographic CAD datum grid.
+ * 
+ * Performance & Engineering:
+ * - 60fps locked, clamped DPR (max 2), 100% memory disposal on unmount.
+ * - IntersectionObserver pauses rendering loop when scrolled out of viewport.
+ * - Responsive camera framing adapts between desktop and mobile (360px - 414px).
+ * - Full Dual-Theme support (Electric Blueprint Blue & Mastery Mint).
  */
 export const ThreeHeroCanvas: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const isLight = theme === "light";
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const isLoadedRef = useRef<boolean>(false);
+
   const [webglSupported] = useState<boolean>(() => {
     if (typeof window === "undefined") return true;
     return isWebGLAvailable();
@@ -40,7 +49,7 @@ export const ThreeHeroCanvas: React.FC = () => {
     let isLoopRunning = false;
     let animationFrameId: number | null = null;
 
-    // Registry of disposable WebGL resources for leak-free cleanup
+    // Registry of disposable WebGL resources for 100% leak-free cleanup
     const disposables: Array<{ dispose: () => void }> = [];
     const register = <T extends { dispose: () => void }>(resource: T): T => {
       disposables.push(resource);
@@ -50,11 +59,13 @@ export const ThreeHeroCanvas: React.FC = () => {
     // 1. Scene, Camera, Renderer
     const scene = new THREE.Scene();
     const width = container.clientWidth || 400;
-    const height = container.clientHeight || 450;
+    const height = container.clientHeight || 480;
 
-    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
-    camera.position.set(0, 0.2, 7.8);
-    camera.lookAt(0, 0, 0);
+    const isMobile = width < 640;
+    const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 100);
+    // Adjusted camera distance for mobile so skyscraper fits cleanly without clipping
+    camera.position.set(0, isMobile ? 1.0 : 1.2, isMobile ? 10.4 : 9.2);
+    camera.lookAt(0, 0.25, 0);
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -62,216 +73,392 @@ export const ThreeHeroCanvas: React.FC = () => {
       powerPreference: "high-performance",
     });
     renderer.setSize(width, height);
-    // threejs-optimiser: Clamp pixel ratio to 2 to avoid Retina GPU thermal throttling
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     container.appendChild(renderer.domElement);
 
-    // 2. Main Interactive High-Rise Tower Group
+    // 2. Main Interactive High-Rise Group
     const mainGroup = new THREE.Group();
-    // Tilt slightly for dramatic architectural perspective
-    mainGroup.rotation.x = 0.12;
+    mainGroup.position.y = isMobile ? -0.2 : -0.3;
+    mainGroup.rotation.x = 0.22;
+    mainGroup.rotation.y = 0.45;
     scene.add(mainGroup);
 
-    // Materials Palette
+    // 3. Color Palette (Dual-Theme Harmonized)
+    const colPrimaryBlue = isLight ? 0x0070f3 : 0x0099ff;
+    const colMasteryMint = isLight ? 0x10b981 : 0x50e3c2;
+    const colBlueprintSoft = isLight ? 0x0284c7 : 0x38bdf8;
+    const colGlassFill = isLight ? 0xf8fafc : 0x070c12;
+    const colStructuralDark = isLight ? 0xe2e8f0 : 0x111923;
+
+    // 4. Shared High-Performance Materials
     const glassMaterial = register(
       new THREE.MeshStandardMaterial({
-        color: 0x101418,
-        metalness: 0.85,
-        roughness: 0.2,
+        color: colGlassFill,
+        metalness: isLight ? 0.1 : 0.85,
+        roughness: isLight ? 0.25 : 0.2,
         transparent: true,
-        opacity: 0.65,
+        opacity: isLight ? 0.75 : 0.6,
       })
     );
 
-    const wireframeBlueMaterial = register(
-      new THREE.LineBasicMaterial({
-        color: 0x0099ff,
-        transparent: true,
-        opacity: 0.65,
-      })
-    );
-
-    const wireframeSoftMaterial = register(
-      new THREE.LineBasicMaterial({
-        color: 0x38bdf8,
-        transparent: true,
-        opacity: 0.35,
-      })
-    );
-
-    const mepLineMaterial = register(
-      new THREE.LineBasicMaterial({
-        color: 0x0099ff,
-        transparent: true,
-        opacity: 0.85,
-      })
-    );
-
-    const telemetryGreenMaterial = register(
-      new THREE.MeshBasicMaterial({
-        color: 0x22c55e,
-        transparent: true,
-        opacity: 0.9,
-      })
-    );
-
-    const telemetryCyanMaterial = register(
-      new THREE.MeshBasicMaterial({
-        color: 0x0099ff,
-        transparent: true,
-        opacity: 0.9,
-      })
-    );
-
-    // 3. Central Technical & Elevator Core Shaft
-    const coreHeight = 4.8;
-    const coreGeo = register(new THREE.BoxGeometry(0.55, coreHeight, 0.55));
-    const coreMaterial = register(
+    const structuralCoreMaterial = register(
       new THREE.MeshStandardMaterial({
-        color: 0x0d0d0d,
-        metalness: 0.9,
-        roughness: 0.3,
+        color: colStructuralDark,
+        metalness: isLight ? 0.05 : 0.9,
+        roughness: isLight ? 0.3 : 0.2,
         transparent: true,
-        opacity: 0.85,
+        opacity: isLight ? 0.85 : 0.75,
       })
     );
-    const coreMesh = new THREE.Mesh(coreGeo, coreMaterial);
-    coreMesh.position.y = -0.2;
+
+    const wireframePrimary = register(
+      new THREE.LineBasicMaterial({
+        color: colPrimaryBlue,
+        transparent: true,
+        opacity: isLight ? 0.85 : 0.8,
+      })
+    );
+
+    const wireframeSoft = register(
+      new THREE.LineBasicMaterial({
+        color: colBlueprintSoft,
+        transparent: true,
+        opacity: isLight ? 0.45 : 0.35,
+      })
+    );
+
+    const wireframeMint = register(
+      new THREE.LineBasicMaterial({
+        color: colMasteryMint,
+        transparent: true,
+        opacity: isLight ? 0.9 : 0.85,
+      })
+    );
+
+    const beaconMintMaterial = register(
+      new THREE.MeshBasicMaterial({
+        color: colMasteryMint,
+        transparent: true,
+        opacity: 0.95,
+      })
+    );
+
+    const elevatorCabMaterial = register(
+      new THREE.MeshBasicMaterial({
+        color: colPrimaryBlue,
+        transparent: true,
+        opacity: 0.9,
+      })
+    );
+
+    // 5. Holographic CAD Datum Ground Grid (Laser-Etched Plan at Foundation)
+    const gridY = -2.55;
+    const datumGroup = new THREE.Group();
+    mainGroup.add(datumGroup);
+
+    // Concentric CAD Range Rings
+    [1.5, 2.3, 3.1].forEach((r, idx) => {
+      const ringPoints: THREE.Vector3[] = [];
+      const segs = 48;
+      for (let i = 0; i <= segs; i++) {
+        const th = (i / segs) * Math.PI * 2;
+        ringPoints.push(new THREE.Vector3(Math.cos(th) * r, gridY, Math.sin(th) * r));
+      }
+      const rGeo = register(new THREE.BufferGeometry().setFromPoints(ringPoints));
+      const rLine = new THREE.Line(
+        rGeo,
+        idx === 1 ? wireframePrimary : wireframeSoft
+      );
+      datumGroup.add(rLine);
+    });
+
+    // Orthogonal Crosshair Datum Axes
+    const crossPoints = [
+      new THREE.Vector3(-3.3, gridY, 0),
+      new THREE.Vector3(3.3, gridY, 0),
+      new THREE.Vector3(0, gridY, -3.3),
+      new THREE.Vector3(0, gridY, 3.3),
+    ];
+    const crossGeo = register(new THREE.BufferGeometry().setFromPoints(crossPoints));
+    const crossLines = new THREE.LineSegments(crossGeo, wireframeSoft);
+    datumGroup.add(crossLines);
+
+    // 12 Engineering Radial Degree Markers
+    for (let i = 0; i < 12; i++) {
+      const th = (i / 12) * Math.PI * 2;
+      const inner = 2.95;
+      const outer = 3.15;
+      const tickPoints = [
+        new THREE.Vector3(Math.cos(th) * inner, gridY, Math.sin(th) * inner),
+        new THREE.Vector3(Math.cos(th) * outer, gridY, Math.sin(th) * outer),
+      ];
+      const tickGeo = register(new THREE.BufferGeometry().setFromPoints(tickPoints));
+      const tickLine = new THREE.Line(tickGeo, wireframeSoft);
+      datumGroup.add(tickLine);
+    }
+
+    // 6. Central Concrete Elevator / Mechanical Core
+    const coreHeight = 5.4;
+    const coreGeo = register(new THREE.BoxGeometry(0.68, coreHeight, 0.68));
+    const coreMesh = new THREE.Mesh(coreGeo, structuralCoreMaterial);
+    coreMesh.position.y = 0.15;
     mainGroup.add(coreMesh);
 
-    const coreWireGeo = register(new THREE.WireframeGeometry(coreGeo));
-    const coreWire = new THREE.LineSegments(coreWireGeo, wireframeSoftMaterial);
-    coreMesh.add(coreWire);
+    const coreEdgesGeo = register(new THREE.EdgesGeometry(coreGeo));
+    const coreEdges = new THREE.LineSegments(coreEdgesGeo, wireframeSoft);
+    coreMesh.add(coreEdges);
 
-    // 4. Tiered Building Volumes (Podium, Mid Tower, High Tower)
-    interface TierConfig {
-      w: number;
-      d: number;
-      h: number;
-      y: number;
-      floors: number;
-    }
+    // 7. Tier 1: Grand Podium & Entrance Atrium (Levels B1 to L3)
+    const podiumGeo = register(new THREE.BoxGeometry(2.35, 0.95, 2.35));
+    const podiumMesh = new THREE.Mesh(podiumGeo, glassMaterial);
+    podiumMesh.position.y = -2.05;
+    mainGroup.add(podiumMesh);
 
-    const tiers: TierConfig[] = [
-      { w: 2.3, d: 2.3, h: 1.3, y: -1.95, floors: 4 }, // Podium / Substation base
-      { w: 1.7, d: 1.7, h: 1.8, y: -0.4, floors: 6 },  // Mid-rise commercial levels
-      { w: 1.2, d: 1.2, h: 1.5, y: 1.25, floors: 5 },  // High-rise executive suites
-      { w: 0.8, d: 0.8, h: 0.45, y: 2.22, floors: 2 }, // Rooftop Chiller/MEP penthouse
-    ];
+    const podiumEdgesGeo = register(new THREE.EdgesGeometry(podiumGeo));
+    const podiumEdges = new THREE.LineSegments(podiumEdgesGeo, wireframePrimary);
+    podiumMesh.add(podiumEdges);
 
-    tiers.forEach((tier) => {
-      // Tier Glass Volume
-      const tierGeo = register(new THREE.BoxGeometry(tier.w, tier.h, tier.d));
-      const tierMesh = new THREE.Mesh(tierGeo, glassMaterial);
-      tierMesh.position.y = tier.y;
-      mainGroup.add(tierMesh);
-
-      // Outer Structural Wireframe Edges
-      const edgesGeo = register(new THREE.EdgesGeometry(tierGeo));
-      const edges = new THREE.LineSegments(edgesGeo, wireframeBlueMaterial);
-      tierMesh.add(edges);
-
-      // Floor Slabs (Horizontal Architectural Rings)
-      const floorStep = tier.h / tier.floors;
-      for (let f = 1; f < tier.floors; f++) {
-        const floorY = -tier.h / 2 + f * floorStep;
-        const floorPoints = [
-          new THREE.Vector3(-tier.w / 2, floorY, -tier.d / 2),
-          new THREE.Vector3(tier.w / 2, floorY, -tier.d / 2),
-          new THREE.Vector3(tier.w / 2, floorY, tier.d / 2),
-          new THREE.Vector3(-tier.w / 2, floorY, tier.d / 2),
-          new THREE.Vector3(-tier.w / 2, floorY, -tier.d / 2),
-        ];
-        const floorGeo = register(new THREE.BufferGeometry().setFromPoints(floorPoints));
-        const floorLine = new THREE.Line(floorGeo, wireframeSoftMaterial);
-        tierMesh.add(floorLine);
-      }
+    // Perimeter Entrance Pilotis (Architectural Columns)
+    const columnOffsets = [-1.05, 1.05];
+    columnOffsets.forEach((cx) => {
+      columnOffsets.forEach((cz) => {
+        const colGeo = register(new THREE.CylinderGeometry(0.04, 0.04, 0.95, 8));
+        const colMesh = new THREE.Mesh(colGeo, structuralCoreMaterial);
+        colMesh.position.set(cx, -2.05, cz);
+        mainGroup.add(colMesh);
+      });
     });
 
-    // 5. Crown BMS Telemetry Spire / Antenna
-    const spireGeo = register(new THREE.CylinderGeometry(0.015, 0.04, 0.9, 8));
-    const spireMat = register(new THREE.MeshBasicMaterial({ color: 0x0099ff }));
-    const spireMesh = new THREE.Mesh(spireGeo, spireMat);
-    spireMesh.position.y = 2.9;
-    mainGroup.add(spireMesh);
+    // 8. Tier 2: Main Soaring Skyscraper Shaft (Levels L4 to L28)
+    const towerH = 3.3;
+    const towerW = 1.78;
+    const towerD = 1.78;
+    const towerY = 0.08;
 
-    // Spire Beacon Signal Light (Pulsing green)
-    const beaconGeo = register(new THREE.SphereGeometry(0.06, 12, 12));
-    const beaconMesh = new THREE.Mesh(beaconGeo, telemetryGreenMaterial);
-    beaconMesh.position.y = 3.35;
-    mainGroup.add(beaconMesh);
+    const towerGeo = register(new THREE.BoxGeometry(towerW, towerH, towerD));
+    const towerMesh = new THREE.Mesh(towerGeo, glassMaterial);
+    towerMesh.position.y = towerY;
+    mainGroup.add(towerMesh);
 
-    // 6. Glowing MEP & BMS Technical Conduits (Risers & Loops)
-    const mepPoints = [
-      // Chiller loop from rooftop down to podium
-      new THREE.Vector3(0.45, 2.2, 0.45),
-      new THREE.Vector3(0.65, 2.0, 0.65),
-      new THREE.Vector3(0.65, 0.5, 0.65),
-      new THREE.Vector3(0.9, 0.5, 0.9),
-      new THREE.Vector3(0.9, -1.3, 0.9),
-      new THREE.Vector3(1.18, -1.3, 1.18),
-      new THREE.Vector3(1.18, -2.5, 1.18),
-      // Loop around mechanical basement
-      new THREE.Vector3(-1.18, -2.5, 1.18),
-      new THREE.Vector3(-1.18, -2.5, -1.18),
-      new THREE.Vector3(-0.9, -1.3, -0.9),
-      new THREE.Vector3(-0.9, 0.5, -0.9),
-      new THREE.Vector3(-0.65, 0.5, -0.65),
-      new THREE.Vector3(-0.65, 2.0, -0.65),
-      new THREE.Vector3(-0.45, 2.2, -0.45),
+    const towerEdgesGeo = register(new THREE.EdgesGeometry(towerGeo));
+    const towerEdges = new THREE.LineSegments(towerEdgesGeo, wireframePrimary);
+    towerMesh.add(towerEdges);
+
+    // Horizontal Floor Slabs (14 Stories Rhythm)
+    const floorCount = 14;
+    const floorStep = towerH / floorCount;
+    for (let f = 1; f < floorCount; f++) {
+      const fy = -towerH / 2 + f * floorStep;
+      const floorPoints = [
+        new THREE.Vector3(-towerW / 2, fy, -towerD / 2),
+        new THREE.Vector3(towerW / 2, fy, -towerD / 2),
+        new THREE.Vector3(towerW / 2, fy, towerD / 2),
+        new THREE.Vector3(-towerW / 2, fy, towerD / 2),
+        new THREE.Vector3(-towerW / 2, fy, -towerD / 2),
+      ];
+      const floorGeo = register(new THREE.BufferGeometry().setFromPoints(floorPoints));
+      const floorLine = new THREE.Line(floorGeo, wireframeSoft);
+      towerMesh.add(floorLine);
+    }
+
+    // Vertical Architectural Mullion Fins (3 per face)
+    const mullionDivs = 4;
+    for (let m = 1; m < mullionDivs; m++) {
+      const mx = -towerW / 2 + (m / mullionDivs) * towerW;
+      const mullionFront = [
+        new THREE.Vector3(mx, -towerH / 2, towerD / 2),
+        new THREE.Vector3(mx, towerH / 2, towerD / 2),
+      ];
+      const mFrontGeo = register(new THREE.BufferGeometry().setFromPoints(mullionFront));
+      const mFrontLine = new THREE.Line(mFrontGeo, wireframeSoft);
+      towerMesh.add(mFrontLine);
+
+      const mullionSide = [
+        new THREE.Vector3(towerW / 2, -towerH / 2, mx),
+        new THREE.Vector3(towerW / 2, towerH / 2, mx),
+      ];
+      const mSideGeo = register(new THREE.BufferGeometry().setFromPoints(mullionSide));
+      const mSideLine = new THREE.Line(mSideGeo, wireframeSoft);
+      towerMesh.add(mSideLine);
+    }
+
+    // High-Tech Diagrid Structural X-Bracing on Side Bay
+    const diagridPoints = [
+      new THREE.Vector3(towerW / 2, -towerH / 2, -towerD / 2),
+      new THREE.Vector3(towerW / 2, 0, towerD / 2),
+      new THREE.Vector3(towerW / 2, towerH / 2, -towerD / 2),
+      new THREE.Vector3(towerW / 2, -towerH / 2, towerD / 2),
+      new THREE.Vector3(towerW / 2, 0, -towerD / 2),
+      new THREE.Vector3(towerW / 2, towerH / 2, towerD / 2),
     ];
-    const mepGeo = register(new THREE.BufferGeometry().setFromPoints(mepPoints));
-    const mepConduit = new THREE.Line(mepGeo, mepLineMaterial);
-    mainGroup.add(mepConduit);
+    const diagridGeo = register(new THREE.BufferGeometry().setFromPoints(diagridPoints));
+    const diagridLines = new THREE.Line(diagridGeo, wireframeSoft);
+    towerMesh.add(diagridLines);
 
-    // 7. Telemetry Sensor Signal Nodes (BMS Data Points)
-    const nodePositions = [
-      new THREE.Vector3(0.45, 2.2, 0.45),   // Rooftop Chiller & Cooling Tower
-      new THREE.Vector3(-0.45, 2.2, -0.45), // Rooftop Emergency Generator
-      new THREE.Vector3(0.65, 0.5, 0.65),   // Mid-rise AHU Mechanical Room
-      new THREE.Vector3(-0.65, 0.5, -0.65), // Mid-rise Fire Pump Loop
-      new THREE.Vector3(1.18, -2.1, 1.18),  // Substation MSB Transformer Vault
-      new THREE.Vector3(-1.18, -2.1, 1.18), // Domestic Water Booster Pump
-      new THREE.Vector3(0, -0.3, 0.9),      // Building Operations Centre (BOC)
+    // 9. Recessed MEP Mechanical Floor Band (Level M)
+    const mepGeo = register(new THREE.BoxGeometry(1.68, 0.42, 1.68));
+    const mepMesh = new THREE.Mesh(mepGeo, structuralCoreMaterial);
+    mepMesh.position.y = 0.08;
+    mainGroup.add(mepMesh);
+
+    const mepEdgesGeo = register(new THREE.EdgesGeometry(mepGeo));
+    const mepEdges = new THREE.LineSegments(mepEdgesGeo, wireframeMint);
+    mepMesh.add(mepEdges);
+
+    // Horizontal Louver Lines for Ventilation Intake
+    [-0.12, 0, 0.12].forEach((ly) => {
+      const louverPoints = [
+        new THREE.Vector3(-0.84, ly, 0.84),
+        new THREE.Vector3(0.84, ly, 0.84),
+        new THREE.Vector3(0.84, ly, -0.84),
+        new THREE.Vector3(-0.84, ly, -0.84),
+        new THREE.Vector3(-0.84, ly, 0.84),
+      ];
+      const louverGeo = register(new THREE.BufferGeometry().setFromPoints(louverPoints));
+      const louverLine = new THREE.Line(louverGeo, wireframeMint);
+      mepMesh.add(louverLine);
+    });
+
+    // 10. Tier 3: Setback Penthouse & Architectural Crown (Levels L29 to L40)
+    const crownW = 1.25;
+    const crownD = 1.25;
+    const crownH = 1.25;
+    const crownY = 2.35;
+
+    const crownGeo = register(new THREE.BoxGeometry(crownW, crownH, crownD));
+    const crownMesh = new THREE.Mesh(crownGeo, glassMaterial);
+    crownMesh.position.y = crownY;
+    mainGroup.add(crownMesh);
+
+    const crownEdgesGeo = register(new THREE.EdgesGeometry(crownGeo));
+    const crownEdges = new THREE.LineSegments(crownEdgesGeo, wireframePrimary);
+    crownMesh.add(crownEdges);
+
+    // 4 Crown Floor Plates
+    for (let f = 1; f < 5; f++) {
+      const fy = -crownH / 2 + (f / 5) * crownH;
+      const cPoints = [
+        new THREE.Vector3(-crownW / 2, fy, -crownD / 2),
+        new THREE.Vector3(crownW / 2, fy, -crownD / 2),
+        new THREE.Vector3(crownW / 2, fy, crownD / 2),
+        new THREE.Vector3(-crownW / 2, fy, crownD / 2),
+        new THREE.Vector3(-crownW / 2, fy, -crownD / 2),
+      ];
+      const cGeo = register(new THREE.BufferGeometry().setFromPoints(cPoints));
+      const cLine = new THREE.Line(cGeo, wireframeSoft);
+      crownMesh.add(cLine);
+    }
+
+    // Sculptural Angled Roof Pyramid / Diagrid Lantern
+    const roofApex = 3.42;
+    const roofBaseY = 2.97;
+    const roofPoints = [
+      // Base square
+      new THREE.Vector3(-crownW / 2, roofBaseY, -crownD / 2),
+      new THREE.Vector3(crownW / 2, roofBaseY, -crownD / 2),
+      new THREE.Vector3(crownW / 2, roofBaseY, crownD / 2),
+      new THREE.Vector3(-crownW / 2, roofBaseY, crownD / 2),
+      new THREE.Vector3(-crownW / 2, roofBaseY, -crownD / 2),
+      // 4 Hips to Apex
+      new THREE.Vector3(0, roofApex, 0),
+      new THREE.Vector3(crownW / 2, roofBaseY, -crownD / 2),
+      new THREE.Vector3(0, roofApex, 0),
+      new THREE.Vector3(crownW / 2, roofBaseY, crownD / 2),
+      new THREE.Vector3(0, roofApex, 0),
+      new THREE.Vector3(-crownW / 2, roofBaseY, crownD / 2),
+      new THREE.Vector3(0, roofApex, 0),
     ];
+    const roofGeo = register(new THREE.BufferGeometry().setFromPoints(roofPoints));
+    const roofLine = new THREE.Line(roofGeo, wireframePrimary);
+    mainGroup.add(roofLine);
 
+    // 11. Architectural Communications Mast & Stay-Cables
+    const mastHeight = 1.35;
+    const mastGeo = register(new THREE.CylinderGeometry(0.015, 0.045, mastHeight, 8));
+    const mastMesh = new THREE.Mesh(mastGeo, structuralCoreMaterial);
+    mastMesh.position.y = roofApex + mastHeight / 2;
+    mainGroup.add(mastMesh);
+
+    // Structural Guy-Wired Tension Cables connecting Mast to Roof Corners
+    const cablePoints: THREE.Vector3[] = [];
+    const cableAnchorY = roofApex + 0.65;
+    const corners = [
+      new THREE.Vector3(-crownW / 2, roofBaseY, -crownD / 2),
+      new THREE.Vector3(crownW / 2, roofBaseY, -crownD / 2),
+      new THREE.Vector3(crownW / 2, roofBaseY, crownD / 2),
+      new THREE.Vector3(-crownW / 2, roofBaseY, crownD / 2),
+    ];
+    corners.forEach((c) => {
+      cablePoints.push(new THREE.Vector3(0, cableAnchorY, 0));
+      cablePoints.push(c);
+    });
+    const cableGeo = register(new THREE.BufferGeometry().setFromPoints(cablePoints));
+    const cableLines = new THREE.LineSegments(cableGeo, wireframeSoft);
+    mainGroup.add(cableLines);
+
+    // FAA Obstruction Light at Pinnacles
+    const beaconGeo = register(new THREE.SphereGeometry(0.055, 12, 12));
+    const beaconLight = new THREE.Mesh(beaconGeo, beaconMintMaterial);
+    beaconLight.position.y = roofApex + mastHeight;
+    mainGroup.add(beaconLight);
+
+    // 12. "Living Digital Twin" - Twin Illuminated Exterior Glass Elevators
+    const cabGeo = register(new THREE.BoxGeometry(0.18, 0.22, 0.16));
+    const cabEdgesGeo = register(new THREE.EdgesGeometry(cabGeo));
+
+    const cab1 = new THREE.Mesh(cabGeo, elevatorCabMaterial);
+    const cab1Edges = new THREE.LineSegments(cabEdgesGeo, wireframePrimary);
+    cab1.add(cab1Edges);
+    mainGroup.add(cab1);
+
+    const cab2 = new THREE.Mesh(cabGeo, elevatorCabMaterial);
+    const cab2Edges = new THREE.LineSegments(cabEdgesGeo, wireframePrimary);
+    cab2.add(cab2Edges);
+    mainGroup.add(cab2);
+
+    // 13. Integrated Vertical MEP Risers (Inside building core)
+    // Chilled Water Supply Riser (Electric Blue)
+    const riserSupplyPoints = [
+      new THREE.Vector3(0.24, -2.45, 0.24),
+      new THREE.Vector3(0.24, 2.9, 0.24),
+    ];
+    const riserSupplyGeo = register(new THREE.BufferGeometry().setFromPoints(riserSupplyPoints));
+    const riserSupplyLine = new THREE.Line(riserSupplyGeo, wireframePrimary);
+    mainGroup.add(riserSupplyLine);
+
+    // Condenser Water Return Riser (Mastery Mint)
+    const riserReturnPoints = [
+      new THREE.Vector3(-0.24, -2.45, -0.24),
+      new THREE.Vector3(-0.24, 2.9, -0.24),
+    ];
+    const riserReturnGeo = register(new THREE.BufferGeometry().setFromPoints(riserReturnPoints));
+    const riserReturnLine = new THREE.Line(riserReturnGeo, wireframeMint);
+    mainGroup.add(riserReturnLine);
+
+    // Telemetry Sensor Nodes at Core Transfer Levels
+    const sensorFloors = [-2.05, -0.9, 0.08, 1.2, 2.35];
+    const sensorGeo = register(new THREE.SphereGeometry(0.045, 8, 8));
     const sensorNodes: THREE.Mesh[] = [];
-    const nodeSphereGeo = register(new THREE.SphereGeometry(0.045, 8, 8));
 
-    nodePositions.forEach((pos, idx) => {
-      const mat = idx % 2 === 0 ? telemetryGreenMaterial : telemetryCyanMaterial;
-      const node = new THREE.Mesh(nodeSphereGeo, mat);
-      node.position.copy(pos);
-      mainGroup.add(node);
-      sensorNodes.push(node);
+    sensorFloors.forEach((sy, idx) => {
+      const mat = idx % 2 === 0 ? beaconMintMaterial : wireframePrimary;
+      const sNode = new THREE.Mesh(sensorGeo, mat as THREE.Material);
+      sNode.position.set(idx % 2 === 0 ? 0.24 : -0.24, sy, idx % 2 === 0 ? 0.24 : -0.24);
+      mainGroup.add(sNode);
+      sensorNodes.push(sNode);
     });
 
-    // 8. Ground Site Boundary Loop (Smooth circular perimeter)
-    const ringRadius = 2.25;
-    const ringPoints: THREE.Vector3[] = [];
-    const segments = 48;
-    for (let i = 0; i <= segments; i++) {
-      const theta = (i / segments) * Math.PI * 2;
-      ringPoints.push(
-        new THREE.Vector3(Math.cos(theta) * ringRadius, -2.62, Math.sin(theta) * ringRadius)
-      );
-    }
-    const groundGridGeo = register(new THREE.BufferGeometry().setFromPoints(ringPoints));
-    const groundGrid = new THREE.Line(groundGridGeo, wireframeSoftMaterial);
-    mainGroup.add(groundGrid);
-
-    // 9. Floating Telemetry Particles (Adaptive Budget for Mobile)
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    const particleCount = isMobile ? 35 : 65;
+    // 14. Subtle Ambient Floating Telemetry Particles
+    const particleCount = isMobile ? 32 : 55;
     const particlePositions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount; i++) {
-      const radius = 1.8 + Math.random() * 1.6;
+      const radius = 1.8 + Math.random() * 1.8;
       const theta = Math.random() * Math.PI * 2;
-      const y = -2.5 + Math.random() * 5.5;
+      const py = -2.5 + Math.random() * 6.5;
 
       particlePositions[i * 3] = radius * Math.cos(theta);
-      particlePositions[i * 3 + 1] = y;
+      particlePositions[i * 3 + 1] = py;
       particlePositions[i * 3 + 2] = radius * Math.sin(theta);
     }
 
@@ -283,74 +470,97 @@ export const ThreeHeroCanvas: React.FC = () => {
 
     const particleMaterial = register(
       new THREE.PointsMaterial({
-        color: 0x0099ff,
-        size: 0.05,
+        color: colPrimaryBlue,
+        size: 0.045,
         transparent: true,
-        opacity: 0.7,
-        blending: THREE.AdditiveBlending,
+        opacity: isLight ? 0.75 : 0.65,
+        blending: isLight ? THREE.NormalBlending : THREE.AdditiveBlending,
       })
     );
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     mainGroup.add(particles);
 
-    // 10. Cinematic Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    // 15. Subtle Architectural Studio Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, isLight ? 1.6 : 0.9);
     scene.add(ambientLight);
 
-    const blueLight = new THREE.PointLight(0x0099ff, 3.2, 35);
-    blueLight.position.set(4, 4, 4);
-    scene.add(blueLight);
+    const primaryLight = new THREE.DirectionalLight(0xffffff, isLight ? 2.2 : 2.8);
+    primaryLight.position.set(5, 7, 6);
+    scene.add(primaryLight);
 
-    const greenLight = new THREE.PointLight(0x22c55e, 1.8, 30);
-    greenLight.position.set(-4, -2, 3);
-    scene.add(greenLight);
+    const blueBacklight = new THREE.PointLight(colPrimaryBlue, isLight ? 2.0 : 3.0, 25);
+    blueBacklight.position.set(-4, 3, -3);
+    scene.add(blueBacklight);
 
-    // 11. Interactive Tracking (Parallax with Boundary Clamping)
-    let targetRotationX = 0.12;
-    let targetRotationY = 0;
+    // 16. Interactive Damped Orbit & Touch Parallax
+    let targetRotationX = 0.22;
+    let targetRotationY = 0.45;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
 
-    const handleMouseMove = (event: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const x = event.clientX - (rect.left + rect.width / 2);
-      const y = event.clientY - (rect.top + rect.height / 2);
-
-      const normX = Math.max(-1.2, Math.min(1.2, x / (rect.width / 2)));
-      const normY = Math.max(-1.2, Math.min(1.2, y / (rect.height / 2)));
-
-      targetRotationY = normX * 0.45;
-      targetRotationX = 0.12 + normY * 0.25;
+    const onPointerDown = (clientX: number, clientY: number) => {
+      isDragging = true;
+      startX = clientX;
+      startY = clientY;
     };
 
-    const handleTouchMove = (event: TouchEvent) => {
-      if (event.touches.length === 0) return;
-      const touch = event.touches[0];
-      const rect = container.getBoundingClientRect();
-      const x = touch.clientX - (rect.left + rect.width / 2);
-      const y = touch.clientY - (rect.top + rect.height / 2);
+    const onPointerMove = (clientX: number, clientY: number) => {
+      if (!isDragging) {
+        // Subtle hover tilt when not dragging
+        const rect = container.getBoundingClientRect();
+        const normX = ((clientX - (rect.left + rect.width / 2)) / (rect.width / 2));
+        const normY = ((clientY - (rect.top + rect.height / 2)) / (rect.height / 2));
+        targetRotationY += normX * 0.002;
+        targetRotationX = 0.22 + Math.max(-0.15, Math.min(0.15, normY * 0.15));
+        return;
+      }
+      const deltaX = clientX - startX;
+      const deltaY = clientY - startY;
+      startX = clientX;
+      startY = clientY;
 
-      const normX = Math.max(-1.2, Math.min(1.2, x / (rect.width / 2)));
-      const normY = Math.max(-1.2, Math.min(1.2, y / (rect.height / 2)));
-
-      targetRotationY = normX * 0.5;
-      targetRotationX = 0.12 + normY * 0.3;
+      targetRotationY += deltaX * 0.008;
+      targetRotationX = Math.max(0.05, Math.min(0.45, targetRotationX + deltaY * 0.008));
     };
 
-    const handleTouchEnd = () => {
-      targetRotationY = 0;
-      targetRotationX = 0.12;
+    const onPointerUp = () => {
+      isDragging = false;
     };
 
+    const handleMouseDown = (e: MouseEvent) => onPointerDown(e.clientX, e.clientY);
+    const handleMouseMove = (e: MouseEvent) => onPointerMove(e.clientX, e.clientY);
+    const handleMouseUp = () => onPointerUp();
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        onPointerDown(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        onPointerMove(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    const handleTouchEnd = () => onPointerUp();
+
+    container.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    container.addEventListener("touchmove", handleTouchMove, { passive: true });
-    container.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("mouseup", handleMouseUp);
 
-    // 12. Container-Aware ResizeObserver
+    container.addEventListener("touchstart", handleTouchStart, { passive: true });
+    container.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+
+    // 17. Container-Aware ResizeObserver
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const { width: newWidth, height: newHeight } = entry.contentRect;
         if (newWidth > 0 && newHeight > 0) {
           camera.aspect = newWidth / newHeight;
+          const mobile = newWidth < 640;
+          camera.position.z = mobile ? 10.4 : 9.2;
           camera.updateProjectionMatrix();
           renderer.setSize(newWidth, newHeight);
         }
@@ -358,7 +568,7 @@ export const ThreeHeroCanvas: React.FC = () => {
     });
     resizeObserver.observe(container);
 
-    // 13. Single 60fps Animation Loop with Concurrency Protection
+    // 18. High-Performance 60fps Animation Loop
     let clockTime = 0;
 
     const renderLoop = () => {
@@ -370,24 +580,45 @@ export const ThreeHeroCanvas: React.FC = () => {
 
       clockTime += 0.02;
 
-      // Smooth inertia rotation
-      mainGroup.rotation.y += (targetRotationY - mainGroup.rotation.y) * 0.045;
-      mainGroup.rotation.x += (targetRotationX - mainGroup.rotation.x) * 0.045;
+      // Smooth damped rotation interpolation
+      mainGroup.rotation.y += (targetRotationY - mainGroup.rotation.y) * 0.05;
+      mainGroup.rotation.x += (targetRotationX - mainGroup.rotation.x) * 0.05;
 
-      // Passive idle spinning
-      mainGroup.rotation.y += 0.002;
-      particles.rotation.y -= 0.0008;
+      // Gentle continuous ambient orbit
+      if (!isDragging) {
+        targetRotationY += 0.0018;
+      }
 
-      // Pulsing telemetry signals
-      const pulseScale = 1 + Math.sin(clockTime * 2.5) * 0.25;
-      beaconMesh.scale.set(pulseScale, pulseScale, pulseScale);
+      // Slow counter-rotation of holographic CAD datum grid
+      datumGroup.rotation.y -= 0.0006;
+      particles.rotation.y -= 0.0004;
 
+      // Realistic Elevator Kinematics:
+      // Cab 1 moves smoothly between Lobby (-2.0) and Sky-Lounge (+2.1)
+      const cab1Progress = Math.sin(clockTime * 0.35);
+      const cab1Y = 0.05 + cab1Progress * 2.05;
+      cab1.position.set(0.42, cab1Y, 0.94);
+
+      // Cab 2 moves on the opposite face in counter-phase
+      const cab2Progress = Math.cos(clockTime * 0.35);
+      const cab2Y = 0.05 + cab2Progress * 2.05;
+      cab2.position.set(-0.42, cab2Y, 0.94);
+
+      // Gentle pulsing of FAA Obstruction Light Beacon
+      const pulseBeacon = 1 + Math.sin(clockTime * 4.0) * 0.25;
+      beaconLight.scale.set(pulseBeacon, pulseBeacon, pulseBeacon);
+
+      // Subtle breathing on telemetry sensor nodes
       sensorNodes.forEach((node, i) => {
-        const s = 1 + Math.sin(clockTime * 3 + i) * 0.3;
+        const s = 1 + Math.sin(clockTime * 3.0 + i * 1.2) * 0.22;
         node.scale.set(s, s, s);
       });
 
       renderer.render(scene, camera);
+      if (!isLoadedRef.current) {
+        isLoadedRef.current = true;
+        setIsLoaded(true);
+      }
     };
 
     const startLoop = () => {
@@ -404,7 +635,7 @@ export const ThreeHeroCanvas: React.FC = () => {
       }
     };
 
-    // 14. Visibility Awareness via IntersectionObserver
+    // 19. IntersectionObserver to preserve battery/GPU when not in viewport
     const intersectionObserver = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -418,15 +649,18 @@ export const ThreeHeroCanvas: React.FC = () => {
     );
     intersectionObserver.observe(container);
 
-    // Initial loop kickoff
+    // Initial kickoff
     startLoop();
 
-    // 15. Complete WebGL Disposal
+    // 20. Clean Disposal on unmount
     return () => {
       stopLoop();
+      container.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+      container.removeEventListener("touchstart", handleTouchStart);
       container.removeEventListener("touchmove", handleTouchMove);
-      container.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchend", handleTouchEnd);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
 
@@ -444,45 +678,27 @@ export const ThreeHeroCanvas: React.FC = () => {
 
       renderer.dispose();
     };
-  }, [webglSupported]);
+  }, [webglSupported, isLight]);
 
   if (!webglSupported) {
     return (
-      <div className="relative w-full h-[400px] sm:h-[480px] lg:h-[540px] flex items-center justify-center bg-surface-1 rounded-2xl">
-        <div className="text-center p-6">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl border border-hairline flex items-center justify-center text-accent-blue bg-surface-2">
-            <svg
-              width="44"
-              height="44"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="4" y="2" width="16" height="20" rx="2" />
-              <path d="M9 22v-4h6v4" />
-              <path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01" />
-              <path d="M12 2v-1" />
-            </svg>
-          </div>
-          <p className="text-sm font-semibold text-ink">Smart Building MEP Wireframe</p>
-          <p className="text-xs text-ink-muted mt-1">
-            BMS Telemetry & High-Rise Operations
-          </p>
+      <div className="w-full h-[440px] flex items-center justify-center p-6 border border-hairline rounded-2xl bg-surface-1">
+        <div className="text-center text-sm text-ink-muted">
+          <p className="font-semibold text-ink mb-1">Mô Hình 3D Tòa Nhà Thông Minh</p>
+          <p>WebGL không khả dụng trên trình duyệt hiện tại.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-[400px] sm:h-[480px] lg:h-[540px] flex items-center justify-center">
-      {/* WebGL Canvas Mount Container */}
-      <div
-        ref={containerRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing"
-      />
-    </div>
+    <div
+      ref={containerRef}
+      className={`w-full h-[440px] sm:h-[490px] lg:h-[530px] relative cursor-grab active:cursor-grabbing select-none transition-opacity duration-700 ease-out ${
+        isLoaded ? "opacity-100" : "opacity-0"
+      }`}
+      aria-label="Interactive 3D Smart High-Rise Building Digital Twin"
+      role="img"
+    />
   );
 };
