@@ -15,7 +15,7 @@ Repository landing page độc lập của **FM Dictionary** đã được khở
 - **Visual 3D Three.js:** Khối lăng kính kỹ thuật thông minh (Architectural Prism) xoay theo parallax chuột với 90 vệ tinh dữ liệu phát quang và cơ chế dọn dẹp bộ nhớ WebGL an toàn.
 - **7 Phân hệ trang chuẩn thương mại:** Trang chủ (`/`), Tính năng chuyên sâu (`/features`), Về chúng tôi (`/about`), Trung tâm hỏi đáp (`/faq`), Trang liên hệ (`/contact`), Chính sách quyền riêng tư (`/privacy`), Điều khoản dịch vụ (`/terms`), Trang 404 tùy chỉnh (`/not-found`).
 - **Đa ngữ toàn diện:** Hỗ trợ chuyển đổi song ngữ tức thì (Tiếng Việt & English), lưu trạng thái vào `localStorage`.
-- **Quản trị AI Agent:** Hệ thống `.agents/rules/` (`frontend.md`, `global.md`, `security.md`) và `.agents/skills/` (`taste`, `handoff`, `threejs-optimiser`, `seo-audit`) cùng tệp chỉ dẫn `AGENTS.md`.
+- **Quản trị AI Agent:** Hệ thống `.agents/rules/` (`frontend.md`, `global.md`, `security.md`) và `.agents/skills/` (`taste-skill` v2 chính thức từ Leonxlnx, `handoff`, `threejs-optimiser`, `seo-audit`) cùng tệp chỉ dẫn `AGENTS.md`.
 
 ---
 
