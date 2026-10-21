@@ -47,5 +47,6 @@ Repository landing page độc lập của **FM Dictionary** đã được khở
 
 - [x] Tạo repository mới trên GitHub: `https://github.com/ankhang0704/fm_dictionary_landing.git`
 - [x] Đã liên kết remote `origin` và đẩy code lên nhánh `main`.
-- [ ] Kết nối dự án lên Vercel để nhận hosting tốc độ cao với chứng chỉ SSL tự động (hoặc Cloudflare Pages).
-- [ ] Gắn link trang web landing page vào file `README.md` của kho ứng dụng `fm_dictionary_app`.
+- [x] Cấu hình Static Export (`output: 'export'`) tối ưu riêng cho **Cloudflare Pages**, đã test build `out/` thành công.
+- [ ] Kết nối repo lên Cloudflare Pages (Build command: `npm run build`, Output directory: `out`).
+- [ ] Gắn custom domain (nếu có) và cập nhật link landing page vào `README.md` của `fm_dictionary_app`.
