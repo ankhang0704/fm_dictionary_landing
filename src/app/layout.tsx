@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fm-dictionary.dev"),
   title: "FM Dictionary: Specialized Facility Management English Platform",
   description:
-    "Master 1,800+ specialized Facility Management English terminology with spaced repetition flashcards, real-world MEP scenarios, and dual UK/US phonetics. 100% free community project.",
+    "FM Dictionary 1.1.3: learn Facility Management English with spaced reviews, MEP scenarios, dual UK/US pronunciation, and 74 achievement badges.",
   keywords: [
     "Facility Management",
     "FM Dictionary",

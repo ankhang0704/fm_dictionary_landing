@@ -129,8 +129,7 @@ export default function ContactPage() {
                             }`}
                           >
                             <Icon
-                              className="w-4 h-4 shrink-0"
-                              style={{ color: isSelected ? "#0099ff" : undefined }}
+                              className={`w-4 h-4 shrink-0 ${isSelected ? "text-accent-blue" : ""}`}
                             />
                             <span className="truncate">{cat.label}</span>
                           </button>
@@ -151,7 +150,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder={t("vd: Nguyễn Văn A", "e.g. Alex Morgan")}
-                        className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-1 border border-ink-muted text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
                       />
                     </div>
                     <div>
@@ -164,7 +163,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder={t("name@company.com", "name@company.com")}
-                        className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-1 border border-ink-muted text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
                       />
                     </div>
                   </div>
@@ -183,7 +182,7 @@ export default function ContactPage() {
                         "Hãy mô tả chi tiết thuật ngữ cần bổ sung, lỗi gặp phải hoặc dự án bạn muốn hợp tác...",
                         "Describe your term proposal, error logs, or institutional deployment goals..."
                       )}
-                      className="w-full px-4 py-3 rounded-xl bg-canvas border border-hairline text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-surface-1 border border-ink-muted text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors resize-none"
                     />
                   </div>
 

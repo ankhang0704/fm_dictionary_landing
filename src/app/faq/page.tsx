@@ -146,7 +146,7 @@ export default function FAQPage() {
               "Tìm kiếm câu hỏi (vd: offline, chi phí, SRS, phát âm...)",
               "Search questions (e.g. offline, cost, SRS algorithm, audio...)"
             )}
-            className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-surface-1 border border-hairline text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
+            className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-surface-1 border border-ink-muted text-ink text-sm placeholder:text-ink-muted focus:outline-none focus:border-accent-blue transition-colors"
           />
         </div>
 

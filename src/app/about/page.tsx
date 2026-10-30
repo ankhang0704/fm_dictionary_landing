@@ -306,7 +306,7 @@ export default function AboutPage() {
               <span>{t("Tải trên Apple App Store", "Get on Apple App Store")}</span>
             </a>
             <a
-              href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+              href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-hairline bg-surface-2 text-ink font-semibold text-xs hover:bg-surface-1 transition-colors"

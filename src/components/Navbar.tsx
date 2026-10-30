@@ -33,13 +33,14 @@ export const Navbar: React.FC = () => {
     { href: "/about", label: t("Về dự án", "About") },
     { href: "/faq", label: t("Hỏi đáp", "FAQ") },
     { href: "/contact", label: t("Liên hệ", "Contact") },
+    { href: "/support", label: t("Hỗ trợ", "Support") },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
       {/* 2-State Dynamic Width & Margin Container */}
       <div
-        className={`mx-auto transition-all duration-300 ease-out ${
+        className={`mx-auto ease-out ${
           isScrolled
             ? "max-w-5xl px-4 sm:px-6 pt-3"
             : "max-w-7xl px-5 sm:px-8 pt-5 sm:pt-6"
@@ -47,7 +48,7 @@ export const Navbar: React.FC = () => {
       >
         <nav
           data-ui="true"
-          className={`flex items-center justify-between flex-nowrap transition-all duration-300 ease-out ${
+          className={`flex items-center justify-between flex-nowrap transition-colors duration-300 ease-out ${
             isScrolled
               ? "bg-surface-1/90 backdrop-blur-md border border-hairline rounded-full px-5 py-2.5 shadow-lg shadow-black/10 dark:shadow-black/40"
               : "bg-surface-1/50 backdrop-blur-sm sm:bg-transparent border border-hairline/60 sm:border-transparent rounded-2xl sm:rounded-none px-4 sm:px-0 py-3"

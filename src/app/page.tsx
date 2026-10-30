@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   ArrowRight,
@@ -17,20 +16,6 @@ import { MagneticButton } from "@/components/MagneticButton";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AppleIcon } from "@/components/AppleIcon";
-
-// Dynamic import for Three.js 3D Canvas (SSR safe)
-const ThreeHeroCanvas = dynamic(
-  () =>
-    import("@/components/ThreeHeroCanvas").then((mod) => mod.ThreeHeroCanvas),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-[440px] sm:h-[490px] lg:h-[530px] flex items-center justify-center relative">
-        <div className="w-24 h-24 rounded-full border border-hairline border-t-accent-blue animate-spin opacity-40" />
-      </div>
-    ),
-  }
-);
 
 export default function Home() {
   const { t } = useLanguage();
@@ -179,7 +164,7 @@ export default function Home() {
                 {/* Android APK Button */}
                 <MagneticButton strength={0.16}>
                   <a
-                    href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+                    href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 bg-surface-2 text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
@@ -216,9 +201,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column: Three.js Stylized Smart Building 3D Canvas */}
-            <div className="lg:col-span-5 relative flex items-center justify-center">
-              <ThreeHeroCanvas />
+            {/* Latest app screen: real 1.1.3 product capture */}
+            <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
+              <Image
+                src="/images/screenshots/home-overview.webp"
+                alt={t("Màn hình chính FM Dictionary phiên bản 1.1.3", "FM Dictionary version 1.1.3 home screen")}
+                width={900}
+                height={1951}
+                priority
+                className="h-[440px] w-auto object-contain sm:h-[520px] lg:h-[590px]"
+              />
             </div>
           </div>
         </div>
@@ -412,7 +404,7 @@ export default function Home() {
                 {/* Android APK */}
                 <MagneticButton strength={0.16}>
                   <a
-                    href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+                    href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-surface-2 text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"

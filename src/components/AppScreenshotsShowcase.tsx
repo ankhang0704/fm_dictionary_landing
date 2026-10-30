@@ -49,7 +49,7 @@ const WORKFLOWS: ScreenWorkflow[] = [
     fieldBenefitVi: "Tra cứu dưới 0.2 giây, triệt tiêu rủi ro hiểu sai thông số kỹ thuật",
     fieldBenefitEn: "Sub-0.2s lookup eliminates misinterpretation of MEP parameters",
     standard: "ASHRAE 90.1 / NFPA",
-    imagePath: "/images/screenshots/fm_dictionary_0001.webp",
+    imagePath: "/images/screenshots/dictionary.webp",
     icon: BookOpen,
   },
   {
@@ -64,7 +64,7 @@ const WORKFLOWS: ScreenWorkflow[] = [
     fieldBenefitVi: "Ghi nhớ bền vững từ vựng khó, không còn tình trạng học trước quên sau",
     fieldBenefitEn: "Permanent retention of complex technical terms without rote cramming",
     standard: "SM-2 Algorithm",
-    imagePath: "/images/screenshots/fm_dictionary_0002.webp",
+    imagePath: "/images/screenshots/study-card.webp",
     icon: Brain,
   },
   {
@@ -79,7 +79,7 @@ const WORKFLOWS: ScreenWorkflow[] = [
     fieldBenefitVi: "Tự tin thuyết minh kỹ thuật trước đối tác nước ngoài và kiểm toán viên",
     fieldBenefitEn: "Confident pronunciation when presenting to foreign contractors and auditors",
     standard: "IPA Standard",
-    imagePath: "/images/screenshots/fm_dictionary_0003.webp",
+    imagePath: "/images/screenshots/quiz-setup.webp",
     icon: Volume2,
   },
   {
@@ -94,14 +94,14 @@ const WORKFLOWS: ScreenWorkflow[] = [
     fieldBenefitVi: "Rèn luyện phản xạ quyết định chính xác và nhanh chóng trong ca trực",
     fieldBenefitEn: "Sharpens fast, accurate diagnostic reflexes during active shift work",
     standard: "ISO 41001 / O&M Protocol",
-    imagePath: "/images/screenshots/fm_dictionary_0004.webp",
+    imagePath: "/images/screenshots/learning-stats.webp",
     icon: Zap,
   },
   {
     id: "milestones",
     index: 5,
-    titleVi: "75 Huy hiệu năng lực & Chuỗi Streak",
-    titleEn: "75 Competency Badges & Daily Streak",
+    titleVi: "74 huy hiệu & thành tích học tập",
+    titleEn: "74 badges and learning achievements",
     categoryVi: "Khung năng lực CEFR",
     categoryEn: "CEFR Competency Framework",
     descVi: "Theo dõi tiến độ học tập theo khung CEFR từ A1 đến C2, mở khóa huy hiệu chuyên môn và duy trì chuỗi ngày rèn luyện liên tục.",
@@ -109,22 +109,22 @@ const WORKFLOWS: ScreenWorkflow[] = [
     fieldBenefitVi: "Đo lường tiến độ cụ thể, xây dựng thói quen học tập có kỷ luật",
     fieldBenefitEn: "Measurable milestone progression, building disciplined professional habits",
     standard: "CEFR A1 - C2 Aligned",
-    imagePath: "/images/screenshots/fm_dictionary_0005.webp",
+    imagePath: "/images/screenshots/badges.webp",
     icon: Award,
   },
   {
     id: "offline",
     index: 6,
-    titleVi: "Bảo mật cục bộ 100% Offline-First",
-    titleEn: "100% Offline-First Local Engine",
-    categoryVi: "Không phụ thuộc mạng",
-    categoryEn: "Zero-Cloud Local Privacy",
-    descVi: "Cơ sở dữ liệu Hive DB nhúng trực tiếp trên thiết bị, cho phép tra cứu, phát âm và làm bài tập trơn tru dưới tầng hầm kín không có sóng.",
-    descEn: "Embedded Hive database operates entirely on-device, ensuring zero latency lookup and playback in shielded sub-basements.",
-    fieldBenefitVi: "Hoạt động hoàn hảo trong phòng biến áp, hầm Chiller và khu vực không có wifi",
-    fieldBenefitEn: "Flawless operation inside transformer vaults, chiller basements, and dead zones",
-    standard: "Hive DB Embedded",
-    imagePath: "/images/screenshots/fm_dictionary_0006.webp",
+    titleVi: "Theo dõi tiến độ và hồ sơ học tập",
+    titleEn: "Track progress and learning profile",
+    categoryVi: "Thống kê học tập",
+    categoryEn: "Learning progress",
+    descVi: "Xem streak, từ đã lưu, bài kiểm tra và huy hiệu ngay trong hồ sơ cá nhân.",
+    descEn: "Review your streak, saved terms, tests, and badges from your learning profile.",
+    fieldBenefitVi: "Nắm tiến độ học tập trong một màn hình",
+    fieldBenefitEn: "See your learning activity in one place",
+    standard: "Profile",
+    imagePath: "/images/screenshots/profile.webp",
     icon: ShieldCheck,
   },
 ];
@@ -203,7 +203,7 @@ export const AppScreenshotsShowcase: React.FC = () => {
               <button
                 key={wf.id}
                 onClick={() => setActiveIndex(idx)}
-                className={`w-[260px] sm:w-[280px] lg:w-full shrink-0 snap-start text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-200 border flex items-start gap-3.5 group relative ${
+                className={`w-[260px] sm:w-[280px] lg:w-full shrink-0 snap-start text-left p-3.5 sm:p-4 rounded-2xl transition-colors duration-200 border flex items-start gap-3.5 group relative ${
                   isSelected
                     ? "bg-surface-2 border-accent-blue/50 ring-1 ring-accent-blue/20"
                     : "bg-canvas/60 border-hairline hover:bg-surface-2/70 hover:border-hairline"
@@ -223,7 +223,7 @@ export const AppScreenshotsShowcase: React.FC = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <span
-                      className={`text-[11px] font-semibold tracking-wider uppercase ${
+                      className={`text-xs font-semibold ${
                         isSelected ? "text-accent-blue" : "text-ink-muted"
                       }`}
                     >
@@ -326,7 +326,7 @@ export const AppScreenshotsShowcase: React.FC = () => {
           </a>
           <span>•</span>
           <a
-            href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+            href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-ink-muted hover:text-ink transition-colors"

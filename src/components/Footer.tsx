@@ -3,20 +3,24 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, ShieldCheck, Heart } from "lucide-react";
 import { AppleIcon } from "@/components/AppleIcon";
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  if (pathname === "/support") return null;
 
   return (
-    <footer className="bg-canvas-deep border-t border-hairline relative z-10 pt-16 pb-12">
+    <footer className="bg-canvas-deep border-t border-hairline relative z-10 pt-16 pb-12 [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-accent-blue [&_a:active]:opacity-70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12">
           {/* Brand Info */}
           <div className="md:col-span-1 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue active:opacity-70">
               <div className="w-8 h-8 rounded-xl overflow-hidden border border-hairline bg-surface-2 flex items-center justify-center">
                 <Image
                   src="/icons/app_icon.png"
@@ -36,6 +40,7 @@ export const Footer: React.FC = () => {
                 "Non-profit specialized English terminology & spaced retrieval platform for the Vietnamese Facility Management engineering community."
               )}
             </p>
+            <p className="text-xs text-ink-muted">FM Dictionary 1.1.3, 74 {t("huy hiệu", "badges")}</p>
             <div className="flex items-center gap-2 pt-1 text-[13px] text-ink-muted">
               <span className="inline-flex items-center gap-1.5 text-accent-blue font-medium">
                 <Heart size={14} className="fill-current text-rose-500 stroke-none" />
@@ -74,7 +79,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://github.com/ankhang0704/fm_dictionary_app/releases"
+                  href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-ink transition-colors"
@@ -112,6 +117,11 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/contact" className="hover:text-ink transition-colors">
                   {t("Liên Hệ & Góp Ý Thuật Ngữ", "Contact & Terminology Feedback")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/support" className="hover:text-ink transition-colors">
+                  {t("Hỗ Trợ Ứng Dụng", "App Support")}
                 </Link>
               </li>
               <li className="pt-1 text-[12px] text-ink-muted">
