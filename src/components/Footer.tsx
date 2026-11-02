@@ -3,16 +3,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, ShieldCheck, Heart } from "lucide-react";
 import { AppleIcon } from "@/components/AppleIcon";
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
-  const pathname = usePathname();
-
-  if (pathname === "/support") return null;
 
   return (
     <footer className="bg-canvas-deep border-t border-hairline relative z-10 pt-16 pb-12 [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-accent-blue [&_a:active]:opacity-70">
