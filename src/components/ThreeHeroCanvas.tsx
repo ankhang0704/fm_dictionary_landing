@@ -682,7 +682,7 @@ export const ThreeHeroCanvas: React.FC = () => {
 
   if (!webglSupported) {
     return (
-      <div className="w-full h-[440px] flex items-center justify-center p-6 border border-hairline rounded-2xl bg-surface-1">
+      <div data-ui="true" className="w-full h-[440px] flex items-center justify-center p-6 border border-hairline rounded-2xl bg-surface-1">
         <div className="text-center text-sm text-ink-muted">
           <p className="font-semibold text-ink mb-1">Mô Hình 3D Tòa Nhà Thông Minh</p>
           <p>WebGL không khả dụng trên trình duyệt hiện tại.</p>

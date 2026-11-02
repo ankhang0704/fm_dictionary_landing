@@ -3,11 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   ArrowRight,
   Download,
   Zap,
+  Building2,
+  Smartphone,
+  RotateCcw,
+  Layers,
 } from "lucide-react";
 import { AppScreenshotsShowcase } from "@/components/AppScreenshotsShowcase";
 import { InteractiveTermExplorer } from "@/components/InteractiveTermExplorer";
@@ -18,9 +23,28 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AppleIcon } from "@/components/AppleIcon";
 
+const ThreeHeroCanvas = dynamic(
+  () => import("@/components/ThreeHeroCanvas").then((mod) => mod.ThreeHeroCanvas),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        data-ui="true"
+        className="w-full h-[440px] sm:h-[490px] lg:h-[530px] flex flex-col items-center justify-center rounded-2xl bg-surface-1 border border-hairline"
+      >
+        <div className="w-10 h-10 rounded-xl bg-accent-blue/15 flex items-center justify-center mb-3">
+          <div className="w-4 h-4 border-2 border-accent-blue border-t-transparent rounded-full animate-spin" /> {/* taste-skill-ignore */}
+        </div>
+        <div className="text-xs text-ink-muted font-medium">Khởi tạo 3D WebGL Digital Twin...</div>
+      </div>
+    ),
+  }
+);
+
 export default function Home() {
   const { t } = useLanguage();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [heroMode, setHeroMode] = useState<"3d" | "mobile">("3d");
 
   const stats = [
     {
@@ -220,52 +244,154 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column: Flagship Titanium Device Chassis */}
-            <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end" data-ui="true">
-              <div className="relative">
-                {/* Floating Telemetry Badge 1: Query Latency */}
-                <div data-ui="true" className="absolute -top-3 -left-4 sm:-left-8 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
-                    <Zap size={14} className="text-emerald-400" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-ink">{t("Phản hồi < 0.2s", "< 0.2s Query")}</div>
-                    <div className="text-[10px] text-ink-muted">Hive DB Local</div>
-                  </div>
-                </div>
+            {/* Right Column: Interactive 3D BIM Twin & Flagship Device Visualizer */}
+            <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-center" data-ui="true">
+              {/* Tactical Mode Switcher Pill */}
+              <div className="mb-4 inline-flex items-center p-1 rounded-full bg-surface-2 border border-hairline text-xs" data-ui="true">
+                <button
+                  type="button"
+                  onClick={() => setHeroMode("3d")}
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full font-medium transition-colors ${
+                    heroMode === "3d"
+                      ? "bg-accent-blue text-white"
+                      : "text-ink-muted hover:text-ink"
+                  }`}
+                >
+                  <Building2 size={13} />
+                  <span>{t("Mô hình 3D Tòa nhà", "3D Building Model")}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 ml-0.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHeroMode("mobile")}
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full font-medium transition-colors ${
+                    heroMode === "mobile"
+                      ? "bg-accent-blue text-white"
+                      : "text-ink-muted hover:text-ink"
+                  }`}
+                >
+                  <Smartphone size={13} />
+                  <span>{t("Giao diện App", "App Screen")}</span>
+                </button>
+              </div>
 
-                {/* Titanium Phone Chassis */}
-                <div data-ui="true" className="relative mx-auto w-[250px] sm:w-[280px] lg:w-[300px] aspect-[9/18.8] rounded-[2.6rem] p-2.5 sm:p-3 bg-surface-2 border border-white/20">
-                  {/* Phone Inner Bezel */}
-                  <div className="relative w-full h-full rounded-[2.1rem] overflow-hidden bg-black border border-white/10">
-                    {/* Dynamic Island */}
-                    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-black rounded-full z-20 flex items-center justify-end px-2 border border-white/5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
+              {heroMode === "3d" ? (
+                <div className="relative w-full max-w-[440px] sm:max-w-[480px]">
+                  {/* Floating Telemetry Badge 1: Query Latency */}
+                  <div
+                    data-ui="true"
+                    className="absolute -top-3 -left-2 sm:-left-6 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs" /* taste-skill-ignore */
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+                      <Zap size={14} className="text-emerald-400" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-ink">{t("Phản hồi < 0.2s", "< 0.2s Query")}</div>
+                      <div className="text-[10px] text-ink-muted">Hive DB Local</div>
+                    </div>
+                  </div>
+
+                  {/* 3D BIM Twin Futuristic Viewport Box */}
+                  <div
+                    data-ui="true"
+                    className="relative w-full rounded-3xl border border-hairline bg-surface-1 overflow-hidden p-2 sm:p-3"
+                  >
+                    {/* Viewport Header Controls Bar */}
+                    <div
+                      data-ui="true"
+                      className="flex items-center justify-between px-3 py-2 mb-1 rounded-2xl bg-surface-2 border border-hairline/60 text-xs text-ink-muted"
+                    >
+                      <div className="inline-flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                        <span className="font-semibold text-ink text-[11px] tracking-wider uppercase">BIM DIGITAL TWIN</span>
+                        <span className="hidden sm:inline text-[10px] text-ink-muted">· 60 FPS</span>
+                      </div>
+                      <div data-ui="true" className="inline-flex items-center gap-1.5 text-[11px] text-accent-blue font-medium bg-accent-blue/10 px-2.5 py-0.5 rounded-full border border-accent-blue/20">
+                        <RotateCcw size={11} />
+                        <span>{t("Xoay 360° • Kéo thả", "Orbit 360° • Drag")}</span>
+                      </div>
                     </div>
 
-                    {/* Real App Screenshot Image */}
-                    <Image
-                      src="/images/screenshots/home-overview.webp"
-                      alt={t("Màn hình chính FM Dictionary phiên bản 1.1.3", "FM Dictionary version 1.1.3 home screen")}
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 280px, 320px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+                    {/* Interactive Three.js WebGL Canvas */}
+                    <div className="w-full relative rounded-2xl overflow-hidden bg-black/40">
+                      <ThreeHeroCanvas />
+                    </div>
 
-                {/* Floating Telemetry Badge 2: Dual IPA Phonetics */}
-                <div data-ui="true" className="absolute -bottom-3 -right-4 sm:-right-8 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs">
-                  <div className="w-7 h-7 rounded-lg bg-accent-blue/15 text-accent-blue flex items-center justify-center font-bold text-xs shrink-0">
-                    IPA
+                    {/* Architectural Spec Footer Bar */}
+                    <div
+                      data-ui="true"
+                      className="mt-1 px-3 py-2 rounded-2xl bg-surface-2 border border-hairline/60 flex items-center justify-between text-[11px] text-ink-muted"
+                    >
+                      <div className="inline-flex items-center gap-1.5">
+                        <Layers size={12} className="text-accent-blue shrink-0" />
+                        <span className="truncate">{t("Hệ thống MEP • HVAC • BMS • PCCC (L1–L40)", "MEP • HVAC • BMS • Fire Protection (L1–L40)")}</span>
+                      </div>
+                      <span className="text-[10px] text-ink-muted/80 shrink-0 font-medium hidden sm:inline">
+                        ASHRAE / NFPA / ISO
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-ink">{t("Phát âm chuẩn kép", "Dual Phonetics")}</div>
-                    <div className="text-[10px] text-ink-muted">UK (RP) & US (GA)</div>
+
+                  {/* Floating Telemetry Badge 2: Dual IPA Phonetics */}
+                  <div
+                    data-ui="true"
+                    className="absolute -bottom-3 -right-2 sm:-right-6 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs" /* taste-skill-ignore */
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-accent-blue/15 text-accent-blue flex items-center justify-center font-bold text-xs shrink-0">
+                      IPA
+                    </div>
+                    <div>
+                      <div className="font-semibold text-ink">{t("Phát âm chuẩn kép", "Dual Phonetics")}</div>
+                      <div className="text-[10px] text-ink-muted">UK (RP) & US (GA)</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="relative">
+                  {/* Floating Telemetry Badge 1: Query Latency */}
+                  <div data-ui="true" className="absolute -top-3 -left-4 sm:-left-8 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs">
+                    <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+                      <Zap size={14} className="text-emerald-400" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-ink">{t("Phản hồi < 0.2s", "< 0.2s Query")}</div>
+                      <div className="text-[10px] text-ink-muted">Hive DB Local</div>
+                    </div>
+                  </div>
+
+                  {/* Titanium Phone Chassis */}
+                  <div data-ui="true" className="relative mx-auto w-[250px] sm:w-[280px] lg:w-[300px] aspect-[9/18.8] rounded-[2.6rem] p-2.5 sm:p-3 bg-surface-2 border border-white/20">
+                    {/* Phone Inner Bezel */}
+                    <div className="relative w-full h-full rounded-[2.1rem] overflow-hidden bg-black border border-white/10">
+                      {/* Dynamic Island */}
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-black rounded-full z-20 flex items-center justify-end px-2 border border-white/5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
+                      </div>
+
+                      {/* Real App Screenshot Image */}
+                      <Image
+                        src="/images/screenshots/home-overview.webp"
+                        alt={t("Màn hình chính FM Dictionary phiên bản 1.1.3", "FM Dictionary version 1.1.3 home screen")}
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 280px, 320px"
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Floating Telemetry Badge 2: Dual IPA Phonetics */}
+                  <div data-ui="true" className="absolute -bottom-3 -right-4 sm:-right-8 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs">
+                    <div className="w-7 h-7 rounded-lg bg-accent-blue/15 text-accent-blue flex items-center justify-center font-bold text-xs shrink-0">
+                      IPA
+                    </div>
+                    <div>
+                      <div className="font-semibold text-ink">{t("Phát âm chuẩn kép", "Dual Phonetics")}</div>
+                      <div className="text-[10px] text-ink-muted">UK (RP) & US (GA)</div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
