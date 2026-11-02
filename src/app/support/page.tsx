@@ -30,7 +30,7 @@ export default function SupportPage() {
         </a>
       </div>
 
-      <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-hairline pt-6 text-sm text-ink-muted">
+      <div data-ui="true" className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-hairline pt-6 text-sm text-ink-muted">
         <p>{t("Cho biết thiết bị và phiên bản ứng dụng. Đừng gửi mật khẩu.", "Include your device and app version. Never send passwords.")}</p>
         <Link className="font-medium text-accent-blue underline-offset-4 hover:underline" href="/faq">FAQ</Link>
         <Link className="font-medium text-accent-blue underline-offset-4 hover:underline" href="/about">

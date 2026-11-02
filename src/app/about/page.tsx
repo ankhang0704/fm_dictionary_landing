@@ -107,7 +107,7 @@ export default function AboutPage() {
       {/* Hero Origin Section */}
       <section className="px-6 max-w-4xl mx-auto mb-20 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-surface-1 text-xs text-ink-muted mb-6">
-          <Heart className="w-3.5 h-3.5 text-rose-500" />
+          <Heart className="w-3.5 h-3.5 text-accent-blue" />
           <span>{t("Câu chuyện sáng lập & Sứ mệnh cộng đồng", "Origin Story & Community Mission")}</span>
         </div>
 

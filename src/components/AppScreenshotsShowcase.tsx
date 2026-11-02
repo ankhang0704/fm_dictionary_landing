@@ -268,12 +268,12 @@ export const AppScreenshotsShowcase: React.FC = () => {
             </div>
 
             {/* Realistic Smartphone Showcase Chassis */}
-            <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[300px] aspect-[9/18.8] rounded-[2.2rem] sm:rounded-[2.5rem] p-2.5 sm:p-3 bg-surface-2 border border-hairline">
+            <div data-ui="true" className="relative mx-auto w-full max-w-[260px] sm:max-w-[300px] aspect-[9/18.8] rounded-[2.6rem] p-2.5 sm:p-3 bg-surface-2 border border-white/20">
               {/* Phone Inner Bezel */}
-              <div className="relative w-full h-full rounded-[1.8rem] sm:rounded-[2rem] overflow-hidden bg-black border border-hairline">
-                {/* Dynamic Island / Speaker Notch */}
-                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-20 flex items-center justify-end px-2">
-                  <div className="w-2 h-2 rounded-full bg-surface-2" />
+              <div data-ui="true" className="relative w-full h-full rounded-[2.1rem] overflow-hidden bg-black border border-white/10">
+                {/* Dynamic Island */}
+                <div data-ui="true" className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-black rounded-full z-20 flex items-center justify-end px-2 border border-white/5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
                 </div>
 
                 {/* Real App Screenshot Image */}

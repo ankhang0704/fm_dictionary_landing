@@ -7,6 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import {
   ArrowRight,
   Download,
+  Zap,
 } from "lucide-react";
 import { AppScreenshotsShowcase } from "@/components/AppScreenshotsShowcase";
 import { InteractiveTermExplorer } from "@/components/InteractiveTermExplorer";
@@ -121,11 +122,22 @@ export default function Home() {
   return (
     <div className="relative">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-4 pb-16 sm:pt-8 sm:pb-24 animate-enter">
+      <section className="relative pt-6 pb-16 sm:pt-10 sm:pb-24 animate-enter">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Headline & Action */}
             <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
+              {/* Engineering Version Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-xs font-medium mb-5 animate-enter">
+                <span className="w-2 h-2 rounded-full bg-accent-blue" />
+                <span>
+                  {t(
+                    "Phiên bản 1.1.3 • Sổ tay thuật ngữ MEP & Smart Building",
+                    "Version 1.1.3 • Specialized MEP & Smart Building Lexicon"
+                  )}
+                </span>
+              </div>
+
               {/* Main Headline (React Bits DecryptedText) */}
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-semibold tracking-tighter text-ink leading-[1.08] mb-4 animate-enter">
                 <DecryptedText
@@ -139,7 +151,7 @@ export default function Home() {
               </h1>
 
               {/* Subheadline (Humble, Practical, Grounded) */}
-              <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-[65ch] mb-6 animate-enter animate-enter-delay-1">
+              <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-[65ch] mb-8 animate-enter animate-enter-delay-1">
                 {t(
                   "Sổ tay từ điển chuyên sâu & công cụ luyện phản xạ thuật ngữ dành cho kỹ sư MEP, quản lý tòa nhà và chuyên viên vận hành cơ sở hạ tầng thông minh.",
                   "A focused technical dictionary & spaced repetition study tool purpose-built for MEP engineers, facility managers, and smart building operators."
@@ -147,7 +159,7 @@ export default function Home() {
               </p>
 
               {/* CTAs: App Store (iOS) & Android APK */}
-              <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto animate-enter animate-enter-delay-2">
+              <div className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto animate-enter animate-enter-delay-2">
                 {/* iOS App Store (Primary High-Contrast Pill with Magnetic Hover) */}
                 <MagneticButton strength={0.2}>
                   <a
@@ -167,7 +179,8 @@ export default function Home() {
                     href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 bg-surface-2 text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
+                    data-ui="true"
+                    className="w-full sm:w-auto text-center inline-flex items-center justify-center gap-2 bg-surface-2 text-ink hover:text-accent-blue border border-hairline hover:border-accent-blue/40 font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors" /* taste-skill-ignore */
                   >
                     <Download size={18} />
                     <span>{t("Tải Android APK", "Get Android APK")}</span>
@@ -184,48 +197,93 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Verified Trust Statement */}
-              <div className="mt-8 pt-6 text-[14px] text-ink-muted animate-enter animate-enter-delay-3 space-y-1">
-                <p>
+              {/* Verified Technical Trust Badges */}
+              <div className="mt-8 pt-6 border-t border-hairline/60 flex flex-wrap items-center gap-3 text-xs text-ink-muted animate-enter animate-enter-delay-3" data-ui="true">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-1 border border-hairline">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  <span>{t("100% Ngoại tuyến (Hive DB)", "100% Offline (Hive DB)")}</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-1 border border-hairline">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                  <span>{t("1,800+ Thuật ngữ CEFR", "1,800+ CEFR Terms")}</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-1 border border-hairline">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+                  <span>{t("Chuẩn ASHRAE / NFPA / ISO", "ASHRAE / NFPA / ISO Standards")}</span>
+                </div>
+                <p className="w-full text-[11px] text-ink-muted/70 mt-1">
                   {t(
-                    "Dự án cộng đồng 100% miễn phí • Hoạt động ngoại tuyến • Chuẩn hóa CEFR A1 - C2",
-                    "100% Free Community Tool • Offline-Ready • CEFR A1 to C2 Aligned"
-                  )}
-                </p>
-                <p className="text-[12px] text-ink-muted/80">
-                  {t(
-                    "* Android: Bản APK cài trực tiếp (Sắp có trên Google Play Console)",
-                    "* Android: Direct APK build (Google Play release coming soon)"
+                    "* Android: Bản APK cài trực tiếp • Bản chính thức Google Play đang trong quá trình chuẩn bị",
+                    "* Android: Direct APK build • Google Play Store version in preparation"
                   )}
                 </p>
               </div>
             </div>
 
-            {/* Latest app screen: real 1.1.3 product capture */}
-            <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
-              <Image
-                src="/images/screenshots/home-overview.webp"
-                alt={t("Màn hình chính FM Dictionary phiên bản 1.1.3", "FM Dictionary version 1.1.3 home screen")}
-                width={900}
-                height={1951}
-                priority
-                className="h-[440px] w-auto object-contain sm:h-[520px] lg:h-[590px]"
-              />
+            {/* Right Column: Flagship Titanium Device Chassis */}
+            <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end" data-ui="true">
+              <div className="relative">
+                {/* Floating Telemetry Badge 1: Query Latency */}
+                <div data-ui="true" className="absolute -top-3 -left-4 sm:-left-8 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs">
+                  <div className="w-7 h-7 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+                    <Zap size={14} className="text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-ink">{t("Phản hồi < 0.2s", "< 0.2s Query")}</div>
+                    <div className="text-[10px] text-ink-muted">Hive DB Local</div>
+                  </div>
+                </div>
+
+                {/* Titanium Phone Chassis */}
+                <div data-ui="true" className="relative mx-auto w-[250px] sm:w-[280px] lg:w-[300px] aspect-[9/18.8] rounded-[2.6rem] p-2.5 sm:p-3 bg-surface-2 border border-white/20">
+                  {/* Phone Inner Bezel */}
+                  <div className="relative w-full h-full rounded-[2.1rem] overflow-hidden bg-black border border-white/10">
+                    {/* Dynamic Island */}
+                    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-black rounded-full z-20 flex items-center justify-end px-2 border border-white/5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
+                    </div>
+
+                    {/* Real App Screenshot Image */}
+                    <Image
+                      src="/images/screenshots/home-overview.webp"
+                      alt={t("Màn hình chính FM Dictionary phiên bản 1.1.3", "FM Dictionary version 1.1.3 home screen")}
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 280px, 320px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Telemetry Badge 2: Dual IPA Phonetics */}
+                <div data-ui="true" className="absolute -bottom-3 -right-4 sm:-right-8 z-30 bg-surface-1 border border-hairline rounded-2xl px-3.5 py-2 flex items-center gap-2.5 text-xs">
+                  <div className="w-7 h-7 rounded-lg bg-accent-blue/15 text-accent-blue flex items-center justify-center font-bold text-xs shrink-0">
+                    IPA
+                  </div>
+                  <div>
+                    <div className="font-semibold text-ink">{t("Phát âm chuẩn kép", "Dual Phonetics")}</div>
+                    <div className="text-[10px] text-ink-muted">UK (RP) & US (GA)</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. STATS & SPECS BANNER */}
-      <section className="py-14 bg-surface-1">
+      <section className="py-12 bg-surface-1/80 border-y border-hairline/80" data-ui="true">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((s, idx) => (
-              <div key={idx} className="flex flex-col items-center animate-enter">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-ink mb-1 tabular-nums">
+              <div
+                key={idx}
+                className="flex flex-col items-center text-center p-4 rounded-2xl bg-surface-2/40 border border-hairline/60 hover:border-accent-blue/40 transition-colors animate-enter"
+              >
+                <span className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink mb-1.5 tabular-nums">
                   <AnimatedCounter value={s.value} />
                 </span>
-                <span className="text-[14px] text-ink-muted max-w-[200px]">
+                <span className="text-xs sm:text-[13px] text-ink-muted max-w-[200px] leading-snug">
                   {s.label}
                 </span>
               </div>
@@ -259,6 +317,9 @@ export default function Home() {
             {/* Left Column: Big Editorial Statement + Cover Image */}
             <div className="lg:col-span-5">
               <RevealOnScroll>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-semibold text-accent-blue mb-4">
+                  <span>{t("Nền tảng tri thức O&M", "O&M Knowledge Base")}</span>
+                </div>
                 <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6">
                   {t(
                     "Bốn Trụ Cột Kỹ Thuật Cho Kỹ Sư Vận Hành.",
@@ -286,17 +347,17 @@ export default function Home() {
             </div>
 
             {/* Right Column: Editorial Architectural List with subtle Spotlight effect */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-4">
               {pillars.map((pillar, idx) => (
                 <RevealOnScroll key={idx} delay={idx * 100}>
                   <SpotlightCard
-                    className="p-6 rounded-2xl bg-surface-1/60 hover:bg-surface-1 transition-colors border border-hairline"
+                    className="p-6 rounded-2xl bg-surface-1/80 hover:bg-surface-1 transition-colors border border-hairline hover:border-accent-blue/40"
                   >
                     <div className="flex items-baseline justify-between gap-4 mb-2">
                       <h3 className="text-xl sm:text-2xl font-semibold text-ink tracking-tight">
                         {pillar.title}
                       </h3>
-                      <span className="text-[13px] font-medium text-accent-blue px-3 py-1 rounded-full bg-surface-2 border border-hairline">
+                      <span className="text-[12px] font-semibold text-accent-blue px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20">
                         {pillar.standard}
                       </span>
                     </div>
@@ -318,6 +379,9 @@ export default function Home() {
             {/* Left Column: Heading, intro, and Help Desk Link */}
             <div className="lg:col-span-5">
               <RevealOnScroll>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-2 border border-hairline text-xs font-semibold text-accent-blue mb-4">
+                  <span>{t("Giải đáp thắc mắc", "Clear Answers")}</span>
+                </div>
                 <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6">
                   {t("Những Câu Hỏi Thường Gặp", "Frequently Asked Questions")}
                 </h2>
@@ -337,13 +401,17 @@ export default function Home() {
             </div>
 
             {/* Right Column: FAQ Accordion items */}
-            <div className="lg:col-span-7 rounded-2xl bg-surface-1 border border-hairline p-6 sm:p-8 space-y-4">
+            <div className="lg:col-span-7 rounded-3xl bg-surface-1 border border-hairline p-6 sm:p-8 space-y-3" data-ui="true">
               {faqs.map((faq, idx) => {
                 const isOpen = openFaq === idx;
                 return (
                   <div
                     key={idx}
-                    className="rounded-xl transition-colors p-4 hover:bg-surface-2 border border-transparent hover:border-hairline"
+                    className={`rounded-2xl transition-colors p-4 border ${
+                      isOpen
+                        ? "bg-surface-2/80 border-hairline"
+                        : "bg-surface-2/30 hover:bg-surface-2/60 border-transparent hover:border-hairline"
+                    }`}
                   >
                     <button
                       onClick={() => setOpenFaq(isOpen ? null : idx)}
@@ -352,7 +420,9 @@ export default function Home() {
                       <span className="text-base sm:text-lg font-semibold text-ink leading-snug">
                         {faq.q}
                       </span>
-                      <span className="text-ink-muted text-lg font-semibold shrink-0 ml-2">
+                      <span className={`text-base font-bold shrink-0 ml-2 w-6 h-6 rounded-full flex items-center justify-center transition-colors ${
+                        isOpen ? "bg-accent-blue text-white" : "text-ink-muted bg-surface-1 border border-hairline"
+                      }`}>
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>
@@ -370,10 +440,19 @@ export default function Home() {
       </section>
 
       {/* 7. HIGH-CONVERSION BOTTOM CTA */}
-      <section className="py-24 sm:py-32 bg-canvas-deep text-center" id="download">
+      <section className="py-24 sm:py-32 bg-canvas-deep text-center relative overflow-hidden" id="download">
+        {/* Radial Technical Blue Atmosphere Glow */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-accent-blue/10 blur-3xl rounded-full pointer-events-none -z-10"
+          aria-hidden="true"
+        />
+
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <RevealOnScroll>
-            <SpotlightCard className="p-10 sm:p-16 rounded-3xl bg-surface-1 border border-hairline max-w-4xl mx-auto">
+            <SpotlightCard className="p-10 sm:p-16 rounded-3xl bg-surface-1 border border-hairline max-w-4xl mx-auto relative">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-xs font-semibold text-accent-blue mb-4">
+                <span>{t("100% Miễn Phí • Phi Lợi Nhuận", "100% Free • Non-Profit")}</span>
+              </div>
               <h2 className="text-3xl sm:text-5xl font-semibold tracking-tighter text-ink mb-6 max-w-2xl mx-auto">
                 {t(
                   "Tải Ứng Dụng FM Dictionary.",
@@ -387,7 +466,7 @@ export default function Home() {
                 )}
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-5">
                 {/* App Store (iOS) */}
                 <MagneticButton strength={0.2}>
                   <a
@@ -407,7 +486,7 @@ export default function Home() {
                     href="https://drive.google.com/drive/folders/1yiT3UqwH2SL6eF1pf84VaErP_o6UP_g8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-surface-2 text-ink font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 transition-colors"
+                    className="inline-flex items-center gap-2 bg-surface-2 text-ink hover:text-accent-blue font-medium text-base px-6 py-3.5 rounded-full hover:bg-surface-1 border border-hairline hover:border-accent-blue/40 transition-colors"
                   >
                     <Download size={18} />
                     <span>{t("Tải Bản Android APK", "Download Android APK")}</span>

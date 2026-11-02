@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-ink-muted">FM Dictionary 1.1.3, 74 {t("huy hiệu", "badges")}</p>
             <div className="flex items-center gap-2 pt-1 text-[13px] text-ink-muted">
               <span className="inline-flex items-center gap-1.5 text-accent-blue font-medium">
-                <Heart size={14} className="fill-current text-rose-500 stroke-none" />
+                <Heart size={14} className="fill-current text-accent-blue stroke-none" />
                 <span>{t("100% Miễn phí vì cộng đồng", "100% Free Community Project")}</span>
               </span>
             </div>

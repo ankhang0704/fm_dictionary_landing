@@ -21,10 +21,10 @@ const config: Config = {
         "accent-blue": "rgb(var(--accent-blue) / <alpha-value>)",
         "semantic-success": "rgb(var(--semantic-success) / <alpha-value>)",
         spotlight: {
-          magenta: "#d44df0",
-          violet: "#6a4cf5",
-          orange: "#ff7a3d",
-          coral: "#ff5577",
+          blue: "#0099ff",
+          cyan: "#38bdf8",
+          deep: "#0284c7",
+          glow: "rgba(0, 153, 255, 0.15)",
         },
       },
       fontFamily: {

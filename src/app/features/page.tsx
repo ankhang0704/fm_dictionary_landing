@@ -105,7 +105,7 @@ export default function FeaturesPage() {
         "Convert passive vocabulary into immediate operational reflexes, enabling confident leadership during critical site handovers and multi-national vendor audits."
       ),
       icon: Zap,
-      accent: "#34d399",
+      accent: "#0099ff",
       fieldNote: {
         tag: t("Xử lý sự cố hiện trường", "Job-Site Troubleshooting"),
         title: t("Chẩn đoán lỗi mất tín hiệu DDC & kẹt van FSD", "Diagnosing DDC Dropouts & FSD Damper Trips"),
@@ -137,7 +137,7 @@ export default function FeaturesPage() {
         "Banish self-doubt and miscommunication when presenting MEP audit findings to international investors and global accreditation panels."
       ),
       icon: Volume2,
-      accent: "#f43f5e",
+      accent: "#38bdf8",
       fieldNote: {
         tag: t("Chuẩn hóa phát âm", "Pronunciation Standard"),
         title: t("Phát âm chính xác thuật ngữ âm học & tiêu chuẩn", "Accurate Pronunciation of Acoustic & Code Terms"),
@@ -409,11 +409,11 @@ export default function FeaturesPage() {
                   {group.previewType === "audio" && (
                     <div className="bg-canvas rounded-2xl p-6 relative border border-hairline">
                       <div className="text-center py-6">
-                        <div className="w-16 h-16 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center mx-auto mb-4 border border-rose-500/20">
+                        <div className="w-16 h-16 rounded-full bg-accent-blue/10 text-accent-blue flex items-center justify-center mx-auto mb-4 border border-accent-blue/20">
                           <Volume2 className="w-8 h-8" />
                         </div>
                         <div className="text-2xl font-bold text-ink mb-1">Psychrometrics</div>
-                        <div className="text-xs text-rose-500 mb-4 tracking-wide">
+                        <div className="text-xs text-accent-blue mb-4 tracking-wide font-medium">
                           /ˌsaɪ.krəˈmet.rɪks/
                         </div>
 
@@ -422,7 +422,7 @@ export default function FeaturesPage() {
                           {[40, 75, 95, 60, 30, 85, 100, 70, 45, 90, 60, 35].map((h, idx) => (
                             <span
                               key={idx}
-                              className="w-1 bg-rose-500/70 rounded-full"
+                              className="w-1 bg-accent-blue/70 rounded-full"
                               style={{ height: `${h}%` }}
                             />
                           ))}

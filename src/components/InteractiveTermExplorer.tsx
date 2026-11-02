@@ -261,7 +261,7 @@ export const InteractiveTermExplorer: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-surface-1 border border-hairline rounded-3xl p-6 sm:p-10 lg:p-12">
+    <div data-ui="true" className="w-full bg-surface-1 border border-hairline rounded-3xl p-6 sm:p-10 lg:p-12">
       {/* Component Title */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
@@ -291,7 +291,7 @@ export const InteractiveTermExplorer: React.FC = () => {
               onClick={() => handleSelectTerm(term.id)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-[14px] font-medium transition-colors border ${
                 isSelected
-                  ? "bg-ink text-white dark:text-black font-semibold shadow-sm border-transparent"
+                  ? "bg-ink text-white dark:text-black font-semibold border-transparent"
                   : "bg-canvas text-ink-muted hover:text-ink hover:bg-surface-2 border-hairline"
               }`}
             >
